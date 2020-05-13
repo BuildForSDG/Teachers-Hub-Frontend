@@ -1,11 +1,11 @@
-import app from './app';
+import React from "react";
+import ReactDOM from "react-dom";
 
-const startApp = async () => {
-  const header = document.querySelector('[data-app-name]');
-  if (!header) return;
+class HelloMessage extends React.Component {
+  render() {
+    return <div>Hello {this.props.name}</div>;
+  }
+}
 
-  const programName = await app();
-  header.textContent = programName;
-};
-
-document.addEventListener('DOMContentLoaded', startApp);
+var mountNode = document.getElementById("app");
+ReactDOM.render(<HelloMessage name="TEAM 273" />, mountNode);
