@@ -1,7 +1,7 @@
 /* eslint-disable import/extensions */
 import React from 'react';
 import { render } from '@testing-library/react';
-import App from '../App.js';
+import App from '../app.js';
 
 describe('App', () => {
   it('renders without crashing', () => {
