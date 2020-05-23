@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^7.1.2",
     "aos": "^2.3.4",
     "eslint-config-airbnb": "^18.1.0",
+    "nuka-carousel": "^4.7.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-owl-carousel": "^2.3.1",
@@ -24,6 +25,11 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -35,5 +41,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "husky": "^4.2.5",
+    "mutationobserver-shim": "^0.3.5",
+    "prettier": "2.0.5",
+    "pretty-quick": "^2.0.1"
   }
 }

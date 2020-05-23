@@ -7,6 +7,9 @@ module.exports = {
   moduleDirectories: [
     'node_modules'
   ],
+  setupFilesAfterEnv: [
+    '<rootDir>/setupTests.js'
+  ],
   modulePaths: [
     'src',
     '__tests__'

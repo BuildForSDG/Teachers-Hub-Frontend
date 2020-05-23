@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import AOS from 'aos';
-import OwlCarousel from 'react-owl-carousel';
+import Carousel from 'nuka-carousel';
 import SrcImg from '../../src/assets/images/img_1.jpg';
 import SrcImg2 from '../../src/assets/images/img_2.jpg';
 import SrcImg3 from '../../src/assets/images/img_3.jpg';
@@ -37,14 +37,14 @@ export const LandingPage = () => {
                                     <li><a href="#courses-section" className="nav-link">Courses</a></li>
                                     <li><a href="#blogs-section" className="nav-link">Blog</a></li>
                                     <li><a href="#partners-section" className="nav-link">Partnerships</a></li>
-                                    <li><a href="#teachers-section" className="nav-link">Community</a></li>
+                                    <li><a href="#community-section" className="nav-link">Community</a></li>
                                 </ul>
                             </nav>
                         </div>
                         <div className="ml-auto w-25">
                             <nav className="site-navigation position-relative text-right" role="navigation">
                                 <ul className="site-menu main-menu site-menu-dark js-clone-nav mr-auto d-none d-lg-block m-0 p-0">
-                                    <li className="cta"><a href="#contact-section" className="nav-link"><span>Login</span></a></li>
+                                    <li className="cta"><a href="#home-section" className="nav-link"><span>Login</span></a></li>
                                 </ul>
                             </nav>
                             <a href="#" className="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black float-right"><span className="icon-menu h3"></span></a>
@@ -66,7 +66,7 @@ export const LandingPage = () => {
                                         <p data-aos="fade-up" data-aos-delay="300"><a href="#" className="btn btn-primary py-3 px-5 btn-pill">Get Started</a></p>
                                     </div>
                                     <div className="col-lg-5 ml-auto" data-aos="fade-up" data-aos-delay="500">
-                                        <form action="" method="post" className="form-box">
+                                        <form method="post" className="form-box">
                                             <h3 className="h4 text-black mb-4">Sign Up</h3>
                                             <div className="form-group">
                                                 <input type="text" className="form-control" placeholder="FirstName" />
@@ -110,71 +110,107 @@ export const LandingPage = () => {
             <div className="site-section courses-entry-wrap" data-aos="fade-up" data-aos-delay="100">
                 <div className="container">
                     <div className="row">
-                        <OwlCarousel className="owl-theme" margin={8} dots={true}>
-                        <div className="col-12 nonloop-block-14">
-                            <div className="course bg-white h-100 align-self-stretch">
+                       <Carousel>
+                            <div>
+                                <div className="col-12 nonloop-block-14">
+                                <div className="card course" style={{width:"900px", margin: "0 auto", float: "none", marginBottom: "10px"}}>
+                                <div className="row no-gutters">
+                                <div className="col-sm-5">
                                 <figure className="m-0">
                                     <a href="course-single.html"><img src={SrcImg} alt="Image" className="img-fluid" /></a>
                                 </figure>
-                                <div className="course-inner-text py-4 px-4">
-                                <span className="course-price">Physics</span>
-                                    <div className="meta"><span className="icon-clock-o"></span>4 Lessons / 12 week</div>
+                            </div>
+                            <div className="col-sm-7 ">
+                                <div className="card-body ">
                                     <h3><a href="#">Study Law of Physics</a></h3>
-                                    <p> Gain a philosophical understanding of the role of laws in physics.  </p>
-                                </div>
-                                <div className="d-flex border-top stats">
+                                    <p className="card-text">Gain a philosophical understanding of the role of laws in physics</p>
+                                    <span className="course-price">Physics</span>
+                                    <div className="meta"><span className="icon-clock-o"></span>4 Lessons / 12 week</div>
+                                    <div className="d-flex border-top stats">
                                     <div className="py-3 px-4"><span className="icon-users"></span> 2,193 students</div>
                                     <div className="py-3 px-4 w-25 ml-auto border-left"><span className="icon-chat"></span> 2</div>
                                 </div>
                             </div>
                             </div>
-                            <div className="course bg-white h-100 align-self-stretch">
+                            </div>
+                        </div>
+                        </div>
+                        </div>
+                            <div>
+                                <div className="col-12 nonloop-block-14">
+                                <div className="card course" style={{width:"900px", margin: "0 auto", float: "none", marginBottom: "10px"}}>
+                                <div className="row no-gutters">
+                                <div className="col-sm-5">
+                                 <figure className="m-0">
+                                    <a href="course-single.html"><img src={SrcImg2} alt="Image" className="img-fluid" /></a>
+                                </figure>
+                         </div>
+                            <div className="col-sm-7 ">
+                            <div className="card-body ">
+                                <h3><a href="#">Logo Design Course</a></h3>
+                                <p className="card-text">Learn Logo Design Online At Your Own Pace. Start Today and Become an Expert in Days</p>
+                                <span className="course-price">Design</span>
+                                <div className="meta"><span className="icon-clock-o"></span>4 Lessons / 12 week</div>
+                                <div className="d-flex border-top stats">
+                                    <div className="py-3 px-4"><span className="icon-users"></span> 2,193 students</div>
+                                    <div className="py-3 px-4 w-25 ml-auto border-left"><span className="icon-chat"></span> 2</div>
+                                </div>
+                            </div>
+                        </div>
+                            </div>
+                            </div>
+                            </div>
+                            </div>
+                            <div>
+
+                            <div className="col-12 nonloop-block-14">
+                                <div className="card course" style={{width:"900px", margin: "0 auto", float: "none", marginBottom: "10px"}}>
+                                    <div className="row no-gutters">
+                                        <div className="col-sm-5">
+                                        <figure className="m-0">
+                                            <a href="course-single.html"><img src={SrcImg3} alt="Image" className="img-fluid" /></a>
+                                        </figure>
+                                    </div>
+                                <div className="col-sm-7 ">
+                                    <div className="card-body ">
+                                    <h3><a href="#">JS programming Language</a></h3>
+                                    <p className="card-text">Learn programming fundamentals and basic object-oriented concepts using the latest JavaScript syntax.</p>
+                                    <span className="course-price">Programming</span>
+                                    <div className="meta"><span className="icon-clock-o"></span>4 Lessons / 12 week</div>
+                                    <div className="d-flex border-top stats">
+                                        <div className="py-3 px-4"><span className="icon-users"></span> 2,193 students</div>
+                                        <div className="py-3 px-4 w-25 ml-auto border-left"><span className="icon-chat"></span> 2</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                     </div>
+                    </div>
+                </div>
+                <div className="col-12 nonloop-block-14">
+                    <div className="card course" style={{width:"900px", margin: "0 auto", float: "none", marginBottom: "10px"}}>
+                        <div className="row no-gutters">
+                            <div className="col-sm-5">
                                 <figure className="m-0">
                                     <a href="course-single.html"><img src={SrcImg2} alt="Image" className="img-fluid" /></a>
                                 </figure>
-                            <div className="course-inner-text py-4 px-4">
-                            <span className="course-price">Design</span>
-                                <div className="meta"><span className="icon-clock-o"></span>4 Lessons / 12 week</div>
-                                <h3><a href="#">Logo Design Course</a></h3>
-                                <p>Learn Logo Design Online At Your Own Pace. Start Today and Become an Expert in Days.</p>
-                            </div>
+                             </div>
+                        <div className="col-sm-7 ">
+                            <div className="card-body ">
+                            <h3><a href="#">Fundamentals of Mathematics</a></h3>
+                            <p className="card-text">The essential tools for mastering algebra, logic, and number theory!</p>
+                            <span className="course-price">Mathematics</span>
+                            <div className="meta"><span className="icon-clock-o"></span>4 Lessons / 12 week</div>
                             <div className="d-flex border-top stats">
                                 <div className="py-3 px-4"><span className="icon-users"></span> 2,193 students</div>
                                 <div className="py-3 px-4 w-25 ml-auto border-left"><span className="icon-chat"></span> 2</div>
                             </div>
-                            </div>
-                            <div className="course bg-white h-100 align-self-stretch">
-                            <figure className="m-0">
-                                <a href="course-single.html"><img src={SrcImg3} alt="Image" className="img-fluid"/></a>
-                            </figure>
-                            <div className="course-inner-text py-4 px-4">
-                            <span className="course-price">Programming</span>
-                                <div className="meta"><span className="icon-clock-o"></span>4 Lessons / 12 week</div>
-                                <h3><a href="#">JS Programming Language</a></h3>
-                                <p>Learn programming fundamentals and basic object-oriented concepts using the latest JavaScript syntax.</p>
-                            </div>
-                            <div className="d-flex border-top stats">
-                                <div className="py-3 px-4"><span className="icon-users"></span> 2,193 students</div>
-                                <div className="py-3 px-4 w-25 ml-auto border-left"><span className="icon-chat"></span> 2</div>
-                            </div>
-                            </div>
-
-                            <div className="course bg-white h-100 align-self-stretch">
-                            <figure className="m-0">
-                                <a href="course-single.html"><img src={SrcImg2} alt="Image" className="img-fluid"/></a>
-                            </figure>
-                            <div className="course-inner-text py-4 px-4">
-                                <span className="course-price">Mathematics</span>
-                                <div className="meta"><span className="icon-clock-o"></span>4 Lessons / 12 week</div>
-                                <h3><a href="#">Fundamentals of Mathematics</a></h3>
-                                <p>The essential tools for mastering algebra, logic, and number theory! </p>
-                            </div>
-                            <div className="d-flex border-top stats">
-                                <div className="py-3 px-4"><span className="icon-users"></span> 2,193 students</div>
-                                <div className="py-3 px-4 w-25 ml-auto border-left"><span className="icon-chat"></span> 2</div>
-                            </div>
-                            </div>
-                            </OwlCarousel>
+                        </div>
+                        </div>
+                     </div>
+                </div>
+                </div>
+                        </Carousel >
                     </div>
                 </div>
             </div>
@@ -244,7 +280,7 @@ export const LandingPage = () => {
                 </div>
             </div>
 
-            <div className="site-section bg-image overlay" style={{backgroundImage: `url('images/hero_1.jpg')`}}>
+            <div className="site-section bg-image overlay" style={{backgroundImage: `url('images/hero_1.jpg')`}} id="community-section">
       <div className="container">
         <div className="row justify-content-center align-items-center">
           <div className="col-md-8 text-center testimony">
@@ -303,7 +339,7 @@ export const LandingPage = () => {
         <div className="row">
           <div className="col-md-4">
             <h3>About Teachers Hub</h3>
-            <p>Teaching Hub is a thriving online community where teachers can watch, share, and learn diverse techniques to help them get even more qualified.</p>
+            <p>Teachers Hub is a thriving online community where teachers can watch, share, and learn diverse techniques to help them get even more qualified.</p>
           </div>
 
           <div className="col-md-3 ml-auto">
@@ -318,7 +354,7 @@ export const LandingPage = () => {
           <div className="col-md-4">
             <h3>Subscribe</h3>
             <p>Subscribe to receive monthly news letters</p>
-            <form action="#" className="footer-subscribe">
+            <form className="footer-subscribe">
               <div className="d-flex mb-5">
                 <input type="text" className="form-control rounded-0" placeholder="Email" />
                 <input type="submit" className="btn btn-primary rounded-0" value="Subscribe" />
@@ -328,19 +364,15 @@ export const LandingPage = () => {
         </div>
 
 
-        <div class="row pt-5 mt-5 text-center">
-          <div class="col-md-12">
-            <div class="border-top pt-5">
+        <div className="row pt-5 mt-5 text-center">
+          <div className="col-md-12">
+            <div className="border-top pt-5">
             <p>
-        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i className="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
       </p>
             </div>
           </div>
-          
         </div>
-
-
-
           </div>
          </footer>
         </div> 
