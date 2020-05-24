@@ -1,6 +1,8 @@
 barebones setup for JavaScript / Node projects replace this with a one-liner phrase describing this project or app
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/dc30af0b99f44231957a02ea3498633b)](https://app.codacy.com/gh/BuildForSDG/Team-273-Frontend?utm_source=github.com&utm_medium=referral&utm_content=BuildForSDG/Team-273-Frontend&utm_campaign=Badge_Grade_Settings)
+[![Build Status](https://travis-ci.org/BuildForSDG/Teachers-Hub-Frontend.svg?branch=develop)](https://travis-ci.org/BuildForSDG/Teachers-Hub-Frontend)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](code_of_conduct.md)
 
 
 ## About
