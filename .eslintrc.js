@@ -20,6 +20,9 @@ module.exports = {
     'comma-dangle': ['error', 'never'],
     'no-param-reassign': ['error', { props: false }],
     'react/jsx-filename-extension': 'off',
-    'quotes': [1, 'single']
+    'quotes': ["error", "double", {
+      'avoidEscape': true,
+      'allowTemplateLiterals': true
+  }]
   }
 };
