@@ -1,0 +1,10 @@
+{
+    "name": "Teachers-Hub-Frontend",
+    "description": "Frontend version of the teachers hub application",
+    "scripts": {},
+    "env": {},
+    "formation": {},
+    "addons": [],
+    "buildpacks": [],
+    "stack": "heroku-18"
+  }
