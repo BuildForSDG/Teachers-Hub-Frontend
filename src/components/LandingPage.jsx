@@ -44,7 +44,7 @@ const LandingPage = () => {
                         <div className='ml-auto w-25'>
                             <nav className='site-navigation position-relative text-right' role='navigation'>
                                 <ul className='site-menu main-menu site-menu-dark js-clone-nav mr-auto d-none d-lg-block m-0 p-0'>
-                                    <li className='cta'><a href='#home-section' className='nav-link'><span>Login</span></a></li>
+                                    <li className='cta'><a href="/login" className='nav-link'><span>Login</span></a></li>
                                 </ul>
                             </nav>
                             <a href='/' className='d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black float-right'><span className='icon-menu h3'></span></a>
@@ -61,19 +61,13 @@ const LandingPage = () => {
                             <div className='col-12'>
                                 <div className='row align-items-center'>
                                     <div className='col-lg-6 mb-4'>
-                                        <h1 data-aos='fade-up' data-aos-delay='100'>Where Qualified Teachers are made</h1>
-                                        <p className='mb-4' data-aos='fade-up' data-aos-delay='200'>We help to substantially increase the supply of qualified teachers in our communities. We also collaborate with international cooperations for teachers to be trained in developing countries.</p>
+                                        <h1 data-aos='fade-up' data-aos-delay='100' id="mission">Where Qualified Teachers are made</h1>
+                                        <p className='mb-4' data-aos='fade-up' data-aos-delay='200' id="about">We help to substantially increase the supply of qualified teachers in our communities. We also collaborate with international cooperations for teachers to be trained in developing countries.</p>
                                         <p data-aos='fade-up' data-aos-delay='300'><a href='/' className='btn btn-primary py-3 px-5 btn-pill'>Get Started</a></p>
                                     </div>
                                     <div className='col-lg-5 ml-auto' data-aos='fade-up' data-aos-delay='500'>
                                         <form method='post' className='form-box'>
                                             <h3 className='h4 text-black mb-4'>Sign Up</h3>
-                                            <div className='form-group'>
-                                                <input type='text' className='form-control' placeholder='FirstName' />
-                                            </div>
-                                            <div className='form-group'>
-                                                <input type='text' className='form-control' placeholder='LastName' />
-                                            </div>
                                             <div className='form-group'>
                                                 <input type='email' className='form-control' placeholder='Email Address' />
                                             </div>
@@ -86,8 +80,21 @@ const LandingPage = () => {
                                             <div className='form-group mb-4'>
                                                 <input type='password' className='form-control' placeholder='Confirm Password' />
                                             </div>
+                                            <div className='form-group mb-4'>
+                                            <div className="form-group">
+                                            <label htmlFor="sel1">SignUp as:</label>
+                                              <select className="form-control" id="role">
+                                                <option>Teacher</option>
+                                                <option>Institution</option>
+                                              </select>
+                                            </div>
+                                            </div>
                                             <div className='form-group'>
                                                 <input type='submit' className='btn btn-primary btn-pill' value='Sign up' />
+                                            </div>
+                                            <div>
+                                            <span>Already have an account? </span>
+                                              <a href="/login">Login</a>
                                             </div>
                                         </form>
                                     </div>
@@ -114,12 +121,12 @@ const LandingPage = () => {
                             <div>
                                 <div className='col-12 nonloop-block-14'>
                                 <div className='card course' style={{
-                                  width: "900px", margin: "0 auto", float: "none", marginBottom: "10px"
+                                  width: "900px", margin: "0 auto", float: "none", marginBottom: "90px"
                                 }}>
                                 <div className='row no-gutters'>
                                 <div className='col-sm-5'>
                                 <figure className='m-0'>
-                                    <a href='course-single.html'><img src={SrcImg} alt='physics' className='img-fluid' /></a>
+                                    <a href='/course/id'><img src={SrcImg} alt='physics' className='img-fluid' /></a>
                                 </figure>
                             </div>
                             <div className='col-sm-7 '>
@@ -146,7 +153,7 @@ const LandingPage = () => {
                                 <div className='row no-gutters'>
                                 <div className='col-sm-5'>
                                  <figure className='m-0'>
-                                    <a href='course-single.html'><img src={SrcImg2} alt='design' className='img-fluid' /></a>
+                                    <a href='/'><img src={SrcImg2} alt='design' className='img-fluid' /></a>
                                 </figure>
                          </div>
                             <div className='col-sm-7 '>
@@ -175,7 +182,7 @@ const LandingPage = () => {
                                     <div className='row no-gutters'>
                                         <div className='col-sm-5'>
                                         <figure className='m-0'>
-                                            <a href='course-single.html'><img src={SrcImg3} alt='singlecourse' className='img-fluid' /></a>
+                                            <a href='/'><img src={SrcImg3} alt='singlecourse' className='img-fluid' /></a>
                                         </figure>
                                     </div>
                                 <div className='col-sm-7 '>
@@ -202,7 +209,7 @@ const LandingPage = () => {
                         <div className='row no-gutters'>
                             <div className='col-sm-5'>
                                 <figure className='m-0'>
-                                    <a href='course-single.html'><img src={SrcImg2} alt='maths' className='img-fluid' /></a>
+                                    <a href='/'><img src={SrcImg2} alt='maths' className='img-fluid' /></a>
                                 </figure>
                              </div>
                         <div className='col-sm-7 '>
@@ -235,17 +242,34 @@ const LandingPage = () => {
                               create a unique and beautiful blog for free.</p>
                         </div>
                     </div>
+                    <Carousel style={{ minHeight: "100vh" }} slidesToShow={1} cellAlign="center" cellSpacing={20} dragging={true}>
                     <div className='row mb-5 align-items-center'>
+
                         <div className='col-lg-7 mb-5' data-aos='fade-up' data-aos-delay='100'>
-                            <img src={SrcImg4} alt='blog' className='img-fluid' />
+                            <img src={SrcImg4} alt='blog' className='img-fluid' width={900} height={700} />
                         </div>
                     <div className='col-lg-4 ml-auto' data-aos='fade-up' data-aos-delay='200'>
                         <h2 className='text-black mb-4'>Three ways for eductors
                         to practice social emotional learning</h2>
                         <p className='mb-4'>With schools and businesses closed all around the world,
-                         many of us are learning to cope with...READ MORE</p>
+                         many of us are learning to cope with...</p>
+                         <div><div><button type="button" className="btn btn-secondary">READ MORE</button></div></div>
                     </div>
                 </div>
+                <div className='row mb-5 align-items-center'>
+
+                <div className='col-lg-7 mb-5' data-aos='fade-up' data-aos-delay='100'>
+                    <img src={SrcImg4} alt='blog' className='img-fluid' />
+                </div>
+                <div className='col-lg-4 ml-auto' data-aos='fade-up' data-aos-delay='200'>
+                  <h2 className='text-black mb-4'>Three ways for eductors
+                to practice social emotional learning</h2>
+                  <p className='mb-4'>With schools and businesses closed all around the world,
+                many of us are learning to cope with...</p>
+                <div><div><button type="button" className="btn btn-secondary">READ MORE</button></div></div>
+                </div>
+                </div>
+                </Carousel>
                 </div>
             </div>
             <div className='site-section' id='partners-section'>
@@ -320,7 +344,7 @@ const LandingPage = () => {
         <div className='row justify-content-center'>
           <div className='col-md-7'>
             <h2 className='section-title mb-3'>Contact Us</h2>
-            <form method='post' data-aos='fade'>
+            <form data-aos='fade'>
               <div className='form-group row'>
                 <div className='col-md-6 mb-3 mb-lg-0'>
                   <input type='text' className='form-control' placeholder='First name' />
