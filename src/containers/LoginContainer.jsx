@@ -5,6 +5,8 @@ import "react-toastify/dist/ReactToastify.css";
 import loginAction from "../redux/actions/loginAction.jsx";
 import Login from "../components/Login.jsx";
 
+const jwt = require("jsonwebtoken");
+
 const LoginContainer = () => {
   const loginData = useSelector((state) => state.loginReducer);
   const dispatch = useDispatch();
@@ -24,7 +26,16 @@ const LoginContainer = () => {
       toast.success(<p className="text-white">
         Login successful
       </p>);
-      window.location.replace("/dashboard");
+      const { token } = loginData.data;
+      const decoded = jwt.decode(token);
+
+      if (decoded.identity.role[0] === "Admin") {
+        setTimeout(() => window.location.assign("/admin"), 400);
+      } else if (decoded.identity.role[0] === "Teacher") {
+        setTimeout(() => window.location.assign("/teacher"), 400);
+      } else {
+        setTimeout(() => window.location.assign("/institution"), 400);
+      }
     }
   };
 
