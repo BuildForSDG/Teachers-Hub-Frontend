@@ -87,6 +87,12 @@ const LandingPage = () => {
                                                 <input type='password' className='form-control' placeholder='Confirm Password' />
                                             </div>
                                             <div className='form-group'>
+                                                <select name="role" placeholder="trainee">
+                                                  <option value="tutor">Tutor</option>
+                                                  <option value="trainee">Trainee</option>
+                                                </select>
+                                            </div>
+                                            <div className='form-group'>
                                                 <input type='submit' className='btn btn-primary btn-pill' value='Sign up' />
                                             </div>
                                         </form>
