@@ -1,6 +1,7 @@
 /* eslint-disable import/extensions */
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./app.js";
 
-ReactDOM.render(<App />, document.getElementById("root"));
+import Routes from "./app.js";
+
+ReactDOM.render(<Routes />, document.getElementById("root"));
