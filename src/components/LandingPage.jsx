@@ -9,6 +9,7 @@ import Hero1 from "../assets/images/hero_1.jpg";
 import cabe from "../assets/images/cabe.png";
 import edx from "../assets/images/edx.png";
 import futureLearn from "../assets/images/futureLearn.png";
+import CompSignupForm from "./CompSignupForm";
 
 
 const LandingPage = () => {
@@ -66,36 +67,8 @@ const LandingPage = () => {
                                         <p data-aos='fade-up' data-aos-delay='300'><a href='/' className='btn btn-primary py-3 px-5 btn-pill'>Get Started</a></p>
                                     </div>
                                     <div className='col-lg-5 ml-auto' data-aos='fade-up' data-aos-delay='500'>
-                                        <form method='post' className='form-box'>
-                                            <h3 className='h4 text-black mb-4'>Sign Up</h3>
-                                            <div className='form-group'>
-                                                <input type='text' className='form-control' placeholder='FirstName' />
-                                            </div>
-                                            <div className='form-group'>
-                                                <input type='text' className='form-control' placeholder='LastName' />
-                                            </div>
-                                            <div className='form-group'>
-                                                <input type='email' className='form-control' placeholder='Email Address' />
-                                            </div>
-                                            <div className='form-group'>
-                                                <input type='text' className='form-control' placeholder='UserName' />
-                                            </div>
-                                            <div className='form-group'>
-                                                <input type='password' className='form-control' placeholder='Password' />
-                                            </div>
-                                            <div className='form-group mb-4'>
-                                                <input type='password' className='form-control' placeholder='Confirm Password' />
-                                            </div>
-                                            <div className='form-group'>
-                                                <select name="role" placeholder="trainee">
-                                                  <option value="tutor">Tutor</option>
-                                                  <option value="trainee">Trainee</option>
-                                                </select>
-                                            </div>
-                                            <div className='form-group'>
-                                                <input type='submit' className='btn btn-primary btn-pill' value='Sign up' />
-                                            </div>
-                                        </form>
+                                      {/* sign up component form */}
+                                      <CompSignupForm />
                                     </div>
                                 </div>
                             </div>

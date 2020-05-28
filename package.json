@@ -47,6 +47,7 @@
     ]
   },
   "devDependencies": {
+    "axios": "^0.19.2",
     "husky": "^4.2.5",
     "mutationobserver-shim": "^0.3.5",
     "prettier": "2.0.5",
