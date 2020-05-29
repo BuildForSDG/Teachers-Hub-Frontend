@@ -1142,3 +1142,21 @@ h1, h2, h3, h4, h5,
         .comment-list li .comment-body .reply:hover {
           color: #000;
           background: #e3e3e3; }
+          @media only screen and (max-width: 992px) {
+            #mission {
+              display: none;
+            }
+            #about {
+              margin-top:30%;
+            }
+          }
+          
+          #searchTerm{
+            border-width:4px;
+            border-color:white;
+          }
+          
+          #searchButton {
+            margin-left: 15px;
+          }
+    
