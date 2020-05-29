@@ -4,9 +4,9 @@
 * Copyright jQuery Foundation and other contributors; Licensed MIT */
 
 (function (factory) {
-  if (typeof define === 'function' && define.amd) {
+  if (typeof define === "function" && define.amd) {
     // AMD. Register as an anonymous module.
-    define(['jquery'], factory);
+    define(["jquery"], factory);
   } else {
     // Browser globals
     factory(jQuery);
@@ -14,7 +14,7 @@
 }(($) => {
   $.ui = $.ui || {};
 
-  const version = $.ui.version = '1.12.1';
+  const version = $.ui.version = "1.12.1";
 
 
   /*!
@@ -43,9 +43,9 @@
       for (i = 0; (elem = elems[i]) != null; i++) {
         try {
           // Only trigger remove when necessary to save time
-          events = $._data(elem, 'events');
+          events = $._data(elem, "events");
           if (events && events.remove) {
-            $(elem).triggerHandler('remove');
+            $(elem).triggerHandler("remove");
           }
 
           // Http://bugs.jquery.com/ticket/8235
@@ -63,8 +63,8 @@
     // so that it can be used as a mixin for multiple widgets (#8876)
     const proxiedPrototype = {};
 
-    const namespace = name.split('.')[0];
-    name = name.split('.')[1];
+    const namespace = name.split(".")[0];
+    name = name.split(".")[1];
     const fullName = `${namespace}-${name}`;
 
     if (!prototype) {
@@ -77,7 +77,7 @@
     }
 
     // Create selector for plugin
-    $.expr[':'][fullName.toLowerCase()] = function (elem) {
+    $.expr[":"][fullName.toLowerCase()] = function (elem) {
       return !!$.data(elem, fullName);
     };
 
@@ -217,21 +217,21 @@
   $.widget.bridge = function (name, object) {
     const fullName = object.prototype.widgetFullName || name;
     $.fn[name] = function (options) {
-      const isMethodCall = typeof options === 'string';
+      const isMethodCall = typeof options === "string";
       const args = widgetSlice.call(arguments, 1);
       let returnValue = this;
 
       if (isMethodCall) {
         // If this is an empty collection, we need to have the instance method
         // return undefined instead of the jQuery instance
-        if (!this.length && options === 'instance') {
+        if (!this.length && options === "instance") {
           returnValue = undefined;
         } else {
           this.each(function () {
             let methodValue;
             const instance = $.data(this, fullName);
 
-            if (options === 'instance') {
+            if (options === "instance") {
               returnValue = instance;
               return false;
             }
@@ -242,7 +242,7 @@
 							+ `attempted to call method '${options}'`);
             }
 
-            if (!$.isFunction(instance[options]) || options.charAt(0) === '_') {
+            if (!$.isFunction(instance[options]) || options.charAt(0) === "_") {
               return $.error(`no such method '${options}' for ${name
 							 } widget instance`);
             }
@@ -284,9 +284,9 @@
   $.Widget._childConstructors = [];
 
   $.Widget.prototype = {
-    widgetName: 'widget',
-    widgetEventPrefix: '',
-    defaultElement: '<div>',
+    widgetName: "widget",
+    widgetEventPrefix: "",
+    defaultElement: "<div>",
 
     options: {
       classes: {},
@@ -337,7 +337,7 @@
         this._setOptionDisabled(this.options.disabled);
       }
 
-      this._trigger('create', null, this._getCreateEventData());
+      this._trigger("create", null, this._getCreateEventData());
       this._init();
     },
 
@@ -366,7 +366,7 @@
         .removeData(this.widgetFullName);
       this.widget()
         .off(this.eventNamespace)
-        .removeAttr('aria-disabled');
+        .removeAttr("aria-disabled");
 
       // Clean up events and states
       this.bindings.off(this.eventNamespace);
@@ -389,10 +389,10 @@
         return $.widget.extend({}, this.options);
       }
 
-      if (typeof key === 'string') {
+      if (typeof key === "string") {
         // Handle nested keys, e.g., "foo.bar" => { foo: { bar: ___ } }
         options = {};
-        parts = key.split('.');
+        parts = key.split(".");
         key = parts.shift();
         if (parts.length) {
           curOption = options[key] = $.widget.extend({}, this.options[key]);
@@ -429,13 +429,13 @@
     },
 
     _setOption(key, value) {
-      if (key === 'classes') {
+      if (key === "classes") {
         this._setOptionClasses(value);
       }
 
       this.options[key] = value;
 
-      if (key === 'disabled') {
+      if (key === "disabled") {
         this._setOptionDisabled(value);
       }
 
@@ -479,8 +479,8 @@
 
       // If the widget is becoming disabled, then nothing is interactive
       if (value) {
-        this._removeClass(this.hoverable, null, 'ui-state-hover');
-        this._removeClass(this.focusable, null, 'ui-state-focus');
+        this._removeClass(this.hoverable, null, "ui-state-hover");
+        this._removeClass(this.focusable, null, "ui-state-focus");
       }
     },
 
@@ -520,7 +520,7 @@
       }
 
       this._on(options.element, {
-        remove: '_untrackClassesElement'
+        remove: "_untrackClassesElement"
       });
 
       if (options.keys) {
@@ -530,7 +530,7 @@
         processClassString(options.extra.match(/\S+/g) || []);
       }
 
-      return full.join(' ');
+      return full.join(" ");
     },
 
     _untrackClassesElement(event) {
@@ -551,8 +551,8 @@
     },
 
     _toggleClass(element, keys, extra, add) {
-      add = (typeof add === 'boolean') ? add : extra;
-      const shift = (typeof element === 'string' || element === null);
+      add = (typeof add === "boolean") ? add : extra;
+      const shift = (typeof element === "string" || element === null);
       const options = {
         extra: shift ? keys : extra,
         keys: shift ? element : keys,
@@ -568,7 +568,7 @@
       const instance = this;
 
       // No suppressDisabledCheck flag, shuffle arguments
-      if (typeof suppressDisabledCheck !== 'boolean') {
+      if (typeof suppressDisabledCheck !== "boolean") {
         handlers = element;
         element = suppressDisabledCheck;
         suppressDisabledCheck = false;
@@ -591,15 +591,15 @@
           // - disabled class as method for disabling individual parts
           if (!suppressDisabledCheck
 						&& (instance.options.disabled === true
-						|| $(this).hasClass('ui-state-disabled'))) {
+						|| $(this).hasClass("ui-state-disabled"))) {
             return;
           }
-          return (typeof handler === 'string' ? instance[handler] : handler)
+          return (typeof handler === "string" ? instance[handler] : handler)
             .apply(instance, arguments);
         }
 
         // Copy the guid so direct unbinding works
-        if (typeof handler !== 'string') {
+        if (typeof handler !== "string") {
           handlerProxy.guid = handler.guid =					handler.guid || handlerProxy.guid || $.guid++;
         }
 
@@ -616,7 +616,7 @@
     },
 
     _off(element, eventName) {
-      eventName = (eventName || '').split(' ').join(`${this.eventNamespace} `)
+      eventName = (eventName || "").split(" ").join(`${this.eventNamespace} `)
 			+ this.eventNamespace;
       element.off(eventName).off(eventName);
 
@@ -628,7 +628,7 @@
 
     _delay(handler, delay) {
       function handlerProxy() {
-        return (typeof handler === 'string' ? instance[handler] : handler)
+        return (typeof handler === "string" ? instance[handler] : handler)
           .apply(instance, arguments);
       }
       var instance = this;
@@ -639,10 +639,10 @@
       this.hoverable = this.hoverable.add(element);
       this._on(element, {
         mouseenter(event) {
-          this._addClass($(event.currentTarget), null, 'ui-state-hover');
+          this._addClass($(event.currentTarget), null, "ui-state-hover");
         },
         mouseleave(event) {
-          this._removeClass($(event.currentTarget), null, 'ui-state-hover');
+          this._removeClass($(event.currentTarget), null, "ui-state-hover");
         }
       });
     },
@@ -651,10 +651,10 @@
       this.focusable = this.focusable.add(element);
       this._on(element, {
         focusin(event) {
-          this._addClass($(event.currentTarget), null, 'ui-state-focus');
+          this._addClass($(event.currentTarget), null, "ui-state-focus");
         },
         focusout(event) {
-          this._removeClass($(event.currentTarget), null, 'ui-state-focus');
+          this._removeClass($(event.currentTarget), null, "ui-state-focus");
         }
       });
     },
@@ -691,21 +691,21 @@
     }
   };
 
-  $.each({ show: 'fadeIn', hide: 'fadeOut' }, (method, defaultEffect) => {
+  $.each({ show: "fadeIn", hide: "fadeOut" }, (method, defaultEffect) => {
     $.Widget.prototype[`_${method}`] = function (element, options, callback) {
-      if (typeof options === 'string') {
+      if (typeof options === "string") {
         options = { effect: options };
       }
 
       let hasOptions;
       const effectName = !options
         ? method
-        : options === true || typeof options === 'number'
+        : options === true || typeof options === "number"
           ? defaultEffect
           : options.effect || defaultEffect;
 
       options = options || {};
-      if (typeof options === 'number') {
+      if (typeof options === "number") {
         options = { duration: options };
       }
 
@@ -789,14 +789,14 @@
 
 
   let mouseHandled = false;
-  $(document).on('mouseup', () => {
+  $(document).on("mouseup", () => {
     mouseHandled = false;
   });
 
-  const widgetsMouse = $.widget('ui.mouse', {
-    version: '1.12.1',
+  const widgetsMouse = $.widget("ui.mouse", {
+    version: "1.12.1",
     options: {
-      cancel: 'input, textarea, button, select, option',
+      cancel: "input, textarea, button, select, option",
       distance: 1,
       delay: 0
     },
@@ -845,7 +845,7 @@
 
       // event.target.nodeName works around a bug in IE 8 with
       // disabled inputs (#7620)
-      const elIsCancel = (typeof this.options.cancel === 'string' && event.target.nodeName
+      const elIsCancel = (typeof this.options.cancel === "string" && event.target.nodeName
         ? $(event.target).closest(this.options.cancel).length : false);
       if (!btnIsLeft || elIsCancel || !this._mouseCapture(event)) {
         return true;
@@ -995,24 +995,24 @@
   // >>css.theme: ../../themes/base/theme.css
 
 
-  const widgetsSlider = $.widget('ui.slider', $.ui.mouse, {
-    version: '1.12.1',
-    widgetEventPrefix: 'slide',
+  const widgetsSlider = $.widget("ui.slider", $.ui.mouse, {
+    version: "1.12.1",
+    widgetEventPrefix: "slide",
 
     options: {
       animate: false,
       classes: {
-        'ui-slider': 'ui-corner-all',
-        'ui-slider-handle': 'ui-corner-all',
+        "ui-slider": "ui-corner-all",
+        "ui-slider-handle": "ui-corner-all",
 
         // Note: ui-widget-header isn't the most fittingly semantic framework class for this
         // element, but worked best visually with a variety of themes
-        'ui-slider-range': 'ui-corner-all ui-widget-header'
+        "ui-slider-range": "ui-corner-all ui-widget-header"
       },
       distance: 0,
       max: 100,
       min: 0,
-      orientation: 'horizontal',
+      orientation: "horizontal",
       range: false,
       step: 1,
       value: 0,
@@ -1039,7 +1039,7 @@
       this._calculateNewMax();
 
       this._addClass(`ui-slider ui-slider-${this.orientation}`,
-        'ui-widget ui-widget-content');
+        "ui-widget ui-widget-content");
 
       this._refresh();
 
@@ -1056,7 +1056,7 @@
     _createHandles() {
       let i; let handleCount;
       const { options } = this;
-      let existingHandles = this.element.find('.ui-slider-handle');
+      let existingHandles = this.element.find(".ui-slider-handle");
       const handle = "<span tabindex='0'></span>";
       const handles = [];
 
@@ -1071,16 +1071,16 @@
         handles.push(handle);
       }
 
-      this.handles = existingHandles.add($(handles.join('')).appendTo(this.element));
+      this.handles = existingHandles.add($(handles.join("")).appendTo(this.element));
 
-      this._addClass(this.handles, 'ui-slider-handle', 'ui-state-default');
+      this._addClass(this.handles, "ui-slider-handle", "ui-state-default");
 
       this.handle = this.handles.eq(0);
 
       this.handles.each(function (i) {
         $(this)
-          .data('ui-slider-handle-index', i)
-          .attr('tabIndex', 0);
+          .data("ui-slider-handle-index", i)
+          .attr("tabIndex", 0);
       });
     },
 
@@ -1099,20 +1099,20 @@
         }
 
         if (!this.range || !this.range.length) {
-          this.range = $('<div>')
+          this.range = $("<div>")
             .appendTo(this.element);
 
-          this._addClass(this.range, 'ui-slider-range');
+          this._addClass(this.range, "ui-slider-range");
         } else {
-          this._removeClass(this.range, 'ui-slider-range-min ui-slider-range-max');
+          this._removeClass(this.range, "ui-slider-range-min ui-slider-range-max");
 
           // Handle range switching from true to min/max
           this.range.css({
-            left: '',
-            bottom: ''
+            left: "",
+            bottom: ""
           });
         }
-        if (options.range === 'min' || options.range === 'max') {
+        if (options.range === "min" || options.range === "max") {
           this._addClass(this.range, `ui-slider-range-${options.range}`);
         }
       } else {
@@ -1176,21 +1176,21 @@
 
       this._handleIndex = index;
 
-      this._addClass(closestHandle, null, 'ui-state-active');
-      closestHandle.trigger('focus');
+      this._addClass(closestHandle, null, "ui-state-active");
+      closestHandle.trigger("focus");
 
       offset = closestHandle.offset();
-      mouseOverHandle = !$(event.target).parents().addBack().is('.ui-slider-handle');
+      mouseOverHandle = !$(event.target).parents().addBack().is(".ui-slider-handle");
       this._clickOffset = mouseOverHandle ? { left: 0, top: 0 } : {
         left: event.pageX - offset.left - (closestHandle.width() / 2),
         top: event.pageY - offset.top
 				- (closestHandle.height() / 2)
-				- (parseInt(closestHandle.css('borderTopWidth'), 10) || 0)
-				- (parseInt(closestHandle.css('borderBottomWidth'), 10) || 0)
-				+ (parseInt(closestHandle.css('marginTop'), 10) || 0)
+				- (parseInt(closestHandle.css("borderTopWidth"), 10) || 0)
+				- (parseInt(closestHandle.css("borderBottomWidth"), 10) || 0)
+				+ (parseInt(closestHandle.css("marginTop"), 10) || 0)
       };
 
-      if (!this.handles.hasClass('ui-state-hover')) {
+      if (!this.handles.hasClass("ui-state-hover")) {
         this._slide(event, index, normValue);
       }
       this._animateOff = true;
@@ -1211,7 +1211,7 @@
     },
 
     _mouseStop(event) {
-      this._removeClass(this.handles, null, 'ui-state-active');
+      this._removeClass(this.handles, null, "ui-state-active");
       this._mouseSliding = false;
 
       this._stop(event, this._handleIndex);
@@ -1225,7 +1225,7 @@
     },
 
     _detectOrientation() {
-      this.orientation = (this.options.orientation === 'vertical') ? 'vertical' : 'horizontal';
+      this.orientation = (this.options.orientation === "vertical") ? "vertical" : "horizontal";
     },
 
     _normValueFromMouse(position) {
@@ -1235,7 +1235,7 @@
       let valueTotal;
       let valueMouse;
 
-      if (this.orientation === 'horizontal') {
+      if (this.orientation === "horizontal") {
         pixelTotal = this.elementSize.width;
         pixelMouse = position.x - this.elementOffset.left
 				- (this._clickOffset ? this._clickOffset.left : 0);
@@ -1252,7 +1252,7 @@
       if (percentMouse < 0) {
         percentMouse = 0;
       }
-      if (this.orientation === 'vertical') {
+      if (this.orientation === "vertical") {
         percentMouse = 1 - percentMouse;
       }
 
@@ -1282,7 +1282,7 @@
     },
 
     _start(event, index) {
-      return this._trigger('start', event, this._uiHash(index));
+      return this._trigger("start", event, this._uiHash(index));
     },
 
     _slide(event, index, newVal) {
@@ -1305,7 +1305,7 @@
         return;
       }
 
-      allowed = this._trigger('slide', event, this._uiHash(index, newVal, newValues));
+      allowed = this._trigger("slide", event, this._uiHash(index, newVal, newValues));
 
       // A slide can be canceled by returning false from the slide callback
       if (allowed === false) {
@@ -1320,14 +1320,14 @@
     },
 
     _stop(event, index) {
-      this._trigger('stop', event, this._uiHash(index));
+      this._trigger("stop", event, this._uiHash(index));
     },
 
     _change(event, index) {
       if (!this._keySliding && !this._mouseSliding) {
         // store the last changed value index for reference when handles overlap
         this._lastChangedValue = index;
-        this._trigger('change', event, this._uiHash(index));
+        this._trigger("change", event, this._uiHash(index));
       }
     },
 
@@ -1378,11 +1378,11 @@
       let i;
       let valsLength = 0;
 
-      if (key === 'range' && this.options.range === true) {
-        if (value === 'min') {
+      if (key === "range" && this.options.range === true) {
+        if (value === "min") {
           this.options.value = this._values(0);
           this.options.values = null;
-        } else if (value === 'max') {
+        } else if (value === "max") {
           this.options.value = this._values(this.options.values.length - 1);
           this.options.values = null;
         }
@@ -1395,9 +1395,9 @@
       this._super(key, value);
 
       switch (key) {
-        case 'orientation':
+        case "orientation":
           this._detectOrientation();
-          this._removeClass('ui-slider-horizontal ui-slider-vertical')
+          this._removeClass("ui-slider-horizontal ui-slider-vertical")
             ._addClass(`ui-slider-${this.orientation}`);
           this._refreshValue();
           if (this.options.range) {
@@ -1405,15 +1405,15 @@
           }
 
           // Reset positioning from previous orientation
-          this.handles.css(value === 'horizontal' ? 'bottom' : 'left', '');
+          this.handles.css(value === "horizontal" ? "bottom" : "left", "");
           break;
-        case 'value':
+        case "value":
           this._animateOff = true;
           this._refreshValue();
           this._change(null, 0);
           this._animateOff = false;
           break;
-        case 'values':
+        case "values":
           this._animateOff = true;
           this._refreshValue();
 
@@ -1423,15 +1423,15 @@
           }
           this._animateOff = false;
           break;
-        case 'step':
-        case 'min':
-        case 'max':
+        case "step":
+        case "min":
+        case "max":
           this._animateOff = true;
           this._calculateNewMax();
           this._refreshValue();
           this._animateOff = false;
           break;
-        case 'range':
+        case "range":
           this._animateOff = true;
           this._refresh();
           this._animateOff = false;
@@ -1442,7 +1442,7 @@
     _setOptionDisabled(value) {
       this._super(value);
 
-      this._toggleClass(null, 'ui-state-disabled', !!value);
+      this._toggleClass(null, "ui-state-disabled", !!value);
     },
 
     // internal value getter
@@ -1524,7 +1524,7 @@
 
     _precisionOf(num) {
       const str = num.toString();
-      const decimal = str.indexOf('.');
+      const decimal = str.indexOf(".");
       return decimal === -1 ? 0 : str.length - decimal - 1;
     },
 
@@ -1537,11 +1537,11 @@
     },
 
     _refreshRange(orientation) {
-      if (orientation === 'vertical') {
-        this.range.css({ width: '', left: '' });
+      if (orientation === "vertical") {
+        this.range.css({ width: "", left: "" });
       }
-      if (orientation === 'horizontal') {
-        this.range.css({ height: '', bottom: '' });
+      if (orientation === "horizontal") {
+        this.range.css({ height: "", bottom: "" });
       }
     },
 
@@ -1557,17 +1557,17 @@
         this.handles.each(function (i) {
           valPercent = (that.values(i) - that._valueMin()) / (that._valueMax()
 					- that._valueMin()) * 100;
-          _set[that.orientation === 'horizontal' ? 'left' : 'bottom'] = `${valPercent}%`;
-          $(this).stop(1, 1)[animate ? 'animate' : 'css'](_set, o.animate);
+          _set[that.orientation === "horizontal" ? "left" : "bottom"] = `${valPercent}%`;
+          $(this).stop(1, 1)[animate ? "animate" : "css"](_set, o.animate);
           if (that.options.range === true) {
-            if (that.orientation === 'horizontal') {
+            if (that.orientation === "horizontal") {
               if (i === 0) {
-                that.range.stop(1, 1)[animate ? 'animate' : 'css']({
+                that.range.stop(1, 1)[animate ? "animate" : "css"]({
                   left: `${valPercent}%`
                 }, o.animate);
               }
               if (i === 1) {
-                that.range[animate ? 'animate' : 'css']({
+                that.range[animate ? "animate" : "css"]({
                   width: `${valPercent - lastValPercent}%`
                 }, {
                   queue: false,
@@ -1576,12 +1576,12 @@
               }
             } else {
               if (i === 0) {
-                that.range.stop(1, 1)[animate ? 'animate' : 'css']({
+                that.range.stop(1, 1)[animate ? "animate" : "css"]({
                   bottom: `${valPercent}%`
                 }, o.animate);
               }
               if (i === 1) {
-                that.range[animate ? 'animate' : 'css']({
+                that.range[animate ? "animate" : "css"]({
                   height: `${valPercent - lastValPercent}%`
                 }, {
                   queue: false,
@@ -1599,26 +1599,26 @@
         valPercent = (valueMax !== valueMin)
           ? (value - valueMin) / (valueMax - valueMin) * 100
           : 0;
-        _set[this.orientation === 'horizontal' ? 'left' : 'bottom'] = `${valPercent}%`;
-        this.handle.stop(1, 1)[animate ? 'animate' : 'css'](_set, o.animate);
+        _set[this.orientation === "horizontal" ? "left" : "bottom"] = `${valPercent}%`;
+        this.handle.stop(1, 1)[animate ? "animate" : "css"](_set, o.animate);
 
-        if (oRange === 'min' && this.orientation === 'horizontal') {
-          this.range.stop(1, 1)[animate ? 'animate' : 'css']({
+        if (oRange === "min" && this.orientation === "horizontal") {
+          this.range.stop(1, 1)[animate ? "animate" : "css"]({
             width: `${valPercent}%`
           }, o.animate);
         }
-        if (oRange === 'max' && this.orientation === 'horizontal') {
-          this.range.stop(1, 1)[animate ? 'animate' : 'css']({
+        if (oRange === "max" && this.orientation === "horizontal") {
+          this.range.stop(1, 1)[animate ? "animate" : "css"]({
             width: `${100 - valPercent}%`
           }, o.animate);
         }
-        if (oRange === 'min' && this.orientation === 'vertical') {
-          this.range.stop(1, 1)[animate ? 'animate' : 'css']({
+        if (oRange === "min" && this.orientation === "vertical") {
+          this.range.stop(1, 1)[animate ? "animate" : "css"]({
             height: `${valPercent}%`
           }, o.animate);
         }
-        if (oRange === 'max' && this.orientation === 'vertical') {
-          this.range.stop(1, 1)[animate ? 'animate' : 'css']({
+        if (oRange === "max" && this.orientation === "vertical") {
+          this.range.stop(1, 1)[animate ? "animate" : "css"]({
             height: `${100 - valPercent}%`
           }, o.animate);
         }
@@ -1628,7 +1628,7 @@
     _handleEvents: {
       keydown(event) {
         let allowed; let curVal; let newVal; let step;
-        const index = $(event.target).data('ui-slider-handle-index');
+        const index = $(event.target).data("ui-slider-handle-index");
 
         switch (event.keyCode) {
           case $.ui.keyCode.HOME:
@@ -1642,7 +1642,7 @@
             event.preventDefault();
             if (!this._keySliding) {
               this._keySliding = true;
-              this._addClass($(event.target), null, 'ui-state-active');
+              this._addClass($(event.target), null, "ui-state-active");
               allowed = this._start(event, index);
               if (allowed === false) {
                 return;
@@ -1694,13 +1694,13 @@
         this._slide(event, index, newVal);
       },
       keyup(event) {
-        const index = $(event.target).data('ui-slider-handle-index');
+        const index = $(event.target).data("ui-slider-handle-index");
 
         if (this._keySliding) {
           this._keySliding = false;
           this._stop(event, index);
           this._change(event, index);
-          this._removeClass($(event.target), null, 'ui-state-active');
+          this._removeClass($(event.target), null, "ui-state-active");
         }
       }
     }

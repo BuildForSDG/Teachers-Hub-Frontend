@@ -169,12 +169,11 @@ const LandingPage = () => {
                                 </div>
                             </div>
                         </div>
-                            </div>
-                            </div>
-                            </div>
-                            </div>
-                            <div>
-
+                      </div>
+                    </div>
+                  </div>
+                      </div>
+                          <div>
                             <div className='col-12 nonloop-block-14'>
                                 <div className='card course' style={{
                                   width: "900px", margin: "0 auto", float: "none", marginBottom: "10px"

@@ -1,4 +1,4 @@
-barebones setup for JavaScript / Node projects replace this with a one-liner phrase describing this project or app
+Teachers Hub Frontend
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/dc30af0b99f44231957a02ea3498633b)](https://app.codacy.com/gh/BuildForSDG/Team-273-Frontend?utm_source=github.com&utm_medium=referral&utm_content=BuildForSDG/Team-273-Frontend&utm_campaign=Badge_Grade_Settings)
 [![Build Status](https://travis-ci.org/BuildForSDG/Teachers-Hub-Frontend.svg?branch=develop)](https://travis-ci.org/BuildForSDG/Teachers-Hub-Frontend)
@@ -7,15 +7,14 @@ barebones setup for JavaScript / Node projects replace this with a one-liner phr
 
 ## About
 
-What is this project about. Ok to enrich here or the section above it with an image. 
+The purpose of this project is to provide inclusive, equitable and quality education for all people, globally. Its targets to span a variety of challenges related to inclusion of marginalized populations at multiple levels of education and in the workforce.
 
-Once this repo has been setup on Codacy by the TTL, replace the above badge with the actual one from the Codacy dashboard, and add the code coverage badge as well. This is mandatory
+This project addresses the following SDG targets:
 
-This is a simple JavaScript starter repo template for setting up your project. The setup contains
-
-- Jest: For runnung tests. We strongly recommend that JavaScript projects use Jest
-
-- Eslint & Prettier: For formatting code to match ESlint AirBnB coding standard. You might need to install the ESlint and Prettier plugins for your code editor to make the most of these utilities
+- Increased supply of qualified teachers in the community
+- Increased networking among teachers
+- Training of teachers by more qualified bodies
+- Accessibility to employment opportunities
 
 ## Why
 
@@ -27,24 +26,14 @@ Talk about what problem this solves, what SDG(s) and SGD targets it addresses an
 
 ## Setup
 
-Install `npm` or `yarn` if you dont have any of them already installed. We recommend Yarn though.
+- Clone this repository by running `git clone https://github.com/BuildForSDG/Teachers-Hub-Frontend`
+- Navigate to the local folder by running `cd Teachers-Hub-Frontend`
+- Install dependencies by running `yarn install`
+- Start the local server by running `yarn start-dev`
+- Navigate to `http://localhost:3000` to view the running application and get started
 
-After clonning the repo to your local machine and moving into the cloned folder, Run `yarn install` to get started by installing dependencies. 
-
-`src/index.js` is the entry to the project and source code should go into the `src` folder.
-
-All tests should be written in the `__tests__' folder. There's a sample in there.
-
-This starter uses [Parcel](https://parceljs.org/getting_started.html) as the bundler. It is much simpler that WebPack and the others
-
-#### Hints
-
-- Run `npm install` or `yarn install` to get started. We'll assume you are using Yarn.
-- Install additional dependencies: `yarn add <dependency-name> [-D]`
-- Run tests: `yarn test`
-- Run tests with test coverage info: `yarn test:cover`
-- Check the codebase for proper syntax and formatting compliance: `yarn lint`
-- Run your app in local dev mode: `yarn start`. This puts the bundled app in a `dist` folder, set up a local web server at localhost:1234, and continues to watch for your code changes which it syncs with the local server. This means if you loaded the app in a browser, it will auto-refresh as you code along. Feel free to use whatever bundler best meets your needs. Parcel was only added as a sample and for those looking for a simple but effective solution to the hassle of bundlers. 
+## Deployment
+- This application can also be accessed at `https://teachers-hub-fe.herokuapp.com/`
 
 ## Authors
 
@@ -56,14 +45,6 @@ First, you can send a mail to buildforsdg@andela.com to indicate your interest, 
 1.  area one (e.g this app is about human trafficking and you need feedback on your roadmap and feature list from the private sector / NGOs)
 2.  area two (e.g you want people to opt-in and try using your staging app at staging.project-name.com and report any bugs via a form)
 3.  area three (e.g here is the zoom link to our end-of sprint webinar, join and provide feedback as a stakeholder if you can)
-
-## Acknowledgements
-
-Did you use someone else’s code?
-Do you want to thank someone explicitly?
-Did someone’s blog post spark off a wonderful idea or give you a solution to nagging problem?
-
-It's powerful to always give credit.
 
 ## LICENSE
 MIT

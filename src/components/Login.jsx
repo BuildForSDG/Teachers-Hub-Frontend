@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useEffect } from "react";
 import AOS from "aos";
 import Carousel from "nuka-carousel";
@@ -11,7 +12,7 @@ import edx from "../assets/images/edx.png";
 import futureLearn from "../assets/images/futureLearn.png";
 
 
-const Login = () => {
+const Login = (props) => {
   useEffect(() => {
     AOS.init();
   }, []);
@@ -44,7 +45,7 @@ const Login = () => {
                 <div className='ml-auto w-25'>
                     <nav className='site-navigation position-relative text-right' role='navigation'>
                         <ul className='site-menu main-menu site-menu-dark js-clone-nav mr-auto d-none d-lg-block m-0 p-0'>
-                            <li className='cta'><a href='/' className='nav-link'><span>Sign Up</span></a></li>
+                            <li className='cta'><a href='/' className='nav-link'><span>SignUp</span></a></li>
                         </ul>
                     </nav>
                     <a href='/' className='d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black float-right'><span className='icon-menu h3'></span></a>
@@ -66,17 +67,17 @@ const Login = () => {
                                 <p data-aos='fade-up' data-aos-delay='300'><a href='/' className='btn btn-primary py-3 px-5 btn-pill'>Get Started</a></p>
                             </div>
                             <div className='col-lg-5 ml-auto' data-aos='fade-up' data-aos-delay='500' style={{ marginBottom: "20%" }}>
-                                <form className='form-box'>
+                                <form className='form-box' onSubmit={props.onSubmit}>
                                     <h3 className='h4 text-black mb-4'>Login</h3>
                                     <div className='form-group'>
-                                        <input type='text' className='form-control' placeholder='UserName' />
+                                        <input type='text' className='form-control' name="username" placeholder='UserName' required onChange={props.onChange} />
                                     </div>
                                     <div className='form-group'>
-                                        <input type='password' className='form-control' placeholder='Password' />
+                                        <input type='password' className='form-control' name="password" placeholder='Password' required onChange={props.onChange} />
                                     </div>
 
                                     <div className='form-group'>
-                                        <input type='submit' className='btn btn-primary btn-pill' value='Login' />
+                                        <input type='submit' className='btn btn-primary btn-pill' value='Login' onSubmit={props.onSubmit} />
                                     </div>
                                     <div>
                                     <span>No account yet? </span>
