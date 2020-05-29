@@ -1150,3 +1150,13 @@ h1, h2, h3, h4, h5,
               margin-top:30%;
             }
           }
+          
+          #searchTerm{
+            border-width:4px;
+            border-color:white;
+          }
+          
+          #searchButton {
+            margin-left: 15px;
+          }
+    
