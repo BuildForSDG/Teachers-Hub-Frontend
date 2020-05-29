@@ -19,7 +19,7 @@ const LandingPage = () => {
                 </div>
                 <div className='site-mobile-menu-body'></div>
             </div>
-            <Header buttonValue="Login" />
+            <Header buttonValue="Login" url="/login" />
             <Main formName="signUpForm" />
             <Footer />
         </div>

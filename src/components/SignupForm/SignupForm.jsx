@@ -1,26 +1,28 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable import/prefer-default-export */
 import React from "react";
 
 
-const SignupForm = () => (
-        <form method='post' className='form-box'>
+export const SignupForm = (props) => (
+        <form className='form-box' onSubmit={props.onSubmit}>
         <h3 className='h4 text-black mb-4'>Sign Up</h3>
         <div className='form-group'>
-            <input type='email' className='form-control' placeholder='Email Address' />
+            <input type='email' name="email" className='form-control' placeholder='Email Address' onChange={props.onChange} required />
         </div>
         <div className='form-group'>
-            <input type='text' className='form-control' placeholder='UserName' />
+            <input type='text' name="username" className='form-control' placeholder='UserName' onChange={props.onChange} required />
         </div>
         <div className='form-group'>
-            <input type='password' className='form-control' placeholder='Password' />
+            <input type='password' name="password" className='form-control' placeholder='Password' onChange={props.onChange} required />
         </div>
         <div className='form-group mb-4'>
-            <input type='password' className='form-control' placeholder='Confirm Password' />
+            <input type='password' name="confirm_password" className='form-control' placeholder='Confirm Password' onChange={props.onChange} required />
         </div>
         <div className='form-group mb-4'>
         <div className="form-group">
         <label htmlFor="sel1">SignUp as:</label>
-          <select className="form-control" id="role">
-            <option>Teacher</option>
+          <select className="form-control" name="role" id="role" onChange={props.onChange}>
+            <option selected="selected">Teacher</option>
             <option>Institution</option>
           </select>
         </div>
@@ -34,4 +36,3 @@ const SignupForm = () => (
         </div>
     </form>
 );
-export default SignupForm;
