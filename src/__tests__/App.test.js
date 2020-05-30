@@ -1,11 +1,21 @@
 /* eslint-disable import/extensions */
 import React from "react";
-import { render } from "@testing-library/react";
-import App from "../app.js";
+import { shallow } from "enzyme";
+import { Provider } from "react-redux";
+import configureMockStore from "redux-mock-store";
+import Routes from "../app.js";
 
-describe("App", () => {
-  it("renders without crashing", () => {
-    const div = document.createElement("div");
-    render(<App />, div);
+
+const mockStore = configureMockStore();
+const store = mockStore({});
+
+describe("Routes Component", () => {
+  it("should render without throwing an error", () => {
+    const wrap = shallow(
+      <Provider store={store}>
+                    <Routes />
+                </Provider>
+    );
+    expect(wrap).toMatchSnapshot();
   });
 });

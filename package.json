@@ -8,6 +8,9 @@
     "@testing-library/user-event": "^7.1.2",
     "aos": "^2.3.4",
     "axios": "^0.19.2",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "enzyme-to-json": "^3.5.0",
     "eslint-config-airbnb": "^18.1.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
@@ -22,6 +25,7 @@
     "react-scripts": "3.4.1",
     "react-toastify": "^6.0.5",
     "redux": "^4.0.5",
+    "redux-mock-store": "^1.5.4",
     "redux-thunk": "^2.3.0"
   },
   "scripts": {
@@ -32,6 +36,11 @@
     "eject": "react-scripts eject",
     "lint": "eslint  . --ignore-path .gitignore",
     "heroku-postbuild": "yarn build"
+  },
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
   },
   "license": "MIT",
   "eslintConfig": {
@@ -55,6 +64,7 @@
     ]
   },
   "devDependencies": {
+    "axios": "^0.19.2",
     "husky": "^4.2.5",
     "mutationobserver-shim": "^0.3.5",
     "prettier": "2.0.5",

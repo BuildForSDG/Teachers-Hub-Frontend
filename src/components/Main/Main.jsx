@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 import Carousel from "nuka-carousel";
-import SignupForm from "../SignupForm/SignupForm.jsx";
+import SignUpContainer from "../../containers/SignUpContainer.jsx";
 import LoginForm from "../LoginForm/LoginForm.jsx";
 import SrcImg from "../../assets/images/img_4.jpg";
 import SrcImg2 from "../../assets/images/img_2.jpg";
@@ -27,7 +27,7 @@ const Main = (props) => (
                                         <p data-aos='fade-up' data-aos-delay='300'><a href='/' className='btn btn-primary py-3 px-5 btn-pill'>Get Started</a></p>
                                     </div>
                                     <div className='col-lg-5 ml-auto' data-aos='fade-up' data-aos-delay='500'>
-                                        {props.formName === "signUpForm" ? <SignupForm /> : <LoginForm onSubmit={props.onSubmit} onChange={props.onChange} />}
+                                        {props.formName === "signUpForm" ? <SignUpContainer /> : <LoginForm onSubmit={props.onSubmit} onChange={props.onChange} />}
                                     </div>
                                 </div>
                             </div>

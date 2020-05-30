@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { ToastContainer, toast } from "react-toastify";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import loginAction from "../redux/actions/loginAction.jsx";
 import Login from "../components/Login.jsx";
+import loginAction from "../redux/actions/loginAction.jsx";
 
 const jwt = require("jsonwebtoken");
 
@@ -22,7 +22,7 @@ const LoginContainer = () => {
   };
 
   const handleSuccess = () => {
-    if (loginData.data.message === "successfully logged in") {
+    if (loginData.data) {
       toast.success(<p className="text-white">
         Login successful
       </p>);
@@ -59,7 +59,7 @@ const LoginContainer = () => {
 
   return (
       <div>
-          <Login value={loginDetails} onChange={handleChange} onSubmit={handleSubmit} />
+          <Login onChange={handleChange} onSubmit={handleSubmit} />
          {(Object.keys(loginData.data).length === 0
          && !Object.keys(loginData.error).length === 0) ? null : <ToastContainer
         position="top-right"
