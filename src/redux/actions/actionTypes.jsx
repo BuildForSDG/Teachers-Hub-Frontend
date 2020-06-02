@@ -17,3 +17,23 @@ export const signUpFail = (error) => ({
   type: "SIGNUP_FAIL",
   error
 });
+
+export const fetchCoursesSuccess = (payload) => ({
+  type: "FETCH_COURSES_SUCCESS",
+  payload
+});
+
+export const fetchCoursesFail = (error) => ({
+  type: "FETCH_COURSES_FAIL",
+  error
+});
+
+export const fetchSingleCourseSuccess = (payload) => ({
+  type: "FETCH_SINGLE_COURSE_SUCCESS",
+  payload
+});
+
+export const fetchSingleCourseFail = (error) => ({
+  type: "FETCH_SINGLE_COURSE_FAIL",
+  error
+});

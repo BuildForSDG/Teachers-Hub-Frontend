@@ -5,7 +5,7 @@ const Header = (props) => (
         <header className='site-navbar py-4 js-sticky-header site-navbar-target' role='banner'>
                 <div className='container-fluid'>
                     <div className='d-flex align-items-center'>
-                        <div className='site-logo mr-auto w-25'><a href='/'>Teachers Hub</a></div>
+                        <div className='site-logo mr-auto w-25'><a href={props.homeUrl}>Teachers Hub</a></div>
                         <div className='mx-auto text-center'>
                             <nav className='site-navigation position-relative text-right' role='navigation'>
                                 <ul className='site-menu main-menu js-clone-nav mx-auto d-none d-lg-block  m-0 p-0'>

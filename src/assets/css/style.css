@@ -1037,12 +1037,12 @@ h1, h2, h3, h4, h5,
   .course .course-inner-text {
     position: relative;
     padding-top: 35px !important; }
-  .course .course-price {
+  .course .course-name {
     position: absolute;
     padding: 10px 15px;
     background: #7971ea;
     color: #fff;
-    top: -20px;
+    top: 10px;
     right: 0;
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px; }
