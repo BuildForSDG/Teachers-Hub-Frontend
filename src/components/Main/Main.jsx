@@ -1,16 +1,15 @@
 /* eslint-disable react/prop-types */
-import React from "react";
 import Carousel from "nuka-carousel";
-import SignUpContainer from "../../containers/SignUpContainer.jsx";
-import LoginForm from "../LoginForm/LoginForm.jsx";
-import SrcImg from "../../assets/images/img_4.jpg";
-import SrcImg2 from "../../assets/images/img_2.jpg";
-import SrcImg3 from "../../assets/images/img_3.jpg";
-import SrcImg4 from "../../assets/images/undraw_youtube_tutorial.svg";
-import Hero1 from "../../assets/images/hero_1.jpg";
+import React from "react";
 import cabe from "../../assets/images/cabe.png";
 import edx from "../../assets/images/edx.png";
 import futureLearn from "../../assets/images/futureLearn.png";
+import Hero1 from "../../assets/images/hero_1.jpg";
+import SrcImg4 from "../../assets/images/undraw_youtube_tutorial.svg";
+import SignUpContainer from "../../containers/SignUpContainer.jsx";
+import CourseCardContainer from "../../containers/CourseCardContainer.jsx";
+import LoginForm from "../LoginForm/LoginForm.jsx";
+
 
 const Main = (props) => (
         <div>
@@ -45,122 +44,7 @@ const Main = (props) => (
                     </div>
                 </div>
             </div>
-            <div className='site-section courses-entry-wrap' data-aos='fade-up' data-aos-delay='100'>
-                <div className='container'>
-                    <div className='row'>
-                       <Carousel>
-                            <div>
-                                <div className='col-12 nonloop-block-14'>
-                                <div className='card course' style={{
-                                  width: "900px", margin: "0 auto", float: "none", marginBottom: "90px"
-                                }}>
-                                <div className='row no-gutters'>
-                                <div className='col-sm-5'>
-                                <figure className='m-0'>
-                                    <a href='/course/id'><img src={SrcImg} alt='physics' className='img-fluid' /></a>
-                                </figure>
-                            </div>
-                            <div className='col-sm-7 '>
-                                <div className='card-body '>
-                                    <h3><a href='/'>Study Law of Physics</a></h3>
-                                    <p className='card-text'>Gain a philosophical understanding of the role of laws in physics</p>
-                                    <span className='course-price'>Physics</span>
-                                    <div className='meta'><span className='icon-clock-o'></span>4 Lessons / 12 week</div>
-                                    <div className='d-flex border-top stats'>
-                                    <div className='py-3 px-4'><span className='icon-users'></span> 2,193 students</div>
-                                    <div className='py-3 px-4 w-25 ml-auto border-left'><span className='icon-chat'></span> 2</div>
-                                </div>
-                            </div>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                        </div>
-                            <div>
-                                <div className='col-12 nonloop-block-14'>
-                                <div className='card course' style={{
-                                  width: "900px", margin: "0 auto", float: "none", marginBottom: "10px"
-                                }}>
-                                <div className='row no-gutters'>
-                                <div className='col-sm-5'>
-                                 <figure className='m-0'>
-                                    <a href='/'><img src={SrcImg2} alt='design' className='img-fluid' /></a>
-                                </figure>
-                         </div>
-                            <div className='col-sm-7 '>
-                            <div className='card-body '>
-                                <h3><a href='/'>Logo Design Course</a></h3>
-                                <p className='card-text'>Learn Logo Design Online At Your Own Pace.
-                                Start Today and Become an Expert in Days</p>
-                                <span className='course-price'>Design</span>
-                                <div className='meta'><span className='icon-clock-o'></span>4 Lessons / 12 week</div>
-                                <div className='d-flex border-top stats'>
-                                    <div className='py-3 px-4'><span className='icon-users'></span> 2,193 students</div>
-                                    <div className='py-3 px-4 w-25 ml-auto border-left'><span className='icon-chat'></span> 2</div>
-                                </div>
-                            </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                      </div>
-                          <div>
-                            <div className='col-12 nonloop-block-14'>
-                                <div className='card course' style={{
-                                  width: "900px", margin: "0 auto", float: "none", marginBottom: "10px"
-                                }}>
-                                    <div className='row no-gutters'>
-                                        <div className='col-sm-5'>
-                                        <figure className='m-0'>
-                                            <a href='/'><img src={SrcImg3} alt='singlecourse' className='img-fluid' /></a>
-                                        </figure>
-                                    </div>
-                                <div className='col-sm-7 '>
-                                    <div className='card-body '>
-                                    <h3><a href='/'>JS programming Language</a></h3>
-                                    <p className='card-text'>Learn programming fundamentals and basic object-oriented
-                                    concepts using the latest JavaScript syntax.</p>
-                                    <span className='course-price'>Programming</span>
-                                    <div className='meta'><span className='icon-clock-o'></span>4 Lessons / 12 week</div>
-                                    <div className='d-flex border-top stats'>
-                                        <div className='py-3 px-4'><span className='icon-users'></span> 2,193 students</div>
-                                        <div className='py-3 px-4 w-25 ml-auto border-left'><span className='icon-chat'></span> 2</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                     </div>
-                    </div>
-                </div>
-                <div className='col-12 nonloop-block-14'>
-                    <div className='card course' style={{
-                      width: "900px", margin: "0 auto", float: "none", marginBottom: "10px"
-                    }}>
-                        <div className='row no-gutters'>
-                            <div className='col-sm-5'>
-                                <figure className='m-0'>
-                                    <a href='/'><img src={SrcImg2} alt='maths' className='img-fluid' /></a>
-                                </figure>
-                             </div>
-                        <div className='col-sm-7 '>
-                            <div className='card-body '>
-                            <h3><a href='/'>Fundamentals of Mathematics</a></h3>
-                            <p className='card-text'>The essential tools for mastering algebra, logic, and number theory!</p>
-                            <span className='course-price'>Mathematics</span>
-                            <div className='meta'><span className='icon-clock-o'></span>4 Lessons / 12 week</div>
-                            <div className='d-flex border-top stats'>
-                                <div className='py-3 px-4'><span className='icon-users'></span> 2,193 students</div>
-                                <div className='py-3 px-4 w-25 ml-auto border-left'><span className='icon-chat'></span> 2</div>
-                            </div>
-                        </div>
-                        </div>
-                     </div>
-                </div>
-                </div>
-                        </Carousel >
-                    </div>
-                </div>
-            </div>
+            <CourseCardContainer />
             <div className='site-section' id='blogs-section'>
                 <div className='container'>
                     <div className='row mb-3 justify-content-center'>
