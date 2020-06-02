@@ -8,13 +8,13 @@ const CourseCardContainer = () => {
   const dispatch = useDispatch();
   const courseData = useSelector((state) => state.fetchCoursesReducer);
 
+
   useEffect(() => {
     dispatch(fetchCoursesAction());
   }, []);
   return (
       <div>
-              <CourseCard data={courseData}/>
-
+        <CourseCard data={courseData} />
       </div>
   );
 };

@@ -10,6 +10,15 @@ const SingleCourseContainer = (props) => {
   useEffect(() => {
     dispatch(fetchSingleCourseAction(props.match.params.id));
   }, []);
+
+
+  // useEffect(() => {
+  //   if (singleCourseData.data.course) {
+  //     props.history.push(`/courses/${props.match.params.id}`);
+  //   }
+  // }, [singleCourseData]);
+
+
   return (
         <div>
         <SingleCourse data={singleCourseData} />
