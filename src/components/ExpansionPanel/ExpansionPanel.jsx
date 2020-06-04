@@ -23,10 +23,10 @@ const CourseExpansionPanel = (props) => {
     <div className={classes.root}>
       <ExpansionPanel>
         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography className={classes.heading}>Course Overview</Typography>
+          <Typography >Course Overview</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
-          <Typography className={classes.heading}>
+          <Typography>
           <ul>
             <li><a href="/" style={{ color: "inherit", textDecoration: "underline" }}>Beginning course(1m 05s)</a></li>
             <li><a href="/" style={{ color: "inherit", textDecoration: "underline" }}>Learning the basics(5m 05s)</a></li>
@@ -38,10 +38,10 @@ const CourseExpansionPanel = (props) => {
       </ExpansionPanel>
       <ExpansionPanel>
         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography className={classes.heading}>Introduction to course</Typography>
+          <Typography>Introduction to course</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
-          <Typography className={classes.heading}>
+          <Typography>
             <ul>
             <li><a href="/" style={{ color: "inherit", textDecoration: "underline" }}>Beginning course(1m 05s)</a></li>
             <li><a href="/" style={{ color: "inherit", textDecoration: "underline" }}>Learning the basics(5m 05s)</a></li>
@@ -53,10 +53,10 @@ const CourseExpansionPanel = (props) => {
       </ExpansionPanel>
       <ExpansionPanel>
         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography className={classes.heading}>Deep Dive into the fundamentals</Typography>
+          <Typography>Deep Dive into the fundamentals</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
-          <Typography className={classes.heading}>
+          <Typography>
             <ul>
             <li><a href="/" style={{ color: "inherit", textDecoration: "underline" }}>Beginning course(1m 05s)</a></li>
             <li><a href="/" style={{ color: "inherit", textDecoration: "underline" }}>Learning the basics(5m 05s)</a></li>
@@ -67,10 +67,10 @@ const CourseExpansionPanel = (props) => {
       </ExpansionPanel>
       <ExpansionPanel>
         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography className={classes.heading}>Conclusion</Typography>
+          <Typography>Conclusion</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
-          <Typography className={classes.heading}>
+          <Typography>
             <ul>
             <li><a href="/" style={{ color: "inherit", textDecoration: "underline" }}>Beginning course(1m 05s)</a></li>
             <li><a href="/" style={{ color: "inherit", textDecoration: "underline" }}>Learning the basics(5m 05s)</a></li>
