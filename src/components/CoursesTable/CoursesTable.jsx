@@ -31,15 +31,15 @@ const CoursesTable = () => {
         </tr>
       </thead>
       <tbody>
-        {courses.map((courses) => (
-          <tr>
-            <td key={courses.id}>{courses.course_name}</td>
-            <td key={courses.id}>
-              <Link to={`teacher/courses/${courses.course_id}`}>{courses.course_title}</Link>
+        {courses.map((course) => (
+          <tr key={course.id}>
+            <td>{course.course_name}</td>
+            <td>
+              <Link to={`teacher/courses/${course.course_id}`}>{course.course_title}</Link>
             </td>
-            <td key={courses.id}>{courses.course_description}</td>
-            <td key={courses.id}>{courses.course_duration}</td>
-            <td key={courses.id}>{courses.total_enrolled}</td>
+            <td>{course.course_description}</td>
+            <td>{course.course_duration}</td>
+            <td>{course.total_enrolled}</td>
           </tr>
         ))}
       </tbody>
