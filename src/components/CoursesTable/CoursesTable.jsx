@@ -12,7 +12,6 @@ const CoursesTable = () => {
     axios
       .get(`${REACT_APP_BASE_URL}/api/v1/courses`)
       .then((res) => {
-        console.log(res.data);
         loadcourses(res.data.courses);
       })
       .catch((err) => {
@@ -34,10 +33,10 @@ const CoursesTable = () => {
       <tbody>
         {courses.map((courses) => (
           <tr>
+            <td key={courses.id}>{courses.course_name}</td>
             <td key={courses.id}>
-              <Link to={`teacher/courses/${courses.course_id}`}>{courses.course_name}</Link>
+              <Link to={`teacher/courses/${courses.course_id}`}>{courses.course_title}</Link>
             </td>
-            <td key={courses.id}>{courses.course_title}</td>
             <td key={courses.id}>{courses.course_description}</td>
             <td key={courses.id}>{courses.course_duration}</td>
             <td key={courses.id}>{courses.total_enrolled}</td>
