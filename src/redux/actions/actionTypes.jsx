@@ -37,3 +37,13 @@ export const fetchSingleCourseFail = (error) => ({
   type: "FETCH_SINGLE_COURSE_FAIL",
   error
 });
+
+export const fetchCourseModuleSuccess = (payload) => ({
+  type: "FETCH_COURSE_MODULE_SUCCESS",
+  payload
+});
+
+export const fetchCourseModulesFail = (error) => ({
+  type: "FETCH_COURSE_MODULE_FAIL",
+  error
+});
