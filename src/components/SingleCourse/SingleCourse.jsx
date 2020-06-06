@@ -1,11 +1,12 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable import/prefer-default-export */
 import React from "react";
-import CourseExpansionPanel from "../ExpansionPanel/ExpansionPanel.jsx";
 import Footer from "../Footer/Footer.jsx";
 import Header from "../Header/Header.jsx";
 import SrcImg4 from "../../assets/images/undraw_youtube_tutorial.svg";
 import { capitalize } from "./utils";
+import CourseExpansionPanel from "../ExpansionPanel/ExpansionPanel.jsx";
+
 
 export const SingleCourse = (props) => {
   const isAuthenticated = localStorage.getItem("token");
@@ -41,7 +42,18 @@ export const SingleCourse = (props) => {
 
             <p className="mt-4"><a href="#" className="btn btn-primary">Enroll</a></p>
           </div>
-          <CourseExpansionPanel />
+          {props.modules.data && props.modules.data.message
+            ? props.modules.data.message.map((module) => (
+              <div key={module.module_id}>
+                <CourseExpansionPanel
+                id = {module.module_id}
+                course_id = {module.course_id}
+                module_date_added = {module.module_date_added}
+                module_description = {module.module_description}
+                module_title = {module.module_title}
+                />
+                </div>
+            )) : null}
           <div className="pt-5">
             <h3 className="mb-5">Discussion</h3>
             <ul className="comment-list">
