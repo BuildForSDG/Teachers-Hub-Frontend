@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
@@ -7,6 +7,8 @@ import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import axios from "axios";
+import ModuleContent from "../ModuleContent/ModuleContent.jsx";
 
 const styles = (theme) => ({
   root: {
@@ -19,18 +21,27 @@ const styles = (theme) => ({
 });
 
 const CourseExpansionPanel = (props) => {
+  const [moduleContent, setModuleContent] = useState([]);
+  const { REACT_APP_BASE_URL } = process.env;
+
+
   const { classes } = props;
+  const handlePanelClick = () => {
+    axios
+      .get(`${REACT_APP_BASE_URL}/api/v1/modules/${props.id}`)
+      .then((res) => {
+        setModuleContent(res.data.modules);
+      })
+      .catch((err) => err);
+  };
   return (
     <div className={classes.root}>
-      <ExpansionPanel>
+      <ExpansionPanel onClick={handlePanelClick}>
         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
           <Typography className={classes.heading}>{props.module_title}</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails className={classes.heading}>
-          <ul>
-            <li><a href="/" style={{ color: "inherit", textDecoration: "underline" }}>{props.module_content}</a></li>
-
-            </ul>
+        <ModuleContent module_id={props.id} moduleData={moduleContent} />
         </ExpansionPanelDetails>
       </ExpansionPanel>
     </div>

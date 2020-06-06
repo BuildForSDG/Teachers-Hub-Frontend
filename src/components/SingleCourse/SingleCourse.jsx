@@ -42,13 +42,12 @@ export const SingleCourse = (props) => {
 
             <p className="mt-4"><a href="#" className="btn btn-primary">Enroll</a></p>
           </div>
-          {props.modules.data.message
+          {props.modules.data && props.modules.data.message
             ? props.modules.data.message.map((module) => (
               <div key={module.module_id}>
                 <CourseExpansionPanel
                 id = {module.module_id}
                 course_id = {module.course_id}
-                module_content = {module.module_content}
                 module_date_added = {module.module_date_added}
                 module_description = {module.module_description}
                 module_title = {module.module_title}
