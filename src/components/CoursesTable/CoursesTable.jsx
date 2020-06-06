@@ -31,7 +31,7 @@ const CoursesTable = () => {
       <tbody>
         {courses.map((course) => (
           <tr key={course.id}>
-            <td>{course.course_name}</td>
+            <td>{course.course_category}</td>
             <td>
               <Link to={`teacher/courses/${course.course_id}`}>{course.course_title}</Link>
             </td>

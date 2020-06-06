@@ -23,14 +23,12 @@ const styles = (theme) => ({
 const CourseExpansionPanel = (props) => {
   const [moduleContent, setModuleContent] = useState([]);
   const { REACT_APP_BASE_URL } = process.env;
-
-
   const { classes } = props;
   const handlePanelClick = () => {
     axios
-      .get(`${REACT_APP_BASE_URL}/api/v1/modules/${props.id}`)
+      .get(`${REACT_APP_BASE_URL}/api/v1/courses/${props.course_id}/modules/${props.id}`)
       .then((res) => {
-        setModuleContent(res.data.modules);
+        setModuleContent(res.data.module_content);
       })
       .catch((err) => err);
   };
