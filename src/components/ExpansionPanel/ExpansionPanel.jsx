@@ -1,4 +1,5 @@
-import React from "react";
+/* eslint-disable react/prop-types */
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
@@ -6,6 +7,8 @@ import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import axios from "axios";
+import ModuleContent from "../ModuleContent/ModuleContent.jsx";
 
 const styles = (theme) => ({
   root: {
@@ -18,65 +21,25 @@ const styles = (theme) => ({
 });
 
 const CourseExpansionPanel = (props) => {
+  const [moduleContent, setModuleContent] = useState([]);
+  const { REACT_APP_BASE_URL } = process.env;
   const { classes } = props;
+  const handlePanelClick = () => {
+    axios
+      .get(`${REACT_APP_BASE_URL}/api/v1/courses/${props.course_id}/modules/${props.id}`)
+      .then((res) => {
+        setModuleContent(res.data.module_content);
+      })
+      .catch((err) => err);
+  };
   return (
     <div className={classes.root}>
-      <ExpansionPanel>
+      <ExpansionPanel onClick={handlePanelClick}>
         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography className={classes.heading}>Course Overview</Typography>
+          <Typography className={classes.heading}>{props.module_title}</Typography>
         </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
-          <Typography className={classes.heading}>
-          <ul>
-            <li><a href="/" style={{ color: "inherit", textDecoration: "underline" }}>Beginning course(1m 05s)</a></li>
-            <li><a href="/" style={{ color: "inherit", textDecoration: "underline" }}>Learning the basics(5m 05s)</a></li>
-            <li><a href="/" style={{ color: "inherit", textDecoration: "underline" }}>Working with files(15m 00s)</a></li>
-            </ul>
-
-          </Typography>
-        </ExpansionPanelDetails>
-      </ExpansionPanel>
-      <ExpansionPanel>
-        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography className={classes.heading}>Introduction to course</Typography>
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
-          <Typography className={classes.heading}>
-            <ul>
-            <li><a href="/" style={{ color: "inherit", textDecoration: "underline" }}>Beginning course(1m 05s)</a></li>
-            <li><a href="/" style={{ color: "inherit", textDecoration: "underline" }}>Learning the basics(5m 05s)</a></li>
-            <li><a href="/" style={{ color: "inherit", textDecoration: "underline" }}>Working with files(15m 00s)</a></li>
-            </ul>
-
-          </Typography>
-        </ExpansionPanelDetails>
-      </ExpansionPanel>
-      <ExpansionPanel>
-        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography className={classes.heading}>Deep Dive into the fundamentals</Typography>
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
-          <Typography className={classes.heading}>
-            <ul>
-            <li><a href="/" style={{ color: "inherit", textDecoration: "underline" }}>Beginning course(1m 05s)</a></li>
-            <li><a href="/" style={{ color: "inherit", textDecoration: "underline" }}>Learning the basics(5m 05s)</a></li>
-            <li><a href="/" style={{ color: "inherit", textDecoration: "underline" }}>Working with files(15m 00s)</a></li>
-            </ul>
-          </Typography>
-        </ExpansionPanelDetails>
-      </ExpansionPanel>
-      <ExpansionPanel>
-        <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography className={classes.heading}>Conclusion</Typography>
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
-          <Typography className={classes.heading}>
-            <ul>
-            <li><a href="/" style={{ color: "inherit", textDecoration: "underline" }}>Beginning course(1m 05s)</a></li>
-            <li><a href="/" style={{ color: "inherit", textDecoration: "underline" }}>Learning the basics(5m 05s)</a></li>
-            <li><a href="/" style={{ color: "inherit", textDecoration: "underline" }}>Working with files(15m 00s)</a></li>
-            </ul>
-          </Typography>
+        <ExpansionPanelDetails className={classes.heading}>
+        <ModuleContent module_id={props.id} moduleData={moduleContent} />
         </ExpansionPanelDetails>
       </ExpansionPanel>
     </div>
