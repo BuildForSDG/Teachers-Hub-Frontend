@@ -32,7 +32,7 @@ export const CourseCard = (props) => (
                                 <div className='card-body '>
                                     <h3>{course.course_title.toUpperCase()}</h3>
                                     <p className='card-text'>{course.course_description}</p>
-                                    <span className='course-name'>{course.course_name}</span>
+                                    <span className='course-name'>{course.course_category}</span>
                                     <div className='meta'><span className='icon-clock-o'></span>Duration: {course.course_duration} hours</div>
                                     <div className='d-flex border-top stats'>
                                     <div className='py-3 px-4'><span className='icon-users'></span> 2,193 students</div>

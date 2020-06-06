@@ -3,7 +3,7 @@ import React from "react";
 
 const ModuleContent = (props) => (<div>
   <ul>
-    {props.moduleData.length > 0 ? props.moduleData.map((module, index) => (
+    {props.moduleData && props.moduleData.length > 0 ? props.moduleData.map((module, index) => (
         <li key={index}>
         <a href="/modules/">{module.module_content_title}</a>
       </li>
