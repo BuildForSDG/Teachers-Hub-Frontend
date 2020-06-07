@@ -5,6 +5,7 @@ import * as Icon from "react-bootstrap-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { Pagination } from "@material-ui/lab";
 import fetchCoursesAction from "../../../redux/actions/fetchCoursesAction.jsx";
+import AddCourse from "./CourseForm.jsx";
 
 
 const Courses = () => {
@@ -42,8 +43,7 @@ const Courses = () => {
                                 <td>{course.total_enrolled}</td>
                                 <td>{course.course_description}</td>
                                 <td>
-                                    <span> <Icon.Trash /></span>&nbsp;&nbsp;&nbsp;
-                                    <span><Icon.Pencil /></span>
+                                    <span> <Icon.Trash /></span>
                                 </td>
                             </tr>
                     )) : null}
@@ -51,7 +51,10 @@ const Courses = () => {
             </Table>
             <div style={{ float: "right" }}>
             <Pagination count={10} color="primary" />
-
+            </div>
+            <br /><br/>
+            <div>
+            <AddCourse />
             </div>
         </div>
   );

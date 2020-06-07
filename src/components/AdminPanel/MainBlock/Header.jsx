@@ -3,7 +3,6 @@ import React from "react";
 import { string } from "prop-types";
 import { Row } from "simple-flexbox";
 import { StyleSheet, css } from "aphrodite";
-import IconSearch from "../../../assets/icon-search";
 import IconBellNew from "../../../assets/icon-bell-new";
 
 const styles = StyleSheet.create({
@@ -73,8 +72,11 @@ function HeaderComponent(props) {
             <span className={css(styles.title)}>{title}</span>
             <Row vertical="center">
                 <div className={css(styles.iconStyles)}>
-                    <IconSearch />
-                </div>
+                <form className="form-inline">
+                <input className="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search"
+                  aria-label="Search" />
+              </form>
+              </div>
                 <div className={css(styles.iconStyles)}>
                     <IconBellNew />
                 </div>
