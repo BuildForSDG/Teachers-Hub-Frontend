@@ -47,3 +47,14 @@ export const fetchCourseModulesFail = (error) => ({
   type: "FETCH_COURSE_MODULE_FAIL",
   error
 });
+
+export const fetchCommentsFail = (error) => ({
+  type: "FETCH_COMMENTS_FAIL",
+  error
+});
+
+
+export const fetchCommentsSuccess = (payload) => ({
+  type: "FETCH_COMMENTS_SUCCESS",
+  payload
+});
