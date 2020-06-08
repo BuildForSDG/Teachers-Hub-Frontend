@@ -1,4 +1,4 @@
-Teachers Hub Frontend
+## Teachers Hub Frontend
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/dc30af0b99f44231957a02ea3498633b)](https://app.codacy.com/gh/BuildForSDG/Team-273-Frontend?utm_source=github.com&utm_medium=referral&utm_content=BuildForSDG/Team-273-Frontend&utm_campaign=Badge_Grade_Settings)
 [![Build Status](https://travis-ci.org/BuildForSDG/Teachers-Hub-Frontend.svg?branch=develop)](https://travis-ci.org/BuildForSDG/Teachers-Hub-Frontend)
