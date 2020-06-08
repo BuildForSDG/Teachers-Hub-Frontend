@@ -20,7 +20,8 @@ const Header = (props) => (
                         <div className='ml-auto w-25'>
                             <nav className='site-navigation position-relative text-right' role='navigation'>
                                 <ul className='site-menu main-menu site-menu-dark js-clone-nav mr-auto d-none d-lg-block m-0 p-0'>
-                                    <li className='cta'><a href={props.url} className='nav-link'><span>{props.buttonValue}</span></a></li>
+                                    <li className='cta'><a href={props.url} className='nav-link'
+                                    onClick={() => (props.buttonValue === "LogOut" ? localStorage.removeItem("token") : null)}><span>{props.buttonValue}</span></a></li>
                                 </ul>
                             </nav>
                             <a href='/' className='d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black float-right'><span className='icon-menu h3'></span></a>
