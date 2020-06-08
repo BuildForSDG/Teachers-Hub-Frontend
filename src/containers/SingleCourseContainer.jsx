@@ -17,7 +17,8 @@ const SingleCourseContainer = (props) => {
 
   return (
         <div>
-        <SingleCourse data={singleCourseData} modules={courseModuleData} />
+        <SingleCourse data={singleCourseData}
+        modules={courseModuleData} course_id={props.match.params.id}/>
     </div>
   );
 };

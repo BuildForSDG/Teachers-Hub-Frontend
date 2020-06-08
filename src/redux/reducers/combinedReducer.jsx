@@ -4,6 +4,7 @@ import signUpReducer from "./signUpReducer.jsx";
 import fetchCoursesReducer from "./fetchCoursesReducer.jsx";
 import fetchSingleCourseReducer from "./fetchSingleCourseReducer.jsx";
 import fetchCourseModuleReducer from "./fetchCourseModuleReducer.jsx";
+import fetchCourseCommentsReducer from "./fetchCourseCommentsReducer.jsx";
 
 
 export default combineReducers({
@@ -11,5 +12,6 @@ export default combineReducers({
   signUpReducer,
   fetchCoursesReducer,
   fetchSingleCourseReducer,
-  fetchCourseModuleReducer
+  fetchCourseModuleReducer,
+  fetchCourseCommentsReducer
 });

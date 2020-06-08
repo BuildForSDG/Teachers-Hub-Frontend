@@ -6,6 +6,7 @@ import Header from "../Header/Header.jsx";
 import SrcImg4 from "../../assets/images/undraw_youtube_tutorial.svg";
 import { capitalize } from "./utils";
 import CourseExpansionPanel from "../ExpansionPanel/ExpansionPanel.jsx";
+import CommentsContainer from "../../containers/CommentContainer.jsx";
 
 
 export const SingleCourse = (props) => {
@@ -55,122 +56,7 @@ export const SingleCourse = (props) => {
                 </div>
             )) : null}
           <div className="pt-5">
-            <h3 className="mb-5">Discussion</h3>
-            <ul className="comment-list">
-              <li className="comment">
-                <div className="comment-body">
-                  <h6>Jean Doe</h6>
-                  <div className="meta">January 9, 2018 at 2:21pm</div>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Pariatur quidem laborum necessitatibus, ipsam impedit vitae
-                    autem, eum officia, fugiat saepe enim sapiente iste iure!
-                    Quam voluptas earum impedit necessitatibus, nihil?</p>
-                  <p><a href="#" className="reply">Reply</a></p>
-                </div>
-              </li>
-
-              <li className="comment">
-                <div className="comment-body">
-                  <h6>Jean Doe</h6>
-                  <div className="meta">January 9, 2018 at 2:21pm</div>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Pariatur quidem laborum necessitatibus,
-                    ipsam impedit vitae autem, eum officia,
-                    fugiat saepe enim sapiente iste iure!
-                    Quam voluptas earum impedit necessitatibus, nihil?</p>
-                  <p><a href="#" className="reply">Reply</a></p>
-                </div>
-
-                <ul className="children">
-                  <li className="comment">
-                    <div className="comment-body">
-                      <h3>Jean Doe</h3>
-                      <div className="meta">January 9, 2018 at 2:21pm</div>
-                      <p>Lorem ipsum dolor sit amet,
-                        consectetur adipisicing elit.
-                        Pariatur quidem laborum necessitatibus,
-                        ipsam impedit vitae autem, eum officia,
-                        fugiat saepe enim sapiente iste iure!
-                        Quam voluptas earum impedit necessitatibus, nihil?</p>
-                      <p><a href="#" className="reply">Reply</a></p>
-                    </div>
-
-
-                    <ul className="children">
-                      <li className="comment">
-                        <div className="comment-body">
-                          <h6>Jean Doe</h6>
-                          <div className="meta">January 9, 2018 at 2:21pm</div>
-                          <p>Lorem ipsum dolor sit amet,
-                            consectetur adipisicing elit.
-                            Pariatur quidem laborum necessitatibus,
-                            ipsam impedit vitae autem, eum officia,
-                            fugiat saepe enim sapiente iste iure!
-                            Quam voluptas earum impedit necessitatibus, nihil?</p>
-                          <p><a href="#" className="reply">Reply</a></p>
-                        </div>
-
-                          <ul className="children">
-                            <li className="comment">
-                              <div className="comment-body">
-                                <h6>Jean Doe</h6>
-                                <div className="meta">January 9, 2018 at 2:21pm</div>
-                                <p>Lorem ipsum dolor sit amet,
-                                  consectetur adipisicing elit.
-                                  Pariatur quidem laborum necessitatibus,
-                                  ipsam impedit vitae autem, eum officia,
-                                  fugiat saepe enim sapiente iste iure!
-                                  Quam voluptas earum impedit necessitatibus, nihil?</p>
-                                <p><a href="#" className="reply">Reply</a></p>
-                              </div>
-                            </li>
-                          </ul>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
-
-              <li className="comment">
-                <div className="comment-body">
-                  <h6>Jean Doe</h6>
-                  <div className="meta">January 9, 2018 at 2:21pm</div>
-                  <p>Lorem ipsum dolor sit amet,
-                    consectetur adipisicing elit.
-                    Pariatur quidem laborum necessitatibus,
-                    ipsam impedit vitae autem, eum officia,
-                    fugiat saepe enim sapiente iste iure!
-                    Quam voluptas earum impedit necessitatibus, nihil?</p>
-                  <p><a href="#" className="reply">Reply</a></p>
-                </div>
-              </li>
-            </ul>
-            <div className="comment-form-wrap pt-5">
-              <h3 className="mb-5">Leave a comment</h3>
-              <form action="#" className="p-5 bg-light">
-                <div className="form-group">
-                  <label htmlFor="name">Name *</label>
-                  <input type="text" className="form-control" id="name" />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="email">Email *</label>
-                  <input type="email" className="form-control" id="email" />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="website">Website</label>
-                  <input type="url" className="form-control" id="website" />
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="message">Message</label>
-                  <textarea name="" id="message" cols="30" rows="10" className="form-control"></textarea>
-                </div>
-                <div className="form-group">
-                  <input type="submit" value="Post Comment" className="btn btn-primary" />
-                </div>
-
-              </form>
-            </div>
+           <CommentsContainer courseId={props.course_id} />
           </div>
         </div>
         <div className="col-lg-4 pl-lg-5">
