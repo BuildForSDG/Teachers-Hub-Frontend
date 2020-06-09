@@ -68,39 +68,32 @@ const styles = StyleSheet.create({
   }
 });
 
-class CardComponent extends React.Component {
-  renderItem(item, index) {
-    return (<Column flexGrow={1} className={css(styles.itemContainer)} key={`item-${index}`}
+const CardComponent = (props) => {
+  const renderItem = (item, index) => (
+    <Column flexGrow={1} className={css(styles.itemContainer)} key={`item-${index}`}
             breakpoints={{ 426: css(styles.itemContainerMobile) }}>
             {item}
-        </Column>);
-  }
-
-  render() {
-    const {
-      title, link, subtitle, subtitleTwo, items, containerStyles
-    } = this.props;
-    return (
+    </Column>);
+  return (
             <Column flexGrow={1}
-            className={css(styles.container, containerStyles)}
+            className={css(styles.container, props.containerStyles)}
             breakpoints={{ 426: css(styles.containerMobile) }}>
                 <Row horizontal="space-between">
                     <Column>
-                        <span className={css(styles.title)}>{title}</span>
+                        <span className={css(styles.title)}>{props.title}</span>
                         <Row style={{ marginTop: 8, marginBottom: 16 }}>
                             <span
-                            className={css(styles.subtitle)}>{subtitle}</span>
-                            {subtitleTwo
+                            className={css(styles.subtitle)}>{props.subtitle}</span>
+                            {props.subtitleTwo
                             && <span
-                            className={css(styles.subtitle, styles.subtitle2)}>{subtitleTwo}</span>}
+                            className={css(styles.subtitle, styles.subtitle2)}>
+                              {props.subtitleTwo}</span>}
                         </Row>
                     </Column>
-                    <span className={css(styles.link)}>{link}</span>
                 </Row>
-                {items.map(this.renderItem)}
+                {props.items.map(renderItem)}
             </Column>
-    );
-  }
-}
+  );
+};
 
 export default CardComponent;

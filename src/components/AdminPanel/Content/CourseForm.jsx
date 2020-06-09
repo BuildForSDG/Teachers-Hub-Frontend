@@ -19,7 +19,6 @@ const schema = yup.object({
 const AddCourse = () => (
     <Formik
       validationSchema={schema}
-      onSubmit={console.log}
       initialValues={{
         CourseTitle: "Default",
         courseCategory: "Physics"
