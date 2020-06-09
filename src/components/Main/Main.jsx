@@ -1,15 +1,13 @@
 /* eslint-disable react/prop-types */
-import Carousel from "nuka-carousel";
 import React from "react";
 import cabe from "../../assets/images/cabe.png";
 import edx from "../../assets/images/edx.png";
 import futureLearn from "../../assets/images/futureLearn.png";
 import Hero1 from "../../assets/images/hero_1.jpg";
-import SrcImg4 from "../../assets/images/undraw_youtube_tutorial.svg";
 import SignUpContainer from "../../containers/SignUpContainer.jsx";
 import CourseCardContainer from "../../containers/CourseCardContainer.jsx";
 import LoginForm from "../LoginForm/LoginForm.jsx";
-
+import BlogCardContainer from "../../containers/BlogContainer.jsx";
 
 const Main = (props) => (
         <div>
@@ -56,34 +54,7 @@ const Main = (props) => (
                               create a unique and beautiful blog for free.</p>
                         </div>
                     </div>
-                    <Carousel style={{ minHeight: "100vh" }} slidesToShow={1} cellAlign="center" cellSpacing={20} dragging={true}>
-                    <div className='row mb-5 align-items-center'>
-
-                        <div className='col-lg-7 mb-5' data-aos='fade-up' data-aos-delay='100'>
-                            <img src={SrcImg4} alt='blog' className='img-fluid' width={900} height={700} />
-                        </div>
-                    <div className='col-lg-4 ml-auto' data-aos='fade-up' data-aos-delay='200'>
-                        <h2 className='text-black mb-4'>Three ways for eductors
-                        to practice social emotional learning</h2>
-                        <p className='mb-4'>With schools and businesses closed all around the world,
-                         many of us are learning to cope with...</p>
-                         <div><div><button type="button" className="btn btn-secondary">READ MORE</button></div></div>
-                    </div>
-                </div>
-                <div className='row mb-5 align-items-center'>
-
-                <div className='col-lg-7 mb-5' data-aos='fade-up' data-aos-delay='100'>
-                    <img src={SrcImg4} alt='blog' className='img-fluid' />
-                </div>
-                <div className='col-lg-4 ml-auto' data-aos='fade-up' data-aos-delay='200'>
-                  <h2 className='text-black mb-4'>Three ways for eductors
-                to practice social emotional learning</h2>
-                  <p className='mb-4'>With schools and businesses closed all around the world,
-                many of us are learning to cope with...</p>
-                <div><div><button type="button" className="btn btn-secondary">READ MORE</button></div></div>
-                </div>
-                </div>
-                </Carousel>
+                    <BlogCardContainer />
                 </div>
             </div>
             <div className='site-section' id='partners-section'>
