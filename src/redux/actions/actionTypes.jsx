@@ -58,3 +58,14 @@ export const fetchCommentsSuccess = (payload) => ({
   type: "FETCH_COMMENTS_SUCCESS",
   payload
 });
+
+
+export const fetchBlogsSuccess = (payload) => ({
+  type: "FETCH_BLOGS_SUCCESS",
+  payload
+});
+
+export const fetchBlogsFail = (error) => ({
+  type: "FETCH_BLOGS_FAIL",
+  error
+});
