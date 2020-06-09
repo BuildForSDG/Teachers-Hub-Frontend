@@ -3,7 +3,6 @@
 import React from "react";
 import Footer from "../Footer/Footer.jsx";
 import Header from "../Header/Header.jsx";
-import SrcImg4 from "../../assets/images/undraw_youtube_tutorial.svg";
 import { capitalize } from "./utils";
 import CourseExpansionPanel from "../ExpansionPanel/ExpansionPanel.jsx";
 import CommentsContainer from "../../containers/CommentContainer.jsx";
@@ -64,10 +63,10 @@ export const SingleCourse = (props) => {
           <div className="mb-5 text-center border rounded course-instructor">
             <h3 className="mb-5 text-black text-uppercase h6 border-bottom pb-3">Course Instructor</h3>
             <div className="mb-4 text-center">
-              <img src={SrcImg4} alt="Image" className="w-25 rounded-circle mb-4" />
-              <h3 className="h5 text-black mb-4">Christine Downeyy</h3>
-              <p>Lorem ipsum dolor sit amet sectetur adipisicing elit.
-                Ipsa porro expedita libero pariatur vero eos.</p>
+              <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="Image" className="w-25 rounded-circle mb-4" />
+              <a href="#"><h3 className="h5 text-black mb-4">{props.data.data.course
+                ? capitalize(props.data.data.course.course_instructor) : null}</h3></a>
+              <p>More than 5 years teaching experience having great mentorship abilities... .</p>
             </div>
           </div>
 
