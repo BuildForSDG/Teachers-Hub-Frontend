@@ -23,7 +23,7 @@ export const SignupForm = (props) => (
         <label htmlFor="sel1">SignUp as:</label>
           <select className="form-control" name="role" id="role" onChange={props.onChange}>
             <option selected="selected">Teacher</option>
-            <option>Institution</option>
+            <option>Instructor</option>
           </select>
         </div>
         </div>
