@@ -42,7 +42,7 @@ const AddCourse = () => (
                 onChange={handleChange}
                 isValid={touched.courseTitle && !errors.courseTitle}
               />
-              <Form.Control.Feedback tooltip>Looks good!</Form.Control.Feedback>
+              <Form.Control.Feedback tooltip="true">Looks good!</Form.Control.Feedback>
             </Form.Group>
             <Form.Group as={Col} md="4" controlId="validationFormik102">
               <Form.Label>Course Category</Form.Label>
@@ -54,7 +54,7 @@ const AddCourse = () => (
                 isValid={touched.courseCategory && !errors.courseCategory}
               />
 
-              <Form.Control.Feedback tooltip>Looks good!</Form.Control.Feedback>
+              <Form.Control.Feedback tooltip="true">Looks good!</Form.Control.Feedback>
             </Form.Group>
             <Form.Group as={Col} md="4" controlId="validationFormikUsername2">
               <Form.Label>Duration</Form.Label>
@@ -68,7 +68,7 @@ const AddCourse = () => (
                   onChange={handleChange}
                   isInvalid={!!errors.Duration}
                 />
-                <Form.Control.Feedback type="invalid" tooltip>
+                <Form.Control.Feedback type="invalid" tooltip="true">
                   {errors.Duration}
                 </Form.Control.Feedback>
               </InputGroup>
@@ -86,7 +86,7 @@ const AddCourse = () => (
                 isInvalid={!!errors.Organization}
               />
 
-              <Form.Control.Feedback type="invalid" tooltip>
+              <Form.Control.Feedback type="invalid" tooltip="true">
                 {errors.Organization}
               </Form.Control.Feedback>
             </Form.Group>
@@ -100,7 +100,7 @@ const AddCourse = () => (
                 onChange={handleChange}
                 isInvalid={!!errors.Description}
               />
-              <Form.Control.Feedback type="invalid" tooltip>
+              <Form.Control.Feedback type="invalid" tooltip="true">
                 {errors.Description}
               </Form.Control.Feedback>
             </Form.Group>

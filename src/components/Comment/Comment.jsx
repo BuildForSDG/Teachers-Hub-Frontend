@@ -5,7 +5,7 @@ import moment from "moment";
 
 export const Comment = (props) => (
         <div>
-            <div className="row bootstrap snippets">
+            <div>
                 <div>
                     <div className="comment-wrapper">
                         <div className="panel panel-info">

@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 /* eslint-disable react/prop-types */
 /* eslint-disable import/prefer-default-export */
 import React from "react";
@@ -12,7 +13,8 @@ export const SingleCourse = (props) => {
   const isAuthenticated = localStorage.getItem("token");
   return (
     <div>
-    {isAuthenticated ? <Header buttonValue="LogOut" url="/" homeUrl="/"/> : <Header buttonValue="Login" url="/login" homeUrl="/"/>}
+{isAuthenticated ? <Header buttonValue="LogOut" url="/" homeUrl="/admin"/>
+  : <Header buttonValue="Login" url="/login" homeUrl="/"/>}
     <div className="intro-section single-cover" id="home-section">
       <div className="slide-1 " style={{ backgroundImage: "url(images/img_2.jpg)" }} data-stellar-background-ratio="0.5">
       <div className="container">

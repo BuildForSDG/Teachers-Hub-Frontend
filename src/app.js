@@ -15,7 +15,7 @@ const Routes = () => (
      <Route path="/" exact component={LandingPage} />
       <Route path="/login" exact component={LoginContainer} />
       <Route path="/courses/:id" exact component={SingleCourseContainer} />
-      <Route path="/admin" exact component={AdminPanel} />
+      <ProtectedRoute path="/admin" exact component={AdminPanel} />
       <ProtectedRoute path='/teacher' exact component={TeachersPage} />
       <Route component={LandingPage} />
     </Switch>

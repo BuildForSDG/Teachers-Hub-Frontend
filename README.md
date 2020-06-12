@@ -34,6 +34,12 @@ Talk about what problem this solves, what SDG(s) and SGD targets it addresses an
 
 ## Deployment
 - This application can also be accessed at `https://teachers-hub-fe.herokuapp.com/`
+- To test out as administrator login with these credentials
+
+```json
+    username: Admin
+    password: Administrator
+```
 
 ## Authors
 

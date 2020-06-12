@@ -1,49 +1,82 @@
 /* eslint-disable import/extensions */
-import React, { useEffect } from "react";
-import { Table } from "react-bootstrap";
-import * as Icon from "react-bootstrap-icons";
-import { useDispatch, useSelector } from "react-redux";
 import { Pagination } from "@material-ui/lab";
+import React, { useEffect, useState } from "react";
+import { Table } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
 import fetchCoursesAction from "../../../redux/actions/fetchCoursesAction.jsx";
 import AddCourse from "./CourseForm.jsx";
-
+import deleteCourseAction from "../../../redux/actions/deleteCourseAction.jsx";
 
 const Courses = () => {
   const dispatch = useDispatch();
   const courseData = useSelector((state) => state.fetchCoursesReducer);
+  const filteredData = useSelector((state) => state.deleteCourseReducer);
+  const [activeRow, setActiveRow] = useState(0);
+  const [data, setData] = useState([]);
+
 
   useEffect(() => {
     dispatch(fetchCoursesAction());
   }, []);
 
+  useEffect(() => {
+    if (courseData.data) {
+      setData(courseData.data.courses);
+    }
+  }, [courseData]);
+
+  const handleView = (courseID) => {
+    if (courseID !== activeRow) {
+      setActiveRow(courseID);
+      window.location.replace(`/courses/${courseID}`);
+    }
+  };
+
+  const handleDelete = (courseID) => {
+    setActiveRow(courseID);
+
+    dispatch(deleteCourseAction(courseID));
+  };
+
+  useEffect(() => {
+    if (filteredData.error.message === "Course deleted!") {
+      setData(() => data.filter((item) => item.course_id !== activeRow));
+    }
+  }, [filteredData]);
+  const handleEdit = (e) => {
+    e.preventDefault();
+  };
+
 
   return (
         <div>
-            <Table responsive="md" hover size="sm" bordered striped width="100%" cellspacing="0">
+            <Table responsive="md" hover size="sm" bordered striped width="100%" cellSpacing="0">
                 <thead>
                 <tr>
                 <th>ID</th>
                 <th>Title</th>
                 <th>Category</th>
                 <th>Duration</th>
-                <th>Organization</th>
-                <th>Total Enrolled</th>
                 <th>Description</th>
                 <th>Actions</th>
                 </tr>
                 </thead>
                 <tbody>
-                    {courseData.data.courses ? courseData.data.courses.map((course, index) => (
-                            <tr key={index}>
+                    {data ? data.map((course) => (
+                            <tr key={course.course_id}
+                            style={{
+                              backgroundColor: activeRow === course.course_id ? "#ffd3d9" : ""
+                            }}
+                            >
                                <td>{course.course_id}</td>
                                <td>{course.course_title}</td>
                                <td>{course.course_category}</td>
                                 <td>{course.course_duration}</td>
-                                <td>{course.organization_name}</td>
-                                <td>{course.total_enrolled}</td>
                                 <td>{course.course_description}</td>
                                 <td>
-                                    <span> <Icon.Trash /></span>
+                                <button type="button" className="btn btn-sm btn-outline-primary" style={{ width: "60px", padding: "5px" }} onClick={() => handleView(course.course_id)}>View</button>
+                                <button type="button" className="btn btn-outline-secondary" style={{ width: "60px", padding: "5px" }} onClick={handleEdit}>Edit</button>
+                                <button type="button" className="btn btn-outline-danger" style={{ width: "60px", padding: "5px" }} onClick={() => handleDelete(course.course_id)}>Delete</button>
                                 </td>
                             </tr>
                     )) : null}

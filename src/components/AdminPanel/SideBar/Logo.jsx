@@ -26,7 +26,7 @@ function LogoComponent() {
   return (
         <Row className={css(styles.container)} horizontal="center" vertical="center">
             <Logo />
-            <span className={css(styles.title)}>Teachers Hub Admin</span>
+            <span className={css(styles.title)}><a href="/admin" style={{ textDecoration: "none", color: "#fff" }}>Teachers Hub Admin</a></span>
         </Row>
   );
 }
