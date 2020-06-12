@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import fetchCoursesAction from "../../../redux/actions/fetchCoursesAction.jsx";
 import AddCourse from "./CourseForm.jsx";
 import deleteCourseAction from "../../../redux/actions/deleteCourseAction.jsx";
+import Modal from "../../Modal/Modal.jsx";
 
 const Courses = () => {
   const dispatch = useDispatch();
@@ -13,6 +14,7 @@ const Courses = () => {
   const filteredData = useSelector((state) => state.deleteCourseReducer);
   const [activeRow, setActiveRow] = useState(0);
   const [data, setData] = useState([]);
+  const [modalShow, setModalShow] = useState(false);
 
 
   useEffect(() => {
@@ -43,10 +45,9 @@ const Courses = () => {
       setData(() => data.filter((item) => item.course_id !== activeRow));
     }
   }, [filteredData]);
-  const handleEdit = (e) => {
-    e.preventDefault();
+  const handleEdit = () => {
+    setModalShow(true);
   };
-
 
   return (
         <div>
@@ -77,6 +78,7 @@ const Courses = () => {
                                 <button type="button" className="btn btn-sm btn-outline-primary" style={{ width: "60px", padding: "5px" }} onClick={() => handleView(course.course_id)}>View</button>
                                 <button type="button" className="btn btn-outline-secondary" style={{ width: "60px", padding: "5px" }} onClick={handleEdit}>Edit</button>
                                 <button type="button" className="btn btn-outline-danger" style={{ width: "60px", padding: "5px" }} onClick={() => handleDelete(course.course_id)}>Delete</button>
+                                <Modal show={modalShow} onHide={() => setModalShow(false)}/>
                                 </td>
                             </tr>
                     )) : null}

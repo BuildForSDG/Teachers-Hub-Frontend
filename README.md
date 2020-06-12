@@ -38,7 +38,7 @@ Talk about what problem this solves, what SDG(s) and SGD targets it addresses an
 
 ```json
     username: Admin
-    password: Administrator
+    password: Administrator1
 ```
 
 ## Authors
