@@ -78,7 +78,9 @@ const Courses = () => {
                                 <button type="button" className="btn btn-sm btn-outline-primary" style={{ width: "60px", padding: "5px" }} onClick={() => handleView(course.course_id)}>View</button>
                                 <button type="button" className="btn btn-outline-secondary" style={{ width: "60px", padding: "5px" }} onClick={handleEdit}>Edit</button>
                                 <button type="button" className="btn btn-outline-danger" style={{ width: "60px", padding: "5px" }} onClick={() => handleDelete(course.course_id)}>Delete</button>
-                                <Modal show={modalShow} onHide={() => setModalShow(false)}/>
+                                <Modal show={modalShow}
+                                onHide={() => setModalShow(false)}
+                                id={course.course_id} data={course} />
                                 </td>
                             </tr>
                     )) : null}
