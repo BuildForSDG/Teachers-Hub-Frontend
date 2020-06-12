@@ -30,11 +30,11 @@ const LoginContainer = () => {
       const decoded = jwt.decode(token);
 
       if (decoded.identity.role[0] === "Admin") {
-        setTimeout(() => window.location.assign("/admin"), 400);
+        setTimeout(() => window.location.replace("/admin"), 400);
       } else if (decoded.identity.role[0] === "Teacher") {
-        setTimeout(() => window.location.assign("/teacher"), 400);
+        setTimeout(() => window.location.replace("/teacher"), 400);
       } else {
-        setTimeout(() => window.location.assign("/institution"), 400);
+        setTimeout(() => window.location.replace("/institution"), 400);
       }
     }
   };

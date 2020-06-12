@@ -69,3 +69,13 @@ export const fetchBlogsFail = (error) => ({
   type: "FETCH_BLOGS_FAIL",
   error
 });
+
+export const deleteCourseSuccess = (payload) => ({
+  type: "DELETE_COURSE_SUCCESS",
+  payload
+});
+
+export const deleteCourseFail = (error) => ({
+  type: "DELETE_COURSE_FAIL",
+  error
+});
