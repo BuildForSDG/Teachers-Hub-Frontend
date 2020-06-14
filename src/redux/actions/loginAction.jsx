@@ -1,20 +1,21 @@
-import * as actions from './actionTypes.jsx';
+import * as actions from "./actionTypes.jsx";
 
 const { REACT_APP_BASE_URL } = process.env;
 
 const loginAction = (payload) => (dispatch) =>
+  // eslint-disable-next-line implicit-arrow-linebreak
   fetch(`${REACT_APP_BASE_URL}/api/v1/auth/login`, {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json'
+      "Content-Type": "application/json"
     },
-    mode: 'cors',
+    mode: "cors",
     body: JSON.stringify(payload)
   })
     .then((response) => response.json())
     .then((json) => {
-      if ('token' in json) {
-        localStorage.setItem('token', json.token);
+      if ("token" in json) {
+        localStorage.setItem("token", json.token);
         dispatch(actions.loginSuccess(json));
       } else {
         dispatch(actions.loginFail(json));
