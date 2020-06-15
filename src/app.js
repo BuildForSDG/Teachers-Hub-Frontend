@@ -8,6 +8,7 @@ import LoginContainer from "./containers/LoginContainer.jsx";
 import SingleCourseContainer from "./containers/SingleCourseContainer.jsx";
 import AdminPanel from "./components/AdminPanel";
 import PrivateAdminRoute from "./components/ProtectedRoute/PrivateAdminRoute.jsx";
+import Community from "./components/Community/Community.jsx";
 
 const Routes = () => (
   <BrowserRouter>
@@ -17,6 +18,7 @@ const Routes = () => (
       <Route path="/courses/:id" exact component={SingleCourseContainer} />
       <PrivateAdminRoute path="/admin" exact component={AdminPanel} />
       <ProtectedRoute path='/teacher' exact component={TeachersPage} />
+      <Route path="/community" exact component={Community} />
       <Route component={LandingPage} />
     </Switch>
   </BrowserRouter>

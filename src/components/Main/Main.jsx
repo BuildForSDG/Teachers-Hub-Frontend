@@ -119,7 +119,7 @@ const Main = (props) => (
                 Having caring, dedicated, and talented virtual educators and
                 mentors is important to a teachers academic success. &rdquo;</p>
             </blockquote>
-            <p data-aos='fade-up' data-aos-delay='300'><a href='/' className='btn btn-primary py-3 px-5 btn-pill'>Visit Community</a></p>
+            <p data-aos='fade-up' data-aos-delay='300'><a href='/community' className='btn btn-primary py-3 px-5 btn-pill'>Visit Community</a></p>
           </div>
         </div>
       </div>

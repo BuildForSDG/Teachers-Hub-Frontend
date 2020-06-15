@@ -4,7 +4,6 @@ import Footer from "./Footer/Footer.jsx";
 import Header from "./Header/Header.jsx";
 import Main from "./Main/Main.jsx";
 
-
 const LandingPage = () => {
   useEffect(() => {
     AOS.init();
