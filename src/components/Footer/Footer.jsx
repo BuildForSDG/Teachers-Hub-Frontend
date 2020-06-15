@@ -1,6 +1,5 @@
 import React from "react";
 
-
 const Footer = () => (<footer className='footer-section bg-white'>
     <div className='container'>
         <div className='row'>
@@ -13,11 +12,11 @@ const Footer = () => (<footer className='footer-section bg-white'>
             <div className='col-md-3 ml-auto'>
                 <h3>Links</h3>
                 <ul className='list-unstyled footer-links'>
-                    <li><a href='/'>Home</a></li>
-                    <li><a href='/'>Courses</a></li>
-                    <li><a href='/'>Blog</a></li>
-                    <li><a href='/'>Partnerships</a></li>
-                    <li><a href='/'>Community</a></li>
+                    <li><a href='/#home-section'>Home</a></li>
+                    <li><a href='/#courses-section'>Courses</a></li>
+                    <li><a href='/#blogs-section'>Blog</a></li>
+                    <li><a href='/#partners-section'>Partnerships</a></li>
+                    <li><a href='/#community-section'>Community</a></li>
                 </ul>
             </div>
             <div className='col-md-4'>
