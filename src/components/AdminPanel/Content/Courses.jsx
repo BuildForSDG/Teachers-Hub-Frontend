@@ -51,7 +51,6 @@ const Courses = () => {
     setUpdateData(() => data.filter((item) => item.course_id === activeRow));
   };
 
-
   return (
         <div>
             <Table responsive="md" hover size="sm" bordered striped width="100%" cellSpacing="0">
