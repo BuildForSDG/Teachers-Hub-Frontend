@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import fetchCoursesAction from "../../../redux/actions/fetchCoursesAction.jsx";
 import AddCourse from "./CourseForm.jsx";
 import deleteCourseAction from "../../../redux/actions/deleteCourseAction.jsx";
-import Modal from "../../Modal/Modal.jsx";
+import CourseModal from "../../Modal/Modal.jsx";
 
 const Courses = () => {
   const dispatch = useDispatch();
@@ -15,7 +15,7 @@ const Courses = () => {
   const [activeRow, setActiveRow] = useState(0);
   const [data, setData] = useState([]);
   const [modalShow, setModalShow] = useState(false);
-
+  const [updateData, setUpdateData] = useState();
 
   useEffect(() => {
     dispatch(fetchCoursesAction());
@@ -45,9 +45,12 @@ const Courses = () => {
       setData(() => data.filter((item) => item.course_id !== activeRow));
     }
   }, [filteredData]);
-  const handleEdit = () => {
+  const handleEdit = (courseID) => {
+    setActiveRow(courseID);
     setModalShow(true);
+    setUpdateData(() => data.filter((item) => item.course_id === activeRow));
   };
+
 
   return (
         <div>
@@ -76,11 +79,11 @@ const Courses = () => {
                                 <td>{course.course_description}</td>
                                 <td>
                                 <button type="button" className="btn btn-sm btn-outline-primary" style={{ width: "60px", padding: "5px" }} onClick={() => handleView(course.course_id)}>View</button>
-                                <button type="button" className="btn btn-outline-secondary" style={{ width: "60px", padding: "5px" }} onClick={handleEdit}>Edit</button>
+                                <button type="button" className="btn btn-outline-secondary" style={{ width: "60px", padding: "5px" }} onClick={() => handleEdit(course.course_id)}>Edit</button>
                                 <button type="button" className="btn btn-outline-danger" style={{ width: "60px", padding: "5px" }} onClick={() => handleDelete(course.course_id)}>Delete</button>
-                                <Modal show={modalShow}
+                                <CourseModal show={modalShow}
                                 onHide={() => setModalShow(false)}
-                                id={course.course_id} data={course} />
+                                data={updateData} />
                                 </td>
                             </tr>
                     )) : null}
