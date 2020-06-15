@@ -1,8 +1,6 @@
 import * as actions from "./actionTypes.jsx";
 
-
 const { REACT_APP_BASE_URL } = process.env;
-
 
 const fetchSingleCourseAction = (id) => (dispatch) => fetch(`${REACT_APP_BASE_URL}/api/v1/courses/${id}`, {
   method: "GET",

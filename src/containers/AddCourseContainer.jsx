@@ -14,26 +14,40 @@ const AddCourseContainer = () => {
     const { name, value } = e.target;
     setAddCourseDetails((prevState) => ({ ...prevState, [name]: value }));
   };
-console.log(addCourseData);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(addCourseAction(addCourseDetails));
   };
 
+  const handleAddCourseSuccess = () => {
+    if (addCourseData.data) {
+      toast.success(<p className="text-white">
+       Course added successfully
+      </p>);
+    }
+  };
 
-//   useEffect(() => {
-//     if (addCourseData.data.message) {
-//       handleAddCourseSuccess();
-//     }
-//     if (!addCourseData.data.message && addCourseData.error.message) {
-//       handleAddCourseFail();
-//     }
-//   }, [addCourseData]);
+  const handleAddCourseFail = () => {
+    if (addCourseData.error) {
+      toast.error(<p>
+            {addCourseData.error.message}
+          </p>);
+    }
+  };
+  useEffect(() => {
+    if (addCourseData.data.message) {
+      handleAddCourseSuccess();
+    }
+    if (!addCourseData.data.message && addCourseData.error.message) {
+      handleAddCourseFail();
+    }
+  }, [addCourseData]);
 
   return (
       <div>
           <AddCourse onChange={handleChange} onSubmit={handleSubmit} />
-          {/* {(Object.keys(addCourseData.data).length === 0
+          {(Object.keys(addCourseData.data).length === 0
          && !Object.keys(addCourseData.error).length === 0) ? null : <ToastContainer
         position="top-right"
         hideProgressBar={false}
@@ -42,7 +56,7 @@ console.log(addCourseData);
         draggable={false}
         rtl={false}
         autoClose={1000}
-      /> } */}
+      /> }
       </div>
   );
 };
