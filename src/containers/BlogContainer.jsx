@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { BlogCard } from "../components/BlogCard";
 import fetchBlogsAction from "../redux/actions/fetchBlogsAction.jsx";
 
-
 const BlogCardContainer = () => {
   const dispatch = useDispatch();
   const Articles = useSelector((state) => state.fetchBlogsReducer);

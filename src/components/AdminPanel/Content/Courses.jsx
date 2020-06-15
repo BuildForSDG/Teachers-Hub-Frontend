@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import fetchCoursesAction from "../../../redux/actions/fetchCoursesAction.jsx";
-import AddCourse from "./CourseForm.jsx";
+import AddCourseContainer from "../../../containers/AddCourseContainer.jsx";
 import deleteCourseAction from "../../../redux/actions/deleteCourseAction.jsx";
 import CourseModal from "../../Modal/Modal.jsx";
 
@@ -93,7 +93,7 @@ const Courses = () => {
             </div>
             <br /><br/>
             <div>
-            <AddCourse />
+            <AddCourseContainer />
             </div>
         </div>
   );

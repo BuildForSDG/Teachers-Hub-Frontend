@@ -1,6 +1,5 @@
 import * as actions from "./actionTypes.jsx";
 
-
 const { REACT_APP_BASE_URL } = process.env;
 
 const token = localStorage.getItem("token");

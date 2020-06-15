@@ -53,12 +53,10 @@ export const fetchCommentsFail = (error) => ({
   error
 });
 
-
 export const fetchCommentsSuccess = (payload) => ({
   type: "FETCH_COMMENTS_SUCCESS",
   payload
 });
-
 
 export const fetchBlogsSuccess = (payload) => ({
   type: "FETCH_BLOGS_SUCCESS",
@@ -77,5 +75,15 @@ export const deleteCourseSuccess = (payload) => ({
 
 export const deleteCourseFail = (error) => ({
   type: "DELETE_COURSE_FAIL",
+  error
+});
+
+export const addCourseSuccess = (payload) => ({
+  type: "ADD_COURSE_SUCCESS",
+  payload
+});
+
+export const addCourseFail = (error) => ({
+  type: "ADD_COURSE_FAIL",
   error
 });
