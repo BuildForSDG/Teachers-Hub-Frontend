@@ -9,6 +9,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "@trendmicro/react-sidenav": "^0.5.0",
     "aos": "^2.3.4",
     "aphrodite": "^2.4.0",
     "axios": "^0.19.2",
@@ -37,6 +38,7 @@
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
+    "react-simple-sidenav": "^2.0.0",
     "react-svg-line-chart": "^2.0.2",
     "react-toastify": "^6.0.5",
     "redux": "^4.0.5",
@@ -55,7 +57,9 @@
     "heroku-postbuild": "yarn build"
   },
   "jest": {
-    "snapshotSerializers": ["enzyme-to-json/serializer"]
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
   },
   "license": "MIT",
   "eslintConfig": {
@@ -67,8 +71,16 @@
     }
   },
   "browserslist": {
-    "production": [">0.2%", "not dead", "not op_mini all"],
-    "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "devDependencies": {
     "axios": "^0.19.2",

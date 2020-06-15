@@ -3,7 +3,6 @@ import AOS from "aos";
 import Header from "../Header/Header.jsx";
 import Footer from "../Footer/Footer.jsx";
 import CommunityMainSection from "./CommunityMainSection.jsx";
-import Search from "../Search/Search.jsx";
 
 const Community = () => {
   useEffect(() => {
@@ -20,9 +19,8 @@ const Community = () => {
         <div className="site-mobile-menu-body"></div>
         </div>
         <Header buttonValue="LogOut" homeUrl="/teacher" url="/" />
-        <Search />
     <CommunityMainSection />
-<Footer />
+    <Footer />
 </div>);
 };
 export default Community;

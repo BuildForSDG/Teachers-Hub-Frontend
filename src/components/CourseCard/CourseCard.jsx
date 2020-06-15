@@ -5,7 +5,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import SrcImg from "../../assets/images/img_4.jpg";
 
-
 export const CourseCard = (props) => (
         <div className='site-section courses-entry-wrap' data-aos='fade-up' data-aos-delay='100'>
         <div className='container'>
@@ -49,6 +48,4 @@ export const CourseCard = (props) => (
             </div>
         </div>
     </div>
-
-
 );
