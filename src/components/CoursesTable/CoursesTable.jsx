@@ -9,12 +9,15 @@ const CoursesTable = () => {
   const { REACT_APP_BASE_URL } = process.env;
 
   React.useEffect(() => {
-    axios
-      .get(`${REACT_APP_BASE_URL}/api/v1/courses`)
-      .then((res) => {
-        loadcourses(res.data.courses);
-      })
-      .catch((err) => err);
+    async function fetchcoursesdata() {
+      await axios
+        .get(`${REACT_APP_BASE_URL}/api/v1/courses`)
+        .then((res) => {
+          loadcourses(res.data.courses);
+        })
+        .catch((err) => err);
+    }
+    fetchcoursesdata();
   }, []);
 
   return (
@@ -33,7 +36,7 @@ const CoursesTable = () => {
           <tr key={course.id}>
             <td>{course.course_category}</td>
             <td>
-              <Link to={`teacher/courses/${course.course_id}`}>{course.course_title}</Link>
+              <Link to={`courses/${course.course_id}`}>{course.course_title}</Link>
             </td>
             <td>{course.course_description}</td>
             <td>{course.course_duration}</td>
