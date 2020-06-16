@@ -13,7 +13,6 @@ const SignUpContainer = () => {
   const dispatch = useDispatch();
   const signUpData = useSelector((state) => state.signUpReducer);
 
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setSignUpDetails((prevState) => ({ ...prevState, [name]: value }));
@@ -49,7 +48,6 @@ const SignUpContainer = () => {
       handleSignUpFail();
     }
   }, [signUpData]);
-
 
   return (
       <div>
