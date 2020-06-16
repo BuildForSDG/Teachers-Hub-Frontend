@@ -70,7 +70,7 @@ const Courses = () => {
     }
   };
 
-  const getScheduledEventsByPage = () => {
+  const getDataByPage = () => {
     const begin = (currentPage - 1) * LIMIT;
     const end = begin + LIMIT;
 
@@ -102,8 +102,8 @@ const Courses = () => {
                 </tr>
                 </thead>
                 <tbody>
-                    {getScheduledEventsByPage()
-                      ? getScheduledEventsByPage().map((course, index) => (
+                    {getDataByPage()
+                      ? getDataByPage().map((course, index) => (
                             <tr key={course.course_id}
                             style={{
                               backgroundColor: activeRow === course.course_id ? "#ffd3d9" : ""
