@@ -1,5 +1,4 @@
 /* eslint-disable import/extensions */
-import { Pagination } from "@material-ui/lab";
 import React, { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,6 +6,7 @@ import AddCourseContainer from "../../../containers/AddCourseContainer.jsx";
 import deleteCourseAction from "../../../redux/actions/deleteCourseAction.jsx";
 import fetchCoursesAction from "../../../redux/actions/fetchCoursesAction.jsx";
 import CourseModal from "../../Modal/Modal.jsx";
+import PaginationRow from "../../Pagination/PaginationRow.jsx";
 
 const LIMIT = 5;
 const Courses = () => {
@@ -17,10 +17,11 @@ const Courses = () => {
   const [data, setData] = useState([]);
   const [modalShow, setModalShow] = useState(false);
   const [updateData, setUpdateData] = useState();
+
   const [count, setCount] = useState(0);
   const [pageCount, setPageCount] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
-  const [offset, setOffset] = useState(0);
+  const [selectedPage, setSelectedPage] = useState(0);
 
   useEffect(() => {
     dispatch(fetchCoursesAction());
@@ -43,7 +44,6 @@ const Courses = () => {
 
   const handleDelete = (courseID) => {
     setActiveRow(courseID);
-
     dispatch(deleteCourseAction(courseID));
   };
 
@@ -52,25 +52,41 @@ const Courses = () => {
       setData(() => data.filter((item) => item.course_id !== activeRow));
     }
   }, [filteredData]);
+
   const handleEdit = (courseID) => {
     setActiveRow(courseID);
     setModalShow(true);
     setUpdateData(() => data.filter((item) => item.course_id === activeRow));
   };
 
-  const getDataByPage = () => {
+  const handlePageChange = (page) => {
+    setSelectedPage(page.selected);
+    if (page.selected === selectedPage + 1) {
+      setCurrentPage(currentPage + 1);
+    } else if (page.selected === selectedPage - 1) {
+      setCurrentPage(currentPage - 1);
+    } else {
+      setCurrentPage(() => page.selected + 1);
+    }
+  };
+
+  const getScheduledEventsByPage = () => {
     const begin = (currentPage - 1) * LIMIT;
     const end = begin + LIMIT;
 
     return data.slice(begin, end);
   };
 
-  const handlePageChange = () => {
-    console.log(count);
-    console.log("changed");
-    setCurrentPage(currentPage + 1);
-    setOffset(offset + LIMIT);
-  };
+  const renderPagination = () => (count === 0 ? (
+    "No Data"
+  ) : (
+      <PaginationRow
+        limit={LIMIT}
+        count={count}
+        pageCount={pageCount}
+        onPageChange={handlePageChange}
+      />
+  ));
 
   return (
         <div>
@@ -86,13 +102,14 @@ const Courses = () => {
                 </tr>
                 </thead>
                 <tbody>
-                    {getDataByPage() ? getDataByPage().map((course, index) => (
+                    {getScheduledEventsByPage()
+                      ? getScheduledEventsByPage().map((course, index) => (
                             <tr key={course.course_id}
                             style={{
                               backgroundColor: activeRow === course.course_id ? "#ffd3d9" : ""
                             }}
                             >
-                               <td>{index + offset + 1}</td>
+                               <td>{(currentPage * LIMIT + index + 1) - 5}</td>
                                <td>{course.course_title}</td>
                                <td>{course.course_category}</td>
                                 <td>{course.course_duration}</td>
@@ -106,11 +123,12 @@ const Courses = () => {
                                 data={updateData} />
                                 </td>
                             </tr>
-                    )) : null}
+                      )) : null}
                 </tbody>
             </Table>
             <div style={{ float: "right" }}>
-            <Pagination count={pageCount} color="primary" showFirstButton={true} showLastButton={true} defaultPage={1} onChange={handlePageChange} />
+            {renderPagination()}
+
             </div>
             <br /><br/>
             <div>

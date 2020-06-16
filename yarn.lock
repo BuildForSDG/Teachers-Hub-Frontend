@@ -7850,13 +7850,6 @@ map-visit@^1.0.0:
   dependencies:
     object-visit "^1.0.0"
 
-material-ui-flat-pagination@^4.1.1:
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/material-ui-flat-pagination/-/material-ui-flat-pagination-4.1.1.tgz#993b0a3abbcdbaed6e8d9d62009d31d6427beda3"
-  integrity sha512-pjzb8747auvMCxzzmYOqHO/+qz1d5IPQqonVHOPg719G+PyP4KX0HhPMl95u9V3gYFeftGh/EiqdT7din49eGw==
-  dependencies:
-    classnames "^2.2.6"
-
 material-ui-pickers@2.2.4:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/material-ui-pickers/-/material-ui-pickers-2.2.4.tgz#8b33cfc55cbc5b2d520db45abf4b3dc94090dd3c"
@@ -10268,6 +10261,13 @@ react-owl-carousel@^2.3.1:
     owl.carousel "~2.3.4"
     react "15"
     react-dom "15"
+
+react-paginate@^6.3.2:
+  version "6.3.2"
+  resolved "https://registry.yarnpkg.com/react-paginate/-/react-paginate-6.3.2.tgz#4e18cbdb2654d308566775fa14df11e820188391"
+  integrity sha512-Ch++Njfv8UHpLtIMiQouAPeJQA5Ki86kIYfCer6c1B96Rvn3UF27se+goCilCP8oHNXNsA2R2kxvzanY1YIkyg==
+  dependencies:
+    prop-types "^15.6.1"
 
 react-popper@^1.3.7:
   version "1.3.7"
