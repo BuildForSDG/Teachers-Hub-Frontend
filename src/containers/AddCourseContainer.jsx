@@ -35,6 +35,7 @@ const AddCourseContainer = () => {
           </p>);
     }
   };
+
   useEffect(() => {
     if (addCourseData.data.message) {
       handleAddCourseSuccess();
@@ -60,4 +61,5 @@ const AddCourseContainer = () => {
       </div>
   );
 };
+
 export default AddCourseContainer;
