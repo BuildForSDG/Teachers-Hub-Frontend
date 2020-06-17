@@ -14,7 +14,6 @@ const SingleCourseContainer = (props) => {
     dispatch(fetchCourseModulesAction(props.match.params.id));
   }, []);
 
-
   return (
         <div>
         <SingleCourse data={singleCourseData}

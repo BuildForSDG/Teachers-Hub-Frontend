@@ -6,7 +6,6 @@ import "react-toastify/dist/ReactToastify.css";
 
 const CourseModal = (props) => (
     <Modal
-    {...props}
     size="lg"
     aria-labelledby="contained-modal-title-vcenter"
     centered

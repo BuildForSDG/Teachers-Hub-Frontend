@@ -8,7 +8,6 @@ import { capitalize } from "./utils";
 import CourseExpansionPanel from "../ExpansionPanel/ExpansionPanel.jsx";
 import CommentsContainer from "../../containers/CommentContainer.jsx";
 
-
 export const SingleCourse = (props) => {
   const isAuthenticated = localStorage.getItem("token");
   return (
