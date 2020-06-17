@@ -87,3 +87,13 @@ export const addCourseFail = (error) => ({
   type: "ADD_COURSE_FAIL",
   error
 });
+
+export const commentSuccess = (payload) => ({
+  type: "ADD_COMMENT_SUCCESS",
+  payload
+});
+
+export const commentFail = (error) => ({
+  type: "ADD_COMMENT_FAIL",
+  error
+});

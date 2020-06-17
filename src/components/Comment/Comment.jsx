@@ -13,9 +13,11 @@ export const Comment = (props) => (
                            <h3 className="text-black">Discussion</h3>
                         </div>
                     <div className="panel-body">
-                         <textarea className="form-control" placeholder="write a comment..." rows="6" cols="30"></textarea>
+                        <form onSubmit={props.onSubmit}>
+                         <textarea className="form-control" placeholder="write a comment..." rows="6" cols="30" name="comment_body" onChange={props.onChange}></textarea>
                             <br />
-                            <button type="button" className="btn btn-primary pull-right">Post</button>
+                            <input type="submit" className="btn btn-primary pull-right" value="ADD COMMENT" />
+                            </form>
                             <div className="clearfix"></div>
                             <hr />
                             <ul className="media-list">
