@@ -9,6 +9,7 @@ import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import axios from "axios";
 import ModuleContent from "../ModuleContent/ModuleContent.jsx";
+import { capitalize } from "../SingleCourse/utils";
 
 const styles = (theme) => ({
   root: {
@@ -32,11 +33,12 @@ const CourseExpansionPanel = (props) => {
       })
       .catch((err) => err);
   };
+
   return (
     <div className={classes.root}>
       <ExpansionPanel onClick={handlePanelClick}>
         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography className={classes.heading}>{props.module_title}</Typography>
+          <Typography><h6>{capitalize(props.module_title)}</h6></Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails className={classes.heading}>
         <ModuleContent module_id={props.id} moduleData={moduleContent} />
