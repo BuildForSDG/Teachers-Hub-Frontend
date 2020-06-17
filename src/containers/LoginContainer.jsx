@@ -56,7 +56,6 @@ const LoginContainer = () => {
     }
   }, [loginData]);
 
-
   return (
       <div>
           <Login onChange={handleChange} onSubmit={handleSubmit} />

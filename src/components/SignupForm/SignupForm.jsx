@@ -2,7 +2,6 @@
 /* eslint-disable import/prefer-default-export */
 import React from "react";
 
-
 export const SignupForm = (props) => (
         <form className='form-box' onSubmit={props.onSubmit}>
         <h3 className='h4 text-black mb-4'>Sign Up</h3>
