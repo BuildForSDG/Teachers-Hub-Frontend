@@ -38,7 +38,7 @@ const CourseExpansionPanel = (props) => {
     <div className={classes.root}>
       <ExpansionPanel onClick={handlePanelClick}>
         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography><h3>{capitalize(props.module_title)}</h3></Typography>
+          <Typography><h6>{capitalize(props.module_title)}</h6></Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails className={classes.heading}>
         <ModuleContent module_id={props.id} moduleData={moduleContent} />
