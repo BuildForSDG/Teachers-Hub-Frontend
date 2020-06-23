@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React from "react";
 import Search from "../Search/Search.jsx";
 import TableCard from "../TableCard/TableCard.jsx";

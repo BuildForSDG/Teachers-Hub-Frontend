@@ -3,7 +3,7 @@ import CoursesTable from "../CoursesTable/CoursesTable.jsx";
 
 const TableCard = () => (
   <>
-    <h5 style={{ textAlign: "center" }}>MY CONTENT</h5>
+    <h5 style={{ textAlign: "center" }}>MY COURSES</h5>
     <CoursesTable />
   </>
 );
