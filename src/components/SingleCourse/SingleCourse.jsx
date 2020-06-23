@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable no-nested-ternary */
 /* eslint-disable react/prop-types */
 /* eslint-disable import/prefer-default-export */
@@ -29,7 +30,7 @@ export const SingleCourse = (props) => {
                 <div className="row justify-content-center align-items-center text-center">
                   <div className="col-lg-6">
                     <h1>{props.data.data.course ? capitalize(props.data.data.course.course_title) : null}</h1>
-                    <button type="button" className="btn btn-default">
+                    <button type="button" className="btn btn-primary">
                       ENROLL TO GET STARTED
                     </button>
                   </div>
