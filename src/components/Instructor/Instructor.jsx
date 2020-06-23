@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
-import Header from "./Header/Header.jsx";
-import Footer from "./Footer/Footer.jsx";
-import TeacherDashboard from "./UserDashboard/TeacherDashboard.jsx";
+import Header from "../Header/Header.jsx";
+import Footer from "../Footer/Footer.jsx";
+import InstructorDashboard from "../UserDashboard/InstructorDashboard.jsx";
 
-const TeachersPage = () => {
+const Instructor = () => {
   useEffect(() => {
     AOS.init();
   }, []);
@@ -18,10 +18,11 @@ const TeachersPage = () => {
         </div>
         <div className="site-mobile-menu-body"></div>
       </div>
-      <Header buttonValue="LogOut" homeUrl="/teacher" url="/" />
-      <TeacherDashboard />
+      <Header buttonValue="LogOut" homeUrl="/instructor" url="/" />
+      <InstructorDashboard />
       <Footer />
     </div>
   );
 };
-export default TeachersPage;
+
+export default Instructor;

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Table } from "react-bootstrap";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import moment from "moment";
 import PaginationRow from "../Pagination/PaginationRow.jsx";
 
 const LIMIT = 5;
@@ -46,47 +46,46 @@ const CoursesTable = () => {
     return courses.slice(begin, end);
   };
 
-  const renderPagination = () => (count === 0 ? (
-    "No Data"
-  ) : (
-      <PaginationRow
-        limit={LIMIT}
-        count={count}
-        pageCount={pageCount}
-        onPageChange={handlePageChange}
-      />
-  ));
+  const renderPagination = () =>
+    count === 0 ? (
+      "No Data"
+    ) : (
+      <PaginationRow limit={LIMIT} count={count} pageCount={pageCount} onPageChange={handlePageChange} />
+    );
 
   return (
     <>
-    <Table responsive striped>
-      <thead>
-        <tr>
-          <th>Course Name</th>
-          <th>Title</th>
-          <th>Description</th>
-          <th>Duration (Hrs) </th>
-          <th>Enrolled</th>
-        </tr>
-      </thead>
-      <tbody>
-        {getDataByPage().map((course) => (
-          <tr key={course.id}>
-            <td>{course.course_category}</td>
-            <td>
-              <Link to={`courses/${course.course_id}`}>{course.course_title}</Link>
-            </td>
-            <td>{course.course_description}</td>
-            <td>{course.course_duration}</td>
-            <td>{course.total_enrolled}</td>
+      <table className="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Course Name</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Duration (Hrs) </th>
+            <th scope="col">Instructor</th>
+            <th scope="col">Date Added</th>
+            <th scope="col">Action</th>
           </tr>
-        ))}
-      </tbody>
-    </Table>
-    <div style={{ float: "right" }}>
-            {renderPagination()}
-
-            </div>
+        </thead>
+        <tbody>
+          {getDataByPage().map((course) => (
+            <tr className="table-primary" key={course.id}>
+              <td>{course.course_category}</td>
+              <td>
+                <Link to={`courses/${course.course_id}`}>{course.course_title}</Link>
+              </td>
+              <td>{course.course_description}</td>
+              <td>{course.course_duration}</td>
+              <td>{course.course_instructor}</td>
+              <td>{moment(course.date_added).format("LL")}</td>
+              <td>
+                <input type="submit" className="btn btn-secondary" value="View" style={{ textAlign: "center" }} />
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <div style={{ float: "right" }}>{renderPagination()}</div>
     </>
   );
 };

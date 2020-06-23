@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable react/prop-types */
 import React from "react";
 import cabe from "../../assets/images/cabe.png";
