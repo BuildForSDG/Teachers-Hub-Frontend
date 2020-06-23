@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Muli:300,400,700,900');
+@import url("https://fonts.googleapis.com/css?family=Muli:300,400,700,900");
 @import "./assets/fonts/icomoon/style.css";
 @import "./assets/css/bootstrap.min.css";
 @import "./assets/css/jquery-ui.css";
@@ -7,5 +7,6 @@
 @import "./assets/fonts/flaticon/font/flaticon.css";
 @import "./assets/css/aos.css";
 @import "./assets/css/style.css";
-@import url('https://fonts.googleapis.com/css?family=Muli');
+@import url("https://fonts.googleapis.com/css?family=Muli");
 @import "../node_modules/react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
+@import url("https://bootswatch.com/_vendor/bootstrap/dist/css/bootstrap.min.css");

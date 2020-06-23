@@ -23,9 +23,7 @@ const LoginContainer = () => {
 
   const handleSuccess = () => {
     if (loginData.data) {
-      toast.success(<p className="text-white">
-        Login successful
-      </p>);
+      toast.success(<p className="text-white">Login successful</p>);
       const { token } = loginData.data;
       const decoded = jwt.decode(token);
 
@@ -34,16 +32,14 @@ const LoginContainer = () => {
       } else if (decoded.identity.role[0] === "Teacher") {
         setTimeout(() => window.location.replace("/teacher"), 400);
       } else {
-        setTimeout(() => window.location.replace("/institution"), 400);
+        setTimeout(() => window.location.replace("/instructor"), 400);
       }
     }
   };
 
   const handleErrors = () => {
     if (loginData.error) {
-      toast.error(<p>
-        {loginData.error.message}
-      </p>);
+      toast.error(<p>{loginData.error.message}</p>);
     }
   };
 
@@ -57,19 +53,20 @@ const LoginContainer = () => {
   }, [loginData]);
 
   return (
-      <div>
-          <Login onChange={handleChange} onSubmit={handleSubmit} />
-         {(Object.keys(loginData.data).length === 0
-         && !Object.keys(loginData.error).length === 0) ? null : <ToastContainer
-        position="top-right"
-        hideProgressBar={false}
-        newestOnTop={true}
-        closeOnClick={false}
-        draggable={false}
-        rtl={false}
-        autoClose={900}
-      /> }
-      </div>
+    <div>
+      <Login onChange={handleChange} onSubmit={handleSubmit} />
+      {Object.keys(loginData.data).length === 0 && !Object.keys(loginData.error).length === 0 ? null : (
+        <ToastContainer
+          position="top-right"
+          hideProgressBar={false}
+          newestOnTop={true}
+          closeOnClick={false}
+          draggable={false}
+          rtl={false}
+          autoClose={900}
+        />
+      )}
+    </div>
   );
 };
 export default LoginContainer;

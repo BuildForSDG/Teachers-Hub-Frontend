@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import AOS from "aos";
 import Header from "../Header/Header.jsx";
 import Footer from "../Footer/Footer.jsx";
-import UserDashboard from "../UserDashboard/UserDashboard.jsx";
+import InstructorDashboard from "../UserDashboard/InstructorDashboard.jsx";
 
 const Instructor = () => {
   useEffect(() => {
@@ -19,7 +19,7 @@ const Instructor = () => {
         <div className="site-mobile-menu-body"></div>
       </div>
       <Header buttonValue="LogOut" homeUrl="/instructor" url="/" />
-      <UserDashboard />
+      <InstructorDashboard />
       <Footer />
     </div>
   );
