@@ -72,7 +72,7 @@ const CommunityMainSection = () => (
             </ul>
             <div className="tab-content" id="myTabContent">
               <div className="tab-pane fade show active" id="qa" role="tabpanel" aria-labelledby="qa-tab">
-                <p>QA</p>
+                <div className="media activity-item">QA</div>
               </div>
               <div className="tab-pane fade" id="mentor" role="tabpanel" aria-labelledby="mentor-tab">
                 <div className="media activity-item">Mentor</div>
