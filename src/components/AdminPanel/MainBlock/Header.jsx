@@ -68,25 +68,29 @@ const styles = StyleSheet.create({
 function HeaderComponent(props) {
   const { icon, title, ...otherProps } = props;
   return (
-        <Row className={css(styles.container)} vertical="center" horizontal="space-between" {...otherProps}>
-            <span className={css(styles.title)}>{title}</span>
-            <Row vertical="center">
-                <div className={css(styles.iconStyles)}>
-                <form className="form-inline">
-                <input className="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search"
-                  aria-label="Search" />
-              </form>
-              </div>
-                <div className={css(styles.iconStyles)}>
-                    <IconBellNew />
-                </div>
-                <div className={css(styles.separator)}></div>
-                <Row vertical="center">
-                    <span className={css(styles.name, styles.cursorPointer)}>Admin</span>
-                    <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="avatar" className={css(styles.avatar, styles.cursorPointer)} />
-                </Row>
-            </Row>
+    <Row className={css(styles.container)} vertical="center" horizontal="space-between" {...otherProps}>
+      <span className={css(styles.title)}>{title}</span>
+      <Row vertical="center">
+        <div className={css(styles.iconStyles)}>
+          <form className="form-inline">
+            <input className="form-control" type="text" placeholder="Search" aria-label="Search" />
+            <input type="submit" className="btn btn-primary" value="search" style={{ margin: "10px" }} />
+          </form>
+        </div>
+        <div className={css(styles.iconStyles)}>
+          <IconBellNew />
+        </div>
+        <div className={css(styles.separator)}></div>
+        <Row vertical="center">
+          <span className={css(styles.name, styles.cursorPointer)}>Admin</span>
+          <img
+            src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+            alt="avatar"
+            className={css(styles.avatar, styles.cursorPointer)}
+          />
         </Row>
+      </Row>
+    </Row>
   );
 }
 
