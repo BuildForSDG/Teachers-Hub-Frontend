@@ -13,10 +13,15 @@ const CommentsContainer = (props) => {
   const commentData = useSelector((state) => state.fetchCourseCommentsReducer);
   useSelector((state) => state.addCommentReducer);
   const [commentBody, setCommentBody] = useState();
+  const [commentState, setCommentState] = useState(0);
 
   useEffect(() => {
     dispatch(fetchCommentsAction(props.courseId));
-  }, []);
+  }, [commentState]);
+
+  const incrementComment = () => {
+    setCommentState(commentState + 1);
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -25,6 +30,7 @@ const CommentsContainer = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    incrementComment();
     if (isAuthenticated) {
       dispatch(postCommentAction(props.courseId, commentBody));
     } else {
@@ -35,6 +41,7 @@ const CommentsContainer = (props) => {
   return (
     <div>
       <Comment data={commentData} onChange={handleChange} onSubmit={handleSubmit} />
+
       {Object.keys(commentData.data).length === 0 && !Object.keys(commentData.error).length === 0 ? null : (
         <ToastContainer
           position="top-right"
