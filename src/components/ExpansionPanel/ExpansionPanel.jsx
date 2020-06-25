@@ -5,7 +5,6 @@ import { withStyles } from "@material-ui/core/styles";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
-import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import axios from "axios";
 import ModuleContent from "../ModuleContent/ModuleContent.jsx";
@@ -38,10 +37,10 @@ const CourseExpansionPanel = (props) => {
     <div className={classes.root}>
       <ExpansionPanel onClick={handlePanelClick}>
         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-          <Typography><h6>{capitalize(props.module_title)}</h6></Typography>
+          <h6>{capitalize(props.module_title)}</h6>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails className={classes.heading}>
-        <ModuleContent module_id={props.id} moduleData={moduleContent} />
+          <ModuleContent module_id={props.id} moduleData={moduleContent} />
         </ExpansionPanelDetails>
       </ExpansionPanel>
     </div>
