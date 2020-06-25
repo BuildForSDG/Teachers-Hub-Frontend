@@ -33,6 +33,7 @@ const CommentsContainer = (props) => {
     incrementComment();
     if (isAuthenticated) {
       dispatch(postCommentAction(props.courseId, commentBody));
+      setCommentBody("");
     } else {
       toast.error(<p>Please login to add a comment</p>);
     }
@@ -40,7 +41,12 @@ const CommentsContainer = (props) => {
 
   return (
     <div>
-      <Comment data={commentData} onChange={handleChange} onSubmit={handleSubmit} />
+      <Comment
+        data={commentData}
+        onChange={handleChange}
+        onSubmit={handleSubmit}
+        CommentBody={commentBody ? commentBody.comment_body : ""}
+      />
 
       {Object.keys(commentData.data).length === 0 && !Object.keys(commentData.error).length === 0 ? null : (
         <ToastContainer
