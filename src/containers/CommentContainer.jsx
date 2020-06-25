@@ -30,7 +30,6 @@ const CommentsContainer = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(postCommentAction(props.courseId, commentBody));
     incrementComment();
     if (isAuthenticated) {
       dispatch(postCommentAction(props.courseId, commentBody));
