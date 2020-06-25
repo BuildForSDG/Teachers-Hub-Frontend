@@ -35,7 +35,7 @@ export const Comment = (props) => (
                         <div className="media-body">
                           <span className="text-muted pull-right">
                             <small className="text-muted">
-                              {moment(comment.comment_date_added).startOf("hour").fromNow()}
+                              {moment.utc(comment.comment_date_added).format("llll")}
                             </small>
                           </span>
                           <strong className="text-success">
