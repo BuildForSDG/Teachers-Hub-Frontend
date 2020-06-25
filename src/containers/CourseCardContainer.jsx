@@ -1,19 +1,10 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+/* eslint-disable react/prop-types */
+import React from "react";
 import { CourseCard } from "../components/CourseCard";
-import fetchCoursesAction from "../redux/actions/fetchCoursesAction.jsx";
 
-const CourseCardContainer = () => {
-  const dispatch = useDispatch();
-  const courseData = useSelector((state) => state.fetchCoursesReducer);
-
-  useEffect(() => {
-    dispatch(fetchCoursesAction());
-  }, []);
-  return (
-      <div>
-        <CourseCard data={courseData} />
-      </div>
-  );
-};
+const CourseCardContainer = (props) => (
+  <div>
+    <CourseCard data={props.courseData} />
+  </div>
+);
 export default CourseCardContainer;
