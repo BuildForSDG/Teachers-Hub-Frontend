@@ -40,6 +40,7 @@
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
+    "react-search-field": "^1.0.0",
     "react-simple-sidenav": "^2.0.0",
     "react-svg-line-chart": "^2.0.2",
     "react-toastify": "^6.0.5",
@@ -60,9 +61,7 @@
     "heroku-postbuild": "yarn build"
   },
   "jest": {
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
-    ]
+    "snapshotSerializers": ["enzyme-to-json/serializer"]
   },
   "license": "MIT",
   "eslintConfig": {
@@ -74,16 +73,8 @@
     }
   },
   "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "production": [">0.2%", "not dead", "not op_mini all"],
+    "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
   },
   "devDependencies": {
     "axios": "^0.19.2",

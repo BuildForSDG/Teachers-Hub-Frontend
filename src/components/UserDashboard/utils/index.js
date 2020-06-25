@@ -1,8 +1,5 @@
-/* eslint-disable import/prefer-default-export */
 import React from "react";
-import PaginationRow from "../components/Pagination/PaginationRow.jsx";
-
-export const isAuthenticated = localStorage.getItem("token");
+import PaginationRow from "../../Pagination/PaginationRow.jsx";
 
 export const LIMIT = 5;
 export const getDataByPage = (courses, currentPage) => {

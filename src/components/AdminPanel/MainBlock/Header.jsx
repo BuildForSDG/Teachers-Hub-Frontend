@@ -73,7 +73,14 @@ function HeaderComponent(props) {
       <Row vertical="center">
         <div className={css(styles.iconStyles)}>
           <form className="form-inline">
-            <input className="form-control" type="text" placeholder="Search" aria-label="Search" />
+            <input
+              className="form-control"
+              type="text"
+              placeholder="Search"
+              aria-label="Search"
+              name="search"
+              onChange={props.onChange}
+            />
             <input type="submit" className="btn btn-primary" value="search" style={{ margin: "10px" }} />
           </form>
         </div>
