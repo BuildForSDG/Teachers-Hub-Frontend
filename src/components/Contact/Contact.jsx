@@ -2,8 +2,10 @@
 import React, { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import LoaderComponent from "../Loader/Loader.jsx";
 
 const Contact = () => {
+  const [loading, setLoading] = useState(false);
   const [userDetails, setUserDetails] = useState({
     firstname: "",
     lastname: "",
@@ -29,8 +31,12 @@ const Contact = () => {
           lastname: "",
           subject: ""
         });
+        setLoading(false);
       })
-      .catch((err) => toast.error(<p>{err.text}</p>));
+      .catch((err) => {
+        toast.error(<p>{err.text}</p>);
+        setLoading(false);
+      });
   };
 
   const handleSubmit = (e) => {
@@ -42,6 +48,7 @@ const Contact = () => {
       replyTo: userDetails.email,
       subject: userDetails.subject
     });
+    setLoading(true);
   };
 
   return (
@@ -50,6 +57,7 @@ const Contact = () => {
         <div className="row justify-content-center">
           <div className="col-md-7">
             <h2 className="section-title mb-3">Contact Us</h2>
+            {loading ? <LoaderComponent /> : null}
             <form data-aos="fade" onSubmit={handleSubmit}>
               <div className="form-group row">
                 <div className="col-md-6 mb-3 mb-lg-0">
@@ -89,7 +97,6 @@ const Contact = () => {
                   />
                 </div>
               </div>
-
               <div className="form-group row">
                 <div className="col-md-12">
                   <input

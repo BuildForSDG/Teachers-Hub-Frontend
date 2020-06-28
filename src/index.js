@@ -7,11 +7,11 @@ import thunk from "redux-thunk";
 import combineReducers from "./redux/reducers/combinedReducer.jsx";
 import Routes from "./app.js";
 
-
 const store = createStore(combineReducers, compose(applyMiddleware(thunk)));
 
 ReactDOM.render(
-<Provider store={store}>
+  <Provider store={store}>
     <Routes />
-</Provider>, document.getElementById("root")
+  </Provider>,
+  document.getElementById("root")
 );

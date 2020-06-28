@@ -1841,3 +1841,7 @@ h5,
 .nav-pills-custom-minimal.custom-minimal-bottom > li.active > a:focus {
   border-bottom-color: #94c632;
 }
+.spinner {
+  width: "100%";
+  height: "100%";
+}
