@@ -97,3 +97,13 @@ export const commentFail = (error) => ({
   type: "ADD_COMMENT_FAIL",
   error
 });
+
+export const enrollSuccess = (payload) => ({
+  type: "ENROLL_SUCCESS",
+  payload
+});
+
+export const enrollFail = (error) => ({
+  type: "ENROLL_FAIL",
+  error
+});
