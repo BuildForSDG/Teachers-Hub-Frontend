@@ -5,8 +5,8 @@ import LoaderComponent from "../Loader/Loader.jsx";
 
 export const SignupForm = (props) => (
   <form className="form-box" onSubmit={props.onSubmit}>
-    <h3 className="h4 text-black mb-4">Sign Up</h3>
     {props.loading ? <LoaderComponent /> : null}
+    <h3 className="h4 text-black mb-4">Sign Up</h3>
     <div className="form-group">
       <input
         type="email"

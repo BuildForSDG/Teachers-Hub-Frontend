@@ -20,7 +20,7 @@ const Login = (props) => {
         <div className="site-mobile-menu-body"></div>
       </div>
       <Header url="/" buttonValue="SignUp" homeUrl="/login" />
-      <Main formName="loginForm" onSubmit={props.onSubmit} onChange={props.onChange} />
+      <Main formName="loginForm" onSubmit={props.onSubmit} onChange={props.onChange} loading={props.loading} />
       <Footer />
     </div>
   );
