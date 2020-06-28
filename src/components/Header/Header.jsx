@@ -6,7 +6,7 @@ const Header = (props) => (
     <div className="container-fluid">
       <div>
         <nav className="navbar navbar-expand-lg navbar-dark navbar-custom">
-          <a className="navbar-brand site-logo mr-auto w-25" href={props.homeUrl}>
+          <a className="navbar-brand site-logo mr-auto w-25" href="/">
             Teachers Hub
           </a>
           <button

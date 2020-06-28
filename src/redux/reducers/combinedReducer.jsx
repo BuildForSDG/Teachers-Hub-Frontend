@@ -9,6 +9,7 @@ import fetchBlogsReducer from "./fetchBlogsReducer.jsx";
 import deleteCourseReducer from "./deleteCourseReducer.jsx";
 import addCourseReducer from "./addCourseReducer.jsx";
 import addCommentReducer from "./addCommentReducer.jsx";
+import enrollReducer from "./enrollReducer.jsx";
 
 export default combineReducers({
   loginReducer,
@@ -20,5 +21,6 @@ export default combineReducers({
   fetchBlogsReducer,
   deleteCourseReducer,
   addCourseReducer,
-  addCommentReducer
+  addCommentReducer,
+  enrollReducer
 });

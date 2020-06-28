@@ -9,6 +9,13 @@ const LandingPage = () => {
   useEffect(() => {
     AOS.init();
   });
+
+  const checkAuthStatus = () => {
+    if (localStorage.getItem("token")) {
+      return "LogOut";
+    }
+    return "Login";
+  };
   return (
     <div className="site-wrap">
       <div className="site-mobile-menu site-navbar-target">
@@ -19,7 +26,7 @@ const LandingPage = () => {
         </div>
         <div className="site-mobile-menu-body"></div>
       </div>
-      <Header buttonValue="Login" url="/login" homeUrl="/" />
+      <Header buttonValue={checkAuthStatus()} url="/login" homeUrl="/" />
       <Main formName="signUpForm" />
       <Footer />
     </div>

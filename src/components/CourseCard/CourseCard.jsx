@@ -20,7 +20,7 @@ export const CourseCard = (props) => {
             {props.data.data.courses ? (
               props.data.data.courses.map((course) => (
                 <div key={course.course_id} onClick={() => handleClick(course.course_id)}>
-                  <Link to={`/courses/${course.course_id}`} style={{ color: "inherit", textDecoration: "inherit" }}>
+                  <Link to={`/courses/${course.course_id}`} style={{ color: "#000", textDecoration: "inherit" }}>
                     <div className="col-12 nonloop-block-14">
                       <div
                         className="card course"

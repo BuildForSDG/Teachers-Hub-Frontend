@@ -1,15 +1,34 @@
 /* eslint-disable no-nested-ternary */
 /* eslint-disable react/prop-types */
 /* eslint-disable import/prefer-default-export */
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { toast, ToastContainer } from "react-toastify";
 import Footer from "../Footer/Footer.jsx";
 import Header from "../Header/Header.jsx";
 import { capitalize } from "./utils";
 import CourseExpansionPanel from "../ExpansionPanel/ExpansionPanel.jsx";
 import CommentsContainer from "../../containers/CommentContainer.jsx";
+import enrollAction from "../../redux/actions/enrollAction.jsx";
+import "react-toastify/dist/ReactToastify.css";
 
 export const SingleCourse = (props) => {
   const isAuthenticated = localStorage.getItem("token");
+  const [disabled, setDisabled] = useState(true);
+  const enrollStatus = useSelector((state) => state.enrollReducer);
+  const dispatch = useDispatch();
+  const handleClick = () => {
+    dispatch(enrollAction(props.course_id));
+  };
+
+  useEffect(() => {
+    if (enrollStatus.error.message === "already enrolled for this course") {
+      setDisabled(false);
+      toast.success(<p className="text-white">Already enrolled for course</p>);
+    } else if (enrollStatus.data.message === "successfully enrolled") {
+      toast.success(<p className="text-white">Enrolled successfully</p>);
+    }
+  }, [enrollStatus]);
   return (
     <div>
       {isAuthenticated ? (
@@ -29,7 +48,7 @@ export const SingleCourse = (props) => {
                 <div className="row justify-content-center align-items-center text-center">
                   <div className="col-lg-6">
                     <h1>{props.data.data.course ? capitalize(props.data.data.course.course_title) : null}</h1>
-                    <button type="button" className="btn btn-primary">
+                    <button type="button" className="btn btn-primary" onClick={handleClick}>
                       ENROLL TO GET STARTED
                     </button>
                   </div>
@@ -48,7 +67,7 @@ export const SingleCourse = (props) => {
                 <p>{props.data.data.course ? props.data.data.course.course_description : null}</p>
 
                 <p className="mt-4">
-                  <a href="#" className="btn btn-primary">
+                  <a href="#" className="btn btn-primary" onClick={handleClick}>
                     Enroll
                   </a>
                 </p>
@@ -62,6 +81,7 @@ export const SingleCourse = (props) => {
                         module_date_added={module.module_date_added}
                         module_description={module.module_description}
                         module_title={module.module_title}
+                        disabled={disabled}
                       />
                     </div>
                   ))
@@ -91,6 +111,7 @@ export const SingleCourse = (props) => {
           </div>
         </div>
       </div>
+
       <Footer />
     </div>
   );
