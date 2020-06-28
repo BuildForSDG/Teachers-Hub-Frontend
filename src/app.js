@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./App.css";
+import { ToastContainer } from "react-toastify";
 import LandingPage from "./components/LandingPage.jsx";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute.jsx";
 import TeachersPage from "./components/TeachersPage.jsx";
@@ -10,6 +11,7 @@ import AdminPanel from "./components/AdminPanel";
 import PrivateAdminRoute from "./components/ProtectedRoute/PrivateAdminRoute.jsx";
 import Community from "./components/Community/Community.jsx";
 import Instructor from "./components/Instructor/Instructor.jsx";
+import "react-toastify/dist/ReactToastify.css";
 
 const Routes = () => (
   <BrowserRouter>
@@ -22,6 +24,7 @@ const Routes = () => (
       <ProtectedRoute path="/instructor" exact component={Instructor} />
       <Route path="/community" exact component={Community} />
       <Route component={LandingPage} />
+      <ToastContainer />
     </Switch>
   </BrowserRouter>
 );

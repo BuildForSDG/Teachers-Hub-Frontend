@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Login from "../components/Login.jsx";
 import loginAction from "../redux/actions/loginAction.jsx";
@@ -55,17 +55,6 @@ const LoginContainer = () => {
   return (
     <div>
       <Login onChange={handleChange} onSubmit={handleSubmit} />
-      {Object.keys(loginData.data).length === 0 && !Object.keys(loginData.error).length === 0 ? null : (
-        <ToastContainer
-          position="top-right"
-          hideProgressBar={false}
-          newestOnTop={true}
-          closeOnClick={false}
-          draggable={false}
-          rtl={false}
-          autoClose={900}
-        />
-      )}
     </div>
   );
 };

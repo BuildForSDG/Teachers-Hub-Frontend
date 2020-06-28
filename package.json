@@ -22,6 +22,7 @@
     "express": "^4.17.1",
     "formik": "^2.1.4",
     "jsonwebtoken": "^8.5.1",
+    "loaders.css": "^0.1.2",
     "mdbreact": "^4.27.0",
     "moment": "^2.26.0",
     "mutationobserver-shim": "^0.3.5",
@@ -34,6 +35,9 @@
     "react-bootstrap-table2-paginator": "^2.1.0",
     "react-bootstrap-table2-toolkit": "^1.4.2",
     "react-dom": "^16.13.1",
+    "react-loader-spinner": "^3.1.14",
+    "react-loaders": "^3.0.1",
+    "react-loading-overlay": "^1.0.1",
     "react-owl-carousel": "^2.3.1",
     "react-paginate": "^6.3.2",
     "react-player": "^2.3.1",
@@ -60,9 +64,7 @@
     "heroku-postbuild": "yarn build"
   },
   "jest": {
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
-    ]
+    "snapshotSerializers": ["enzyme-to-json/serializer"]
   },
   "license": "MIT",
   "eslintConfig": {
@@ -74,16 +76,8 @@
     }
   },
   "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "production": [">0.2%", "not dead", "not op_mini all"],
+    "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
   },
   "devDependencies": {
     "axios": "^0.19.2",
