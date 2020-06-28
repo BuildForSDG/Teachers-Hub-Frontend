@@ -46,7 +46,7 @@ const Main = (props) => {
                     {props.formName === "signUpForm" ? (
                       <SignUpContainer />
                     ) : (
-                      <LoginForm onSubmit={props.onSubmit} onChange={props.onChange} />
+                      <LoginForm onSubmit={props.onSubmit} onChange={props.onChange} loading={props.loading} />
                     )}
                   </div>
                 </div>
