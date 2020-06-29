@@ -242,9 +242,9 @@ const CommunityMainSection = () => (
                             </a>
                             <div className="forum-sub-title">
                               We believe that when learners become active doers rather than passive consumers of
-                              mathematics the greatest gains of their mathematical thinking can be realized. The process
-                              of sense-making truly begins when we create questioning, curious classrooms full of
-                              learners own thoughts and ideas.
+                              mathematics the greatest gains of their\ mathematical thinking can be realized. The
+                              process of sense-making truly begins when we create questioning, curious classrooms full
+                              of learners own thoughts and ideas.
                             </div>
                           </div>
                           <div className="col-md-1 forum-info">
@@ -379,7 +379,220 @@ const CommunityMainSection = () => (
             mentorship
           </div>
           <div className="tab-pane fade" id="job" role="tabpanel" aria-labelledby="job-tab">
-            job panel
+            <div className="container">
+              <div className="row">
+                <div className="col-lg-12">
+                  <div className="wrapper wrapper-content animated fadeInRight">
+                    <div className="ibox-content m-b-sm border-bottom" style={{ color: "#585858" }}>
+                      <div className="p-xs">
+                        <div className="pull-left m-r-md">
+                          <i className="fa fa-globe text-navy mid-icon"></i>
+                        </div>
+                        <h5>Teachers Hub Job Board</h5>
+                      </div>
+                    </div>
+
+                    <div className="ibox-content forum-container" style={{ color: "#585858" }}>
+                      <div className="forum-item active">
+                        <div className="row">
+                          <div className="col-md-9">
+                            <div className="forum-icon">
+                              <i className="fa fa-shield"></i>
+                            </div>
+                            <a href="forum_post.html" className="forum-item-title">
+                              Early Years Teacher
+                            </a>
+                            <div className="forum-sub-title">
+                              A junior school is searching for an early years teacher possessing vast amount of
+                              experience in nursery teaching...
+                            </div>
+                            <div className="forum-sub-title">
+                              <ul style={{ listStyleType: "none" }}>
+                                <li style={{ display: "inline-block", padding: "0px 7px" }}>
+                                  <span className="badge badge-warning">Location: Kampala</span>
+                                </li>
+                                <li style={{ display: "inline-block", padding: "0px 7px" }}>
+                                  <span className="badge badge-primary">Experience: 4 years</span>
+                                </li>
+                                <li style={{ display: "inline-block", padding: "0px 7px" }}>
+                                  <span className="badge badge-primary">Level: Nursery</span>
+                                </li>
+                                <li style={{ display: "inline-block", padding: "0px 7px" }}>
+                                  <span className="badge badge-success">Deadline: 30th June</span>
+                                </li>
+                                <li style={{ display: "inline-block", padding: "0px 7px" }}>
+                                  <span className="badge badge-info">
+                                    <a href="/apply" style={{ color: "inherit" }}>
+                                      Apply here
+                                    </a>
+                                  </span>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="forum-item">
+                        <div className="row">
+                          <div className="col-md-9">
+                            <div className="forum-icon">
+                              <i className="fa fa-shield"></i>
+                            </div>
+                            <a href="forum_post.html" className="forum-item-title">
+                              Physics Teacher
+                            </a>
+                            <div className="forum-sub-title">
+                              A primary school is searching for an early years teacher possessing vast amount of
+                              experience in teaching physics...
+                            </div>
+                            <div className="forum-sub-title">
+                              <ul style={{ listStyleType: "none" }}>
+                                <li style={{ display: "inline-block", padding: "0px 7px" }}>
+                                  <span className="badge badge-warning">Location: Kampala</span>
+                                </li>
+                                <li style={{ display: "inline-block", padding: "0px 7px" }}>
+                                  <span className="badge badge-primary">Experience: 8 years</span>
+                                </li>
+                                <li style={{ display: "inline-block", padding: "0px 7px" }}>
+                                  <span className="badge badge-danger">Level:Primary 6</span>
+                                </li>
+                                <li style={{ display: "inline-block", padding: "0px 7px" }}>
+                                  <span className="badge badge-success">Deadline: 30th June</span>
+                                </li>
+                                <li style={{ display: "inline-block", padding: "0px 7px" }}>
+                                  <span className="badge badge-info">
+                                    <a href="/apply" style={{ color: "inherit" }}>
+                                      Apply here
+                                    </a>
+                                  </span>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="forum-item">
+                        <div className="row">
+                          <div className="col-md-9">
+                            <div className="forum-icon">
+                              <i className="fa fa-shield"></i>
+                            </div>
+                            <a href="forum_post.html" className="forum-item-title">
+                              Web Design Tutor
+                            </a>
+                            <div className="forum-sub-title">
+                              A primary school is searching for an early years teacher possessing vast amount of
+                              experience in teaching physics...
+                            </div>
+                            <div className="forum-sub-title">
+                              <ul style={{ listStyleType: "none" }}>
+                                <li style={{ display: "inline-block", padding: "0px 7px" }}>
+                                  <span className="badge badge-warning">Location: Kampala</span>
+                                </li>
+                                <li style={{ display: "inline-block", padding: "0px 7px" }}>
+                                  <span className="badge badge-primary">Experience: 8 years</span>
+                                </li>
+                                <li style={{ display: "inline-block", padding: "0px 7px" }}>
+                                  <span className="badge badge-danger">Level:Primary 6</span>
+                                </li>
+                                <li style={{ display: "inline-block", padding: "0px 7px" }}>
+                                  <span className="badge badge-success">Deadline: 30th June</span>
+                                </li>
+                                <li style={{ display: "inline-block", padding: "0px 7px" }}>
+                                  <span className="badge badge-info">
+                                    <a href="/apply" style={{ color: "inherit" }}>
+                                      Apply here
+                                    </a>
+                                  </span>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="forum-item">
+                        <div className="row">
+                          <div className="col-md-9">
+                            <div className="forum-icon">
+                              <i className="fa fa-shield"></i>
+                            </div>
+                            <a href="forum_post.html" className="forum-item-title">
+                              English Teacher
+                            </a>
+                            <div className="forum-sub-title">
+                              A primary school is searching for an early years teacher possessing vast amount of
+                              experience in teaching physics...
+                            </div>
+                            <div className="forum-sub-title">
+                              <ul style={{ listStyleType: "none" }}>
+                                <li style={{ display: "inline-block", padding: "0px 7px" }}>
+                                  <span className="badge badge-warning">Location: Kampala</span>
+                                </li>
+                                <li style={{ display: "inline-block", padding: "0px 7px" }}>
+                                  <span className="badge badge-primary">Experience: 8 years</span>
+                                </li>
+                                <li style={{ display: "inline-block", padding: "0px 7px" }}>
+                                  <span className="badge badge-danger">Level:Primary 6</span>
+                                </li>
+                                <li style={{ display: "inline-block", padding: "0px 7px" }}>
+                                  <span className="badge badge-success">Deadline: 30th June</span>
+                                </li>
+                                <li style={{ display: "inline-block", padding: "0px 7px" }}>
+                                  <span className="badge badge-info">
+                                    <a href="/apply" style={{ color: "inherit" }}>
+                                      Apply here
+                                    </a>
+                                  </span>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="forum-item">
+                        <div className="row">
+                          <div className="col-md-9">
+                            <div className="forum-icon">
+                              <i className="fa fa-shield"></i>
+                            </div>
+                            <a href="forum_post.html" className="forum-item-title">
+                              Mathematics Teacher
+                            </a>
+                            <div className="forum-sub-title">
+                              A primary school is searching for an early years teacher possessing vast amount of
+                              experience in teaching physics...
+                            </div>
+                            <div className="forum-sub-title">
+                              <ul style={{ listStyleType: "none" }}>
+                                <li style={{ display: "inline-block", padding: "0px 7px" }}>
+                                  <span className="badge badge-warning">Location: Kampala</span>
+                                </li>
+                                <li style={{ display: "inline-block", padding: "0px 7px" }}>
+                                  <span className="badge badge-primary">Experience: 8 years</span>
+                                </li>
+                                <li style={{ display: "inline-block", padding: "0px 7px" }}>
+                                  <span className="badge badge-danger">Level:Primary 6</span>
+                                </li>
+                                <li style={{ display: "inline-block", padding: "0px 7px" }}>
+                                  <span className="badge badge-success">Deadline: 30th June</span>
+                                </li>
+                                <li style={{ display: "inline-block", padding: "0px 7px" }}>
+                                  <span className="badge badge-info">
+                                    <a href="/apply" style={{ color: "inherit" }}>
+                                      Apply here
+                                    </a>
+                                  </span>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div></div>
