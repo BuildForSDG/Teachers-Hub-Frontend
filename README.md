@@ -18,7 +18,7 @@ This project addresses the following SDG targets:
 
 ## Why
 
-Talk about what problem this solves, what SDG(s) and SGD targets it addresses and why these are imoirtant
+Talk about what problem this solves, what SDG(s) and SGD targets it addresses and why these are important
 
 ## Usage
  How would someone use what you have built, include URLs to the deployed app, service e.t.c when you have it setup
