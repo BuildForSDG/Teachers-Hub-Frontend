@@ -11,14 +11,20 @@ import CourseExpansionPanel from "../ExpansionPanel/ExpansionPanel.jsx";
 import CommentsContainer from "../../containers/CommentContainer.jsx";
 import enrollAction from "../../redux/actions/enrollAction.jsx";
 import "react-toastify/dist/ReactToastify.css";
+import fetchEnrolledStateAction from "../../redux/actions/fetchEnrolledStateAction.jsx";
 
 export const SingleCourse = (props) => {
   const isAuthenticated = localStorage.getItem("token");
   const [disabled, setDisabled] = useState(true);
   const enrollStatus = useSelector((state) => state.enrollReducer);
   const dispatch = useDispatch();
-  const handleClick = () => {
+
+  const handleClickEnrolCourse = () => {
     dispatch(enrollAction(props.course_id));
+  };
+
+  const handleClickResumeCourse = () => {
+    //dispatch(ResumeCourseAction(props.course_id));
   };
 
   useEffect(() => {
@@ -48,9 +54,20 @@ export const SingleCourse = (props) => {
                 <div className="row justify-content-center align-items-center text-center">
                   <div className="col-lg-6">
                     <h1>{props.data.data.course ? capitalize(props.data.data.course.course_title) : null}</h1>
-                    <button type="button" className="btn btn-primary" onClick={handleClick}>
-                      ENROLL TO GET STARTED
-                    </button>
+
+                    {isAuthenticated && props.enrolledstt.data.message === "Registered" ? (
+                      <button type="button" className="btn btn-primary" onClick={handleClickResumeCourse}>
+                        RESUME COURSE
+                      </button>
+                    ) : isAuthenticated ? (
+                      <button type="button" className="btn btn-primary" onClick={handleClickEnrolCourse}>
+                        ENROLL TO GET STARTED
+                      </button>
+                    ) : (
+                      <button type="button" to="/login" className="btn btn-primary">
+                        LOGIN TO ENROLL
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>
@@ -65,10 +82,9 @@ export const SingleCourse = (props) => {
               <div className="mb-5">
                 <h3 className="text-black">Course Description</h3>
                 <p>{props.data.data.course ? props.data.data.course.course_description : null}</p>
-
                 <p className="mt-4">
-                  <a href="#" className="btn btn-primary" onClick={handleClick}>
-                    Enroll
+                  <a href="#" className="btn btn-primary" onClick={handleClickEnrolCourse}>
+                    Enroll COURSE
                   </a>
                 </p>
               </div>

@@ -107,3 +107,13 @@ export const enrollFail = (error) => ({
   type: "ENROLL_FAIL",
   error
 });
+
+export const fetchEnrolledStateSuccess = (enrolledStatus) => ({
+  type: "FETCH_ENROLLED_STATE_SUCCESS",
+  payload: enrolledStatus
+});
+
+export const fetchEnrolledStateFailure = (error) => ({
+  type: "FETCH_ENROLLED_STATE_FAILURE",
+  payload: error
+});
