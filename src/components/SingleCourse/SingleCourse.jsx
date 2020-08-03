@@ -33,6 +33,10 @@ export const SingleCourse = (props) => {
       toast.success(<p className="text-white">Already enrolled for course</p>);
     } else if (enrollStatus.data.message === "successfully enrolled") {
       toast.success(<p className="text-white">Enrolled successfully</p>);
+
+      setInterval(() => {
+        window.location.reload(true);
+      }, 3000);
     }
   }, [enrollStatus]);
   return (
@@ -56,17 +60,17 @@ export const SingleCourse = (props) => {
                     <h1>{props.data.data.course ? capitalize(props.data.data.course.course_title) : null}</h1>
 
                     {isAuthenticated && props.enrolledstt.data.message === "Registered" ? (
-                      <button type="button" className="btn btn-primary" onClick={handleClickResumeCourse}>
+                      <a href="#" className="btn btn-primary" onClick={handleClickResumeCourse}>
                         RESUME COURSE
-                      </button>
+                      </a>
                     ) : isAuthenticated ? (
-                      <button type="button" className="btn btn-primary" onClick={handleClickEnrolCourse}>
+                      <a href="#" className="btn btn-primary" onClick={handleClickEnrolCourse}>
                         ENROLL TO GET STARTED
-                      </button>
+                      </a>
                     ) : (
-                      <button type="button" to="/login" className="btn btn-primary">
+                      <a href="/login" className="btn btn-primary">
                         LOGIN TO ENROLL
-                      </button>
+                      </a>
                     )}
                   </div>
                 </div>
@@ -83,9 +87,19 @@ export const SingleCourse = (props) => {
                 <h3 className="text-black">Course Description</h3>
                 <p>{props.data.data.course ? props.data.data.course.course_description : null}</p>
                 <p className="mt-4">
-                  <a href="#" className="btn btn-primary" onClick={handleClickEnrolCourse}>
-                    Enroll COURSE
-                  </a>
+                  {isAuthenticated && props.enrolledstt.data.message === "Registered" ? (
+                    <a href="#" className="btn btn-primary" onClick={handleClickResumeCourse}>
+                      RESUME COURSE
+                    </a>
+                  ) : isAuthenticated ? (
+                    <a href="#" className="btn btn-primary" onClick={handleClickEnrolCourse}>
+                      ENROLL TO GET STARTED
+                    </a>
+                  ) : (
+                    <a href="/login" className="btn btn-primary">
+                      LOGIN TO ENROLL
+                    </a>
+                  )}
                 </p>
               </div>
               {props.modules.data && props.modules.data.message
