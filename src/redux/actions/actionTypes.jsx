@@ -117,3 +117,13 @@ export const fetchEnrolledStateFailure = (error) => ({
   type: "FETCH_ENROLLED_STATE_FAILURE",
   payload: error
 });
+
+export const deleteBlogSuccess = (payload) => ({
+  type: "DELETE_BLOG_SUCCESS",
+  payload
+});
+
+export const deleteBlogFailure = (error) => ({
+  type: "DELETE_BLOG_FAILURE",
+  error
+});
