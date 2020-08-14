@@ -10,6 +10,9 @@ import deleteCourseReducer from "./deleteCourseReducer.jsx";
 import addCourseReducer from "./addCourseReducer.jsx";
 import addCommentReducer from "./addCommentReducer.jsx";
 import enrollReducer from "./enrollReducer.jsx";
+import fetchOrganizationsReducer from "./fetchOrganizationsReducer.jsx";
+import addOrganizationReducer from "./addOrganizationReducer.jsx";
+import deleteOrganizationReducer from "./deleteOrganizationsReducer.jsx";
 
 export default combineReducers({
   loginReducer,
@@ -22,5 +25,8 @@ export default combineReducers({
   deleteCourseReducer,
   addCourseReducer,
   addCommentReducer,
-  enrollReducer
+  enrollReducer,
+  fetchOrganizationsReducer,
+  addOrganizationReducer,
+  deleteOrganizationReducer
 });
