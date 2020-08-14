@@ -107,3 +107,33 @@ export const enrollFail = (error) => ({
   type: "ENROLL_FAIL",
   error
 });
+
+export const addOrganizationSuccess = (payload) => ({
+  type: "ADD_ORGANIZATION_SUCCESS",
+  payload
+});
+
+export const addOrganizationFail = (error) => ({
+  type: "ADD_ORGANIZATION_FAIL",
+  error
+});
+
+export const deleteOrganizationSuccess = (payload) => ({
+  type: "DELETE_ORGANIZATION_SUCCESS",
+  payload
+});
+
+export const deleteOrganizationFail = (error) => ({
+  type: "DELETE_ORGANIZATION_FAIL",
+  error
+});
+
+export const fetchOrganizationsSuccess = (payload) => ({
+  type: "FETCH_ORGANIZATIONS_SUCCESS",
+  payload
+});
+
+export const fetchOrganizationsFail = (error) => ({
+  type: "FETCH_ORGANIZATIONS_FAIL",
+  error
+});
