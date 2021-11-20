@@ -14,39 +14,34 @@ export const CourseCard = (props) => {
   };
   return (
     <div className="site-section courses-entry-wrap" data-aos="fade-up" data-aos-delay="100">
-      <div className="container">
-        <div className="row">
+      <div className="container col-8">
+        <div className="row col-auto">
           <Carousel>
             {props.data.data.courses ? (
               props.data.data.courses.map((course) => (
                 <div key={course.course_id} onClick={() => handleClick(course.course_id)}>
                   <Link to={`/courses/${course.course_id}`} style={{ color: "#000", textDecoration: "inherit" }}>
-                    <div className="col-12 nonloop-block-14">
-                      <div
-                        className="card course"
-                        style={{
-                          width: "900px",
-                          margin: "0 auto",
-                          float: "none",
-                          marginBottom: "90px"
-                        }}
-                      >
+                    <div className="nonloop-block-10">
+                      <div className="card course boarder-dark ml-auto">
                         <div className="row no-gutters">
-                          <div className="col-sm-5">
-                            <figure className="m-0">
+                          <div className="col">
+                            <figure className="m-1 ">
                               <img src={SrcImg} alt={course.course_title} className="img-fluid" />
                             </figure>
                           </div>
-                          <div className="col-sm-7 ">
-                            <div className="card-body ">
+                          <div className="col-sm-6 ">
+                            <div className="card-body col">
                               <h3>{course.course_title.toUpperCase()}</h3>
-                              <p className="card-text">{course.course_description}</p>
-                              <span className="course-name">{course.course_category}</span>
+                              <div>
+                                <br></br>
+                                <p className="card-text col">{course.course_description}</p>
+                              </div>
+                              <div className="course-name py-1 px-1 ml-auto">{course.course_category}</div>
                               <div className="meta">
                                 <span className="icon-clock-o"></span>Duration: {course.course_duration} hours
                               </div>
                               <div className="d-flex border-top stats">
-                                <div className="py-3 px-4">
+                                <div className="py-4 px-4">
                                   <span className="icon-users"></span> 2,193 students
                                 </div>
                                 <div className="py-3 px-4 w-25 ml-auto border-left">

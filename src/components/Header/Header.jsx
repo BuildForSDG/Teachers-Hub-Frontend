@@ -2,7 +2,7 @@
 import React from "react";
 
 const Header = (props) => (
-  <header className="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
+  <header className="site-navbar py-2 js-sticky-header site-navbar-target" role="banner">
     <div className="container-fluid">
       <div>
         <nav className="navbar navbar-expand-lg navbar-dark navbar-custom">
@@ -52,7 +52,7 @@ const Header = (props) => (
             <a href={props.url}>
               <input
                 type="submit"
-                className="btn btn-primary my-2 my-sm-0"
+                className="btn btn-primary my-5 my-sm-0 py-1 px-2"
                 onClick={() => (props.buttonValue === "LogOut" ? localStorage.removeItem("token") : null)}
                 value={props.buttonValue}
               />

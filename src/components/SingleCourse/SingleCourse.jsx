@@ -1,9 +1,10 @@
+/* eslint-disable max-len */
 /* eslint-disable no-nested-ternary */
 /* eslint-disable react/prop-types */
 /* eslint-disable import/prefer-default-export */
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import Footer from "../Footer/Footer.jsx";
 import Header from "../Header/Header.jsx";
 import { capitalize } from "./utils";
@@ -11,7 +12,7 @@ import CourseExpansionPanel from "../ExpansionPanel/ExpansionPanel.jsx";
 import CommentsContainer from "../../containers/CommentContainer.jsx";
 import enrollAction from "../../redux/actions/enrollAction.jsx";
 import "react-toastify/dist/ReactToastify.css";
-import fetchEnrolledStateAction from "../../redux/actions/fetchEnrolledStateAction.jsx";
+// import fetchEnrolledStateAction from "../../redux/actions/fetchEnrolledStateAction.jsx";
 
 export const SingleCourse = (props) => {
   const isAuthenticated = localStorage.getItem("token");
@@ -24,7 +25,7 @@ export const SingleCourse = (props) => {
   };
 
   const handleClickResumeCourse = () => {
-    //dispatch(ResumeCourseAction(props.course_id));
+    // dispatch(ResumeCourseAction(props.course_id));
   };
 
   useEffect(() => {
@@ -54,13 +55,15 @@ export const SingleCourse = (props) => {
         >
           <div className="container">
             <div className="row align-items-center">
-              <div className="col-12">
-                <div className="row justify-content-center align-items-center text-center">
-                  <div className="col-lg-6">
-                    <h1>{props.data.data.course ? capitalize(props.data.data.course.course_title) : null}</h1>
+              <div className="col-3">
+                <div className="row justify-content align-items">
+                  <div className="col-lg-12">
+                    <h1 className="col-lg-15">
+                      {props.data.data.course ? capitalize(props.data.data.course.course_title) : null}
+                    </h1>
 
                     {isAuthenticated && props.enrolledstt.data.message === "Registered" ? (
-                      <a href="#" className="btn btn-primary" onClick={handleClickResumeCourse}>
+                      <a href="#" className="btn btn-primary " onClick={handleClickResumeCourse}>
                         RESUME COURSE
                       </a>
                     ) : isAuthenticated ? (
