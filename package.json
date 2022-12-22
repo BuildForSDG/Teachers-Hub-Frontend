@@ -21,7 +21,7 @@
     "eslint-config-airbnb": "^18.1.0",
     "express": "^4.17.1",
     "formik": "^2.1.4",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "loaders.css": "^0.1.2",
     "mdbreact": "^4.27.0",
     "moment": "^2.26.0",
