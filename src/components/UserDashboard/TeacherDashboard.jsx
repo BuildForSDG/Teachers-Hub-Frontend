@@ -235,12 +235,14 @@ const TeacherDashboard = () => (
       </div>
       <div className="row">
         <div className="col card-body">
+          {/* List of users Enrolled courses */}
           <TableCard />
         </div>
       </div>
       <div className="row">
         <div className="col card-body" id="courses-section">
-          <CourseCard />
+          {/* List of all courses available */}
+          {/* <CourseCard /> */}
         </div>
       </div>
     </div>

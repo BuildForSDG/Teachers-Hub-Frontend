@@ -38,7 +38,7 @@ const CourseExpansionPanel = (props) => {
     <div className={classes.root}>
       <ExpansionPanel onClick={handlePanelClick} disabled={props.disabled}>
         <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1a-content" id="panel1a-header">
-          <h6>{capitalize(props.module_title)}</h6>
+          <i class="bi bi-easel2 me-2"></i> <h6>{capitalize(props.module_title)}</h6>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails className={classes.heading}>
           <ModuleContent module_id={props.id} moduleData={moduleContent} />

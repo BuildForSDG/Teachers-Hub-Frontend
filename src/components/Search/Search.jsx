@@ -8,14 +8,15 @@ const Search = () => (
           <div className="col-12">
             <div className="row justify-content-center">
               <div className="col-lg-6">
-                <div className="row">
+                <div className="d-flex">
                   <input
                     className="form-control  col-md-9 offset-md-1 "
                     id="searchTerm"
                     placeholder="Search your courses..."
                   />
                   <button type="button" className="btn btn-primary" id="searchButton">
-                    <i className="fa fa-search" aria-hidden="true"></i>{" "}
+                    <i className="fa fa-search" aria-hidden="true"></i>
+                    {"search "}
                   </button>
                 </div>
               </div>

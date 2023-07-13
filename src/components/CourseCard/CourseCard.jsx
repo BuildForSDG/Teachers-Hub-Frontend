@@ -25,15 +25,16 @@ export const CourseCard = (props) => {
                       <div
                         className="card course"
                         style={{
-                          width: "900px",
+                          width: "800px",
                           margin: "0 auto",
                           float: "none",
                           marginBottom: "90px"
                         }}
                       >
+                        <div className="course-name">{course.course_category}</div>
                         <div className="row no-gutters">
                           <div className="col-sm-4">
-                            <figure className="m-0">
+                            <figure className="m-3">
                               <img src={SrcImg} alt={course.course_title} className="img-fluid" />
                             </figure>
                           </div>
@@ -41,7 +42,7 @@ export const CourseCard = (props) => {
                             <div className="card-body">
                               <div>
                                 <h3>{course.course_title.toUpperCase()}</h3>
-                                <p className="card-text col">{course.course_description}</p>
+                                <p className="card-text">{course.course_description}</p>
                               </div>
                               <br />
                               <div className="meta">
@@ -57,7 +58,6 @@ export const CourseCard = (props) => {
                               </div>
                             </div>
                           </div>
-                          <div className="course-name">{course.course_category}</div>
                         </div>
                       </div>
                     </div>

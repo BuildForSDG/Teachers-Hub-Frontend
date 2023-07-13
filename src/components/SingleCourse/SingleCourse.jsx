@@ -12,10 +12,15 @@ import CommentsContainer from "../../containers/CommentContainer.jsx";
 import enrollAction from "../../redux/actions/enrollAction.jsx";
 import "react-toastify/dist/ReactToastify.css";
 import fetchEnrolledStateAction from "../../redux/actions/fetchEnrolledStateAction.jsx";
+import SrcImg from "../../assets/images/img_4.jpg";
 
 export const SingleCourse = (props) => {
   const isAuthenticated = localStorage.getItem("token");
   const [disabled, setDisabled] = useState(true);
+
+  //variable to extract course data object from props
+  const courseInfo = Object(props.data.data.course);
+
   const enrollStatus = useSelector((state) => state.enrollReducer);
   const dispatch = useDispatch();
 
@@ -24,7 +29,7 @@ export const SingleCourse = (props) => {
   };
 
   const handleClickResumeCourse = () => {
-    //dispatch(ResumeCourseAction(props.course_id));
+    setDisabled(false);
   };
 
   useEffect(() => {
@@ -46,27 +51,36 @@ export const SingleCourse = (props) => {
       ) : (
         <Header buttonValue="Login" url="/login" homeUrl="/" dashboard="Home" />
       )}
+
       <div className="intro-section single-cover" id="home-section">
         <div
-          className="slide-1 "
+          className="slide-1"
           style={{ backgroundImage: "url(images/img_2.jpg)" }}
           data-stellar-background-ratio="0.5"
         >
+          {" "}
+          <br />
           <div className="container">
-            <div className="row align-items-center">
-              <div className="col-12">
-                <div className="row justify-content-center align-items-center text-center">
-                  <div className="col-lg-6">
-                    <h1>{props.data.data.course ? capitalize(props.data.data.course.course_title) : null}</h1>
-
+            <div className="col">
+              <div className="d-flex justify-content-center">
+                <div className="d-flex flex-sm text-center align-self-stretch">
+                  <div className="col">
+                    <h1>{props.data.data.course ? capitalize(courseInfo.course_title) : null}</h1>
+                    <figure>
+                      <img
+                        src={SrcImg}
+                        alt={courseInfo.course_title}
+                        className="img-fluid img-thumbnail rounded h-50 w-50"
+                      />
+                    </figure>
                     {isAuthenticated && props.enrolledstt.data.message === "Registered" ? (
-                      <a href="#" className="btn btn-primary" onClick={handleClickResumeCourse}>
+                      <button className="btn btn-primary" onClick={handleClickResumeCourse}>
                         RESUME COURSE
-                      </a>
-                    ) : isAuthenticated ? (
-                      <a href="#" className="btn btn-primary" onClick={handleClickEnrolCourse}>
+                      </button>
+                    ) : isAuthenticated && props.enrolledstt.error.message === "Not Registered" ? (
+                      <button className="btn btn-primary" onClick={handleClickEnrolCourse}>
                         ENROLL TO GET STARTED
-                      </a>
+                      </button>
                     ) : (
                       <a href="/login" className="btn btn-primary">
                         LOGIN TO ENROLL
@@ -85,16 +99,16 @@ export const SingleCourse = (props) => {
             <div className="col-lg-8 mb-5">
               <div className="mb-5">
                 <h3 className="text-black">Course Description</h3>
-                <p>{props.data.data.course ? props.data.data.course.course_description : null}</p>
+                <p>{props.data.data.course ? courseInfo.course_description : null}</p>
                 <p className="mt-4">
-                  {isAuthenticated && props.enrolledstt.data.message === "Registered" ? (
-                    <a href="#" className="btn btn-primary" onClick={handleClickResumeCourse}>
+                  {isAuthenticated && props.enrolledstt.data.message ? (
+                    <button className="btn btn-primary" onClick={handleClickResumeCourse}>
                       RESUME COURSE
-                    </a>
-                  ) : isAuthenticated ? (
-                    <a href="#" className="btn btn-primary" onClick={handleClickEnrolCourse}>
+                    </button>
+                  ) : isAuthenticated && props.enrolledstt.error.message ? (
+                    <button className="btn btn-primary" onClick={handleClickEnrolCourse}>
                       ENROLL TO GET STARTED
-                    </a>
+                    </button>
                   ) : (
                     <a href="/login" className="btn btn-primary">
                       LOGIN TO ENROLL
@@ -116,6 +130,7 @@ export const SingleCourse = (props) => {
                     </div>
                   ))
                 : null}
+
               <div className="pt-5">
                 <CommentsContainer courseId={props.course_id} />
               </div>
