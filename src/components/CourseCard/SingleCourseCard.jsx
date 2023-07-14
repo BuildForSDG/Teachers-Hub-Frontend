@@ -7,7 +7,7 @@ const SingleCourseCard = (props) => {
     <div className="col-sm">
       <Link to={`courses/${props.courseid}`} style={{ color: "#000", textDecoration: "inherit" }}>
         <div class="card course">
-          <img src={SrcImg} alt="" className="img-fluid" />
+          <img src={SrcImg} alt={props.courset} className="img-fluid" />
           <div className="course-name">{props.coursecat}</div>
           <div class="card-body">
             <h5 class="card-title">{props.courset}</h5>

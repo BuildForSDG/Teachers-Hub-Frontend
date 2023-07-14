@@ -28,6 +28,16 @@ export const fetchCoursesFail = (error) => ({
   error
 });
 
+export const fetchEnrolledCoursesSuccess = (payload) => ({
+  type: "FETCH_ENROLLED_COURSES_SUCCESS",
+  payload
+});
+
+export const fetchEnrolledCoursesFail = (error) => ({
+  type: "FETCH_ENROLLED_COURSES_FAIL",
+  error
+});
+
 export const fetchSingleCourseSuccess = (payload) => ({
   type: "FETCH_SINGLE_COURSE_SUCCESS",
   payload

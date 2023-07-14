@@ -6,7 +6,7 @@ import PaginationRow from "../Pagination/PaginationRow.jsx";
 import { CourseCard } from "../CourseCard/CourseCard.jsx";
 import SingleCourseCard from "../CourseCard/SingleCourseCard.jsx";
 
-const LIMIT = 3;
+const LIMIT = 4;
 const CoursesTable = () => {
   const [courses, loadcourses] = React.useState([]);
   const [count, setCount] = useState(0);
