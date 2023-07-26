@@ -1,39 +1,12 @@
-import React, { useEffect, useState } from "react";
+/* eslint-disable react/prop-types */
+import React, { useState } from "react";
 import PaginationRow from "../Pagination/PaginationRow.jsx";
 import SingleCourseCard from "../CourseCard/SingleCourseCard.jsx";
-import { makeArray } from "jquery";
-import axios from "axios";
 
-const LIMIT = 3;
-const { REACT_APP_BASE_URL } = process.env;
-const token = localStorage.getItem("token");
-
-const TableCard = () => {
-  const [courses, loadcourses] = useState([""]);
-  const [count, setCount] = useState(0);
-  const [pageCount, setPageCount] = useState(0);
+// eslint-disable-next-line react/prop-types
+const TableCard = ({ courses, count, pageCount, limit }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedPage, setSelectedPage] = useState(0);
-
-  useEffect(() => {
-    async function fetchcoursesdata() {
-      await axios
-        .get(`${REACT_APP_BASE_URL}/api/v1/courses/enrolled`, {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`
-          },
-          mode: "cors"
-        })
-        .then((res) => {
-          loadcourses(res.data.enrolled_courses);
-          setCount(res.data.enrolled_courses.length);
-          setPageCount(Math.ceil(res.data.enrolled_courses.length / LIMIT));
-        })
-        .catch((err) => err);
-    }
-    fetchcoursesdata();
-  }, []);
 
   const handlePageChange = (page) => {
     setSelectedPage(page.selected);
@@ -47,8 +20,8 @@ const TableCard = () => {
   };
 
   const getDataByPage = () => {
-    const begin = (currentPage - 1) * LIMIT;
-    const end = begin + LIMIT;
+    const begin = (currentPage - 1) * limit;
+    const end = begin + limit;
 
     return courses.slice(begin, end);
   };
@@ -57,7 +30,7 @@ const TableCard = () => {
     count === 0 ? (
       "No Data"
     ) : (
-      <PaginationRow limit={LIMIT} count={count} pageCount={pageCount} onPageChange={handlePageChange} />
+      <PaginationRow limit={limit} count={count} pageCount={pageCount} onPageChange={handlePageChange} />
     );
 
   return (

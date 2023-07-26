@@ -12,7 +12,7 @@ import addCommentReducer from "./addCommentReducer.jsx";
 import enrollReducer from "./enrollReducer.jsx";
 import fetchEnrolledStateReducer from "./fetchEnrolledStateReducer.jsx";
 import deleteBlogReducer from "./deleteBlogReducer.jsx";
-import fetchEnrolledCoursesReducer from "./fetchEnrolledCoursesReducer";
+import fetchEnrolledCoursesReducer from "./fetchEnrolledCoursesReducer.jsx";
 
 export default combineReducers({
   loginReducer,

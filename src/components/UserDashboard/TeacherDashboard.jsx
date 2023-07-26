@@ -1,12 +1,61 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import Search from "../Search/Search.jsx";
 import TableCard from "../TableCard/TableCard.jsx";
-import { useDispatch, useSelector } from "react-redux";
-import fetchEnrolledCoursesAction from "../../redux/actions/fetchEnrolledCoursesAction.jsx";
-import fetchCoursesAction from "../../redux/actions/fetchCoursesAction.jsx";
 import CoursesTable from "../CoursesTable/CoursesTable.jsx";
 
+const LIMIT = 4;
+const { REACT_APP_BASE_URL } = process.env;
+const token = localStorage.getItem("token");
+
 const TeacherDashboard = () => {
+  const [enrolledcourses, loadEnrolledCourses] = useState([]);
+  const [enrolledcount, setEnrolledCount] = useState(0);
+  const [enrolledpageCount, setEnrolledPageCount] = useState(0);
+  const [courses, loadcourses] = useState([""]);
+  const [count, setCount] = useState(0);
+  const [pageCount, setPageCount] = useState(0);
+
+  useEffect(() => {
+    async function fetchcoursesdata() {
+      await axios
+        .get(`${REACT_APP_BASE_URL}/api/v1/courses/enrolled`, {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`
+          },
+          mode: "cors"
+        })
+        .then((res) => {
+          loadEnrolledCourses(res.data.enrolled_courses);
+          setEnrolledCount(res.data.enrolled_courses.length);
+          setEnrolledPageCount(Math.ceil(res.data.enrolled_courses.length / LIMIT));
+        })
+        .catch((err) => err);
+    }
+    fetchcoursesdata();
+  }, []);
+
+  useEffect(() => {
+    async function fetchcoursesdata() {
+      await axios
+        .get(`${REACT_APP_BASE_URL}/api/v1/courses`, {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`
+          },
+          mode: "cors"
+        })
+        .then((res) => {
+          loadcourses(res.data.courses);
+          setCount(res.data.courses.length);
+          setPageCount(Math.ceil(res.data.courses.length / LIMIT));
+        })
+        .catch((err) => err);
+    }
+    fetchcoursesdata();
+  }, []);
+
   return (
     <div>
       <Search />
@@ -241,7 +290,7 @@ const TeacherDashboard = () => {
         <div className="row">
           <div className="col card-body">
             {/* List of users Enrolled courses */}
-            <TableCard />
+            <TableCard courses={enrolledcourses} count={enrolledcount} pageCount={enrolledpageCount} limit={3} />
           </div>
         </div>
 
@@ -249,7 +298,7 @@ const TeacherDashboard = () => {
         <div className="row">
           <div className="col card-body" id="courses-section">
             {/* List of all courses available */}
-            <CoursesTable />
+            <CoursesTable courses={courses} count={count} pageCount={pageCount} limit={LIMIT} />
           </div>
         </div>
       </div>

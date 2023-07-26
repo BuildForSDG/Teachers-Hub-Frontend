@@ -1,34 +1,12 @@
 import React, { useState } from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
-import moment from "moment";
 import PaginationRow from "../Pagination/PaginationRow.jsx";
-import { CourseCard } from "../CourseCard/CourseCard.jsx";
 import SingleCourseCard from "../CourseCard/SingleCourseCard.jsx";
 
 const LIMIT = 4;
-const CoursesTable = () => {
-  const [courses, loadcourses] = React.useState([]);
-  const [count, setCount] = useState(0);
-  const [pageCount, setPageCount] = useState(0);
+// eslint-disable-next-line react/prop-types
+const CoursesTable = ({ courses, count, pageCount, limit }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedPage, setSelectedPage] = useState(0);
-
-  const { REACT_APP_BASE_URL } = process.env;
-
-  React.useEffect(() => {
-    async function fetchcoursesdata() {
-      await axios
-        .get(`${REACT_APP_BASE_URL}/api/v1/courses`)
-        .then((res) => {
-          loadcourses(res.data.courses);
-          setCount(res.data.courses.length);
-          setPageCount(Math.ceil(res.data.courses.length / LIMIT));
-        })
-        .catch((err) => err);
-    }
-    fetchcoursesdata();
-  }, []);
 
   const handlePageChange = (page) => {
     setSelectedPage(page.selected);
@@ -42,8 +20,8 @@ const CoursesTable = () => {
   };
 
   const getDataByPage = () => {
-    const begin = (currentPage - 1) * LIMIT;
-    const end = begin + LIMIT;
+    const begin = (currentPage - 1) * limit;
+    const end = begin + limit;
 
     return courses.slice(begin, end);
   };
