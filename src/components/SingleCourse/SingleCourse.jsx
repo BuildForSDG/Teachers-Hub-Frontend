@@ -80,7 +80,7 @@ export const SingleCourse = (props) => {
                       <>
                         {/* <button id="" className="btn btn-success" onClick={handleClickResumeCourse}>
                            <i className="bi bi-easel2 me-2"></i> Back to View Courses List</button> */}
-                        <Link className="btn btn-success" to={`/teacher`}>
+                        <Link className="btn btn-success" to={"/teacher"}>
                           {" "}
                           <i className="bi bi-easel2 me-2"></i> Back to View Courses List
                         </Link>
