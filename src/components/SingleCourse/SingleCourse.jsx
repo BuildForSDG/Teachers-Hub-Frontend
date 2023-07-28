@@ -3,7 +3,9 @@
 /* eslint-disable import/prefer-default-export */
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
+import { LinearProgress } from "@material-ui/core";
 import Footer from "../Footer/Footer.jsx";
 import Header from "../Header/Header.jsx";
 import { capitalize } from "./utils";
@@ -11,14 +13,14 @@ import CourseExpansionPanel from "../ExpansionPanel/ExpansionPanel.jsx";
 import CommentsContainer from "../../containers/CommentContainer.jsx";
 import enrollAction from "../../redux/actions/enrollAction.jsx";
 import "react-toastify/dist/ReactToastify.css";
-import fetchEnrolledStateAction from "../../redux/actions/fetchEnrolledStateAction.jsx";
 import SrcImg from "../../assets/images/img_4.jpg";
 
 export const SingleCourse = (props) => {
   const isAuthenticated = localStorage.getItem("token");
   const [disabled, setDisabled] = useState(true);
+  const [visible, setVisible] = useState(false);
 
-  //variable to extract course data object from props
+  // variable to extract course data object from props
   const courseInfo = Object(props.data.data.course);
 
   const enrollStatus = useSelector((state) => state.enrollReducer);
@@ -30,6 +32,7 @@ export const SingleCourse = (props) => {
 
   const handleClickResumeCourse = () => {
     setDisabled(false);
+    setVisible(true);
   };
 
   useEffect(() => {
@@ -73,8 +76,18 @@ export const SingleCourse = (props) => {
                         className="img-fluid img-thumbnail rounded h-50 w-50"
                       />
                     </figure>
-                    {isAuthenticated && props.enrolledstt.data.message === "Registered" ? (
-                      <button className="btn btn-primary" onClick={handleClickResumeCourse}>
+                    {visible && isAuthenticated && props.enrolledstt.data.message === "Registered" ? (
+                      <>
+                        {/* <button id="" className="btn btn-success" onClick={handleClickResumeCourse}>
+                           <i className="bi bi-easel2 me-2"></i> Back to View Courses List</button> */}
+                        <Link className="btn btn-success" to={`/teacher`}>
+                          {" "}
+                          <i className="bi bi-easel2 me-2"></i> Back to View Courses List
+                        </Link>
+                        {/* {visible && <><strong className="text-white">You are at 50% Progress</strong><LinearProgress variant="determinate" value={50}></LinearProgress></>} */}
+                      </>
+                    ) : isAuthenticated && props.enrolledstt.data.message === "Registered" ? (
+                      <button id="buttonResume" className="btn btn-info" onClick={handleClickResumeCourse}>
                         RESUME COURSE
                       </button>
                     ) : isAuthenticated && props.enrolledstt.error.message === "Not Registered" ? (
@@ -101,13 +114,23 @@ export const SingleCourse = (props) => {
                 <h3 className="text-black">Course Description</h3>
                 <p>{props.data.data.course ? courseInfo.course_description : null}</p>
                 <p className="mt-4">
-                  {isAuthenticated && props.enrolledstt.data.message ? (
-                    <button className="btn btn-primary" onClick={handleClickResumeCourse}>
+                  {visible && isAuthenticated && props.enrolledstt.data.message === "Registered" ? (
+                    <>
+                      <button id="buttonResume" className="btn btn-secondary" onClick={handleClickResumeCourse}>
+                        Go to Last Saved Progress Point
+                      </button>
+                      <br />
+                      <br />
+                      {visible && (
+                        <>
+                          <strong className="text-success">You are at 50% Progress</strong>
+                          <LinearProgress variant="determinate" value={50}></LinearProgress>
+                        </>
+                      )}
+                    </>
+                  ) : isAuthenticated && props.enrolledstt.data.message === "Registered" ? (
+                    <button id="buttonResume" className="btn btn-primary" onClick={handleClickResumeCourse}>
                       RESUME COURSE
-                    </button>
-                  ) : isAuthenticated && props.enrolledstt.error.message ? (
-                    <button className="btn btn-primary" onClick={handleClickEnrolCourse}>
-                      ENROLL TO GET STARTED
                     </button>
                   ) : (
                     <a href="/login" className="btn btn-primary">
@@ -149,7 +172,7 @@ export const SingleCourse = (props) => {
                       {props.data.data.course ? capitalize(props.data.data.course.course_instructor) : null}
                     </h3>
                   </a>
-                  <p>More than 5 years teaching experience having great mentorship abilities... .</p>
+                  <p>More than 5 years teaching experience having great mentorship abilities....</p>
                 </div>
               </div>
             </div>
