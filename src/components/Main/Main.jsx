@@ -28,27 +28,47 @@ const Main = (props) => {
             <div className="row align-items-center">
               <div className="col-12">
                 <div className="row align-items-center">
-                  <div className="col-lg-6 mb-4">
-                    <h1 data-aos="fade-up" data-aos-delay="100" id="mission">
-                      Where Qualified Teachers are made
-                    </h1>
-                    <p className="mb-4" data-aos="fade-up" data-aos-delay="200" id="about">
-                      We help to substantially increase the supply of qualified teachers in our communities. We also
-                      collaborate with international cooperations for teachers to be trained in developing countries.
-                    </p>
-                    <p data-aos="fade-up" data-aos-delay="300" id="getStarted">
-                      <a href="/" className="btn btn-primary py-3 px-5 btn-pill">
-                        Get Started
-                      </a>
-                    </p>
-                  </div>
-                  <div className="col-lg-5 ml-auto" data-aos="fade-up" data-aos-delay="500">
-                    {props.formName === "signUpForm" ? (
-                      <SignUpContainer />
-                    ) : (
-                      <LoginForm onSubmit={props.onSubmit} onChange={props.onChange} loading={props.loading} />
-                    )}
-                  </div>
+                  {props.formName === "" ? (
+                    <div className="col-lg-6 mb-4">
+                      <h1 data-aos="fade-up" data-aos-delay="100" id="mission">
+                        Where Qualified Teachers are made
+                      </h1>
+                      <p className="mb-4" data-aos="fade-up" data-aos-delay="200" id="about">
+                        We help to substantially increase the supply of qualified teachers in our communities. We also
+                        collaborate with international cooperations for teachers to be trained in developing countries.
+                      </p>
+                      <p data-aos="fade-up" data-aos-delay="300" id="getStarted">
+                        <a href="/teacher" className="btn btn-primary py-3 px-5 btn-pill">
+                          Continue Learning
+                        </a>
+                      </p>
+                    </div>
+                  ) : (
+                    <>
+                      <div className="col-lg-6 mb-4">
+                        <h1 data-aos="fade-up" data-aos-delay="100" id="mission">
+                          Where Qualified Teachers are made
+                        </h1>
+                        <p className="mb-4" data-aos="fade-up" data-aos-delay="200" id="about">
+                          We help to substantially increase the supply of qualified teachers in our communities. We also
+                          collaborate with international cooperations for teachers to be trained in developing
+                          countries.
+                        </p>
+                        <p data-aos="fade-up" data-aos-delay="300" id="getStarted">
+                          <a href="/" className="btn btn-primary py-3 px-5 btn-pill">
+                            Get Started
+                          </a>
+                        </p>
+                      </div>
+                      <div className="col-lg-5 ml-auto" data-aos="fade-up" data-aos-delay="500">
+                        {props.formName === "signUpForm" ? (
+                          <SignUpContainer />
+                        ) : (
+                          <LoginForm onSubmit={props.onSubmit} onChange={props.onChange} loading={props.loading} />
+                        )}
+                      </div>
+                    </>
+                  )}
                 </div>
               </div>
             </div>
@@ -60,7 +80,7 @@ const Main = (props) => {
         <div className="container">
           <div className="row mb-5 justify-content-center">
             <div className="col-lg-7 text-center" data-aos="fade-up" data-aos-delay="">
-              <h2 className="section-title">Courses</h2>
+              <h3 className="section-title">Courses</h3>
             </div>
           </div>
         </div>

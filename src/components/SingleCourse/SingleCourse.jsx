@@ -42,9 +42,9 @@ export const SingleCourse = (props) => {
   return (
     <div>
       {isAuthenticated ? (
-        <Header buttonValue="LogOut" url="/" homeUrl="/admin" />
+        <Header buttonValue="LogOut" url="/teacher" homeUrl="/admin" dashboard="My Dashboard" />
       ) : (
-        <Header buttonValue="Login" url="/login" homeUrl="/" />
+        <Header buttonValue="Login" url="/login" homeUrl="/" dashboard="Home" />
       )}
       <div className="intro-section single-cover" id="home-section">
         <div
