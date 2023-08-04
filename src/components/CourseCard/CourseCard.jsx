@@ -32,16 +32,18 @@ export const CourseCard = (props) => {
                         }}
                       >
                         <div className="row no-gutters">
-                          <div className="col-sm-5">
+                          <div className="col-sm-4">
                             <figure className="m-0">
                               <img src={SrcImg} alt={course.course_title} className="img-fluid" />
                             </figure>
                           </div>
-                          <div className="col-sm-7 ">
-                            <div className="card-body ">
-                              <h3>{course.course_title.toUpperCase()}</h3>
-                              <p className="card-text">{course.course_description}</p>
-                              <span className="course-name">{course.course_category}</span>
+                          <div className="col-sm-5">
+                            <div className="card-body">
+                              <div>
+                                <h3>{course.course_title.toUpperCase()}</h3>
+                                <p className="card-text col">{course.course_description}</p>
+                              </div>
+                              <br />
                               <div className="meta">
                                 <span className="icon-clock-o"></span>Duration: {course.course_duration} hours
                               </div>
@@ -55,6 +57,7 @@ export const CourseCard = (props) => {
                               </div>
                             </div>
                           </div>
+                          <div className="course-name">{course.course_category}</div>
                         </div>
                       </div>
                     </div>
