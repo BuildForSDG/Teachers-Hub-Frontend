@@ -36,11 +36,6 @@ How would someone use what you have built, include URLs to the deployed app, ser
 - This application can also be accessed at `https://teachers-hub-fe.herokuapp.com/`
 - To test out as administrator login with these credentials
 
-```json
-    username: Admin
-    password: Administrator1
-```
-
 ## Authors
 
 - [Daisy Macharia](https://github.com/daisymacharia) - Mentor
