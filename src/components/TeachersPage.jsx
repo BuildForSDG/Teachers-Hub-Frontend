@@ -18,7 +18,7 @@ const TeachersPage = () => {
         </div>
         <div className="site-mobile-menu-body"></div>
       </div>
-      <Header buttonValue="LogOut" homeUrl="/teacher" url="/" />
+      <Header buttonValue="LogOut" homeUrl="/" url="/teacher" dashboard="My Dashboard" />
       <TeacherDashboard />
       <Footer />
     </div>
