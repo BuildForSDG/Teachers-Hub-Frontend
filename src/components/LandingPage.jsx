@@ -16,6 +16,14 @@ const LandingPage = () => {
     }
     return "Login";
   };
+
+  const checktoken = () => {
+    if (localStorage.getItem("token")) {
+      return true;
+    }
+    return false;
+  };
+
   return (
     <div className="site-wrap">
       <div className="site-mobile-menu site-navbar-target">
@@ -26,8 +34,19 @@ const LandingPage = () => {
         </div>
         <div className="site-mobile-menu-body"></div>
       </div>
-      <Header buttonValue={checkAuthStatus()} url="/login" homeUrl="/" />
-      <Main formName="signUpForm" />
+
+      {checktoken() ? (
+        <div>
+          <Header buttonValue={checkAuthStatus()} url="/teacher" homeUrl="/" dashboard="My Dashboard" />
+          <Main formName="" />
+        </div>
+      ) : (
+        <div>
+          <Header buttonValue={checkAuthStatus()} url="/login" homeUrl="/" dashboard="Home" />
+          <Main formName="signUpForm" />
+        </div>
+      )}
+
       <Footer />
     </div>
   );
