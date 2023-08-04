@@ -12,7 +12,7 @@
     "@trendmicro/react-sidenav": "^0.5.0",
     "aos": "^2.3.4",
     "aphrodite": "^2.4.0",
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "babel-eslint": "^10.1.0",
     "classnames": "^2.2.6",
     "enzyme": "^3.11.0",
@@ -81,7 +81,7 @@
     "development": ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"]
   },
   "devDependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "husky": "^4.2.5",
     "mutationobserver-shim": "^0.3.5",
     "prettier": "2.0.5",
