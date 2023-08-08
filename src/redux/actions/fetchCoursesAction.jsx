@@ -14,7 +14,7 @@ const fetchCoursesAction = () => (dispatch) =>
     .then(
       (response) => {
         if (response.data.courses) {
-          dispatch(actions.fetchCoursesSuccess(response.data));
+          dispatch(actions.fetchCoursesSuccess(response.data.courses));
         } else {
           dispatch(actions.fetchCoursesFail(response.data));
         }

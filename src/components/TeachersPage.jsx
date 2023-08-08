@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import AOS from "aos";
 import Header from "./Header/Header.jsx";
 import Footer from "./Footer/Footer.jsx";
-import TeacherDashboard from "./UserDashboard/TeacherDashboard.jsx";
+import CourseListContainer from "../containers/CourseListContainer.jsx";
 
 const TeachersPage = () => {
   useEffect(() => {
@@ -19,7 +19,7 @@ const TeachersPage = () => {
         <div className="site-mobile-menu-body"></div>
       </div>
       <Header buttonValue="LogOut" homeUrl="/" url="/teacher" dashboard="My Dashboard" />
-      <TeacherDashboard />
+      <CourseListContainer />
       <Footer />
     </div>
   );

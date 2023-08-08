@@ -85,7 +85,7 @@ const Main = (props) => {
           </div>
         </div>
       </div>
-      <CourseCardContainer courseData={courseData} />
+      <CourseCardContainer courseData={courseData.data} />
       <div className="site-section" id="blogs-section">
         <div className="container">
           <div className="row mb-3 justify-content-center">
