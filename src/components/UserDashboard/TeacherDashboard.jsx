@@ -1,61 +1,11 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React from "react";
 import Search from "../Search/Search.jsx";
 import TableCard from "../TableCard/TableCard.jsx";
 import CoursesTable from "../CoursesTable/CoursesTable.jsx";
 
 const LIMIT = 4;
-const { REACT_APP_BASE_URL } = process.env;
-const token = localStorage.getItem("token");
 
-const TeacherDashboard = () => {
-  const [enrolledcourses, loadEnrolledCourses] = useState([]);
-  const [enrolledcount, setEnrolledCount] = useState(0);
-  const [enrolledpageCount, setEnrolledPageCount] = useState(0);
-  const [courses, loadcourses] = useState([""]);
-  const [count, setCount] = useState(0);
-  const [pageCount, setPageCount] = useState(0);
-
-  useEffect(() => {
-    async function fetchcoursesdata() {
-      await axios
-        .get(`${REACT_APP_BASE_URL}/api/v1/courses/enrolled`, {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`
-          },
-          mode: "cors"
-        })
-        .then((res) => {
-          loadEnrolledCourses(res.data.enrolled_courses);
-          setEnrolledCount(res.data.enrolled_courses.length);
-          setEnrolledPageCount(Math.ceil(res.data.enrolled_courses.length / LIMIT));
-        })
-        .catch((err) => err);
-    }
-    fetchcoursesdata();
-  }, []);
-
-  useEffect(() => {
-    async function fetchcoursesdata() {
-      await axios
-        .get(`${REACT_APP_BASE_URL}/api/v1/courses`, {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`
-          },
-          mode: "cors"
-        })
-        .then((res) => {
-          loadcourses(res.data.courses);
-          setCount(res.data.courses.length);
-          setPageCount(Math.ceil(res.data.courses.length / LIMIT));
-        })
-        .catch((err) => err);
-    }
-    fetchcoursesdata();
-  }, []);
-
+const TeacherDashboard = ({ enrolledcourses, allcourses }) => {
   return (
     <div>
       <Search />
@@ -289,16 +239,24 @@ const TeacherDashboard = () => {
         <h5 style={{ textAlign: "center" }}>MY COURSES</h5>
         <div className="row">
           <div className="col card-body">
-            {/* List of users Enrolled courses */}
-            <TableCard courses={enrolledcourses} count={enrolledcount} pageCount={enrolledpageCount} limit={3} />
+            <TableCard
+              courses={[enrolledcourses].flat()}
+              count={enrolledcourses.length}
+              pageCount={enrolledcourses.length / LIMIT}
+              limit={3}
+            />
           </div>
         </div>
 
         <h5 style={{ textAlign: "center" }}>ALL COURSES</h5>
         <div className="row">
           <div className="col card-body" id="courses-section">
-            {/* List of all courses available */}
-            <CoursesTable courses={courses} count={count} pageCount={pageCount} limit={LIMIT} />
+            <CoursesTable
+              courses={[allcourses].flat()}
+              count={allcourses.length}
+              pageCount={allcourses.length / LIMIT}
+              limit={LIMIT}
+            />
           </div>
         </div>
       </div>

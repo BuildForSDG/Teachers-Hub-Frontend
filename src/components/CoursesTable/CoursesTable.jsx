@@ -49,8 +49,6 @@ const CoursesTable = ({ courses, count, pageCount, limit }) => {
                   courseinstructor={course.course_instructor}
                 />
               </div>
-
-              {/* {console.log(course.course_category)} */}
             </div>
           ))}
         </div>

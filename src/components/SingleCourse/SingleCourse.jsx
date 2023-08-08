@@ -78,13 +78,10 @@ export const SingleCourse = (props) => {
                     </figure>
                     {visible && isAuthenticated && props.enrolledstt.data.message === "Registered" ? (
                       <>
-                        {/* <button id="" className="btn btn-success" onClick={handleClickResumeCourse}>
-                           <i className="bi bi-easel2 me-2"></i> Back to View Courses List</button> */}
                         <Link className="btn btn-success" to={"/teacher"}>
                           {" "}
                           <i className="bi bi-easel2 me-2"></i> Back to View Courses List
                         </Link>
-                        {/* {visible && <><strong className="text-white">You are at 50% Progress</strong><LinearProgress variant="determinate" value={50}></LinearProgress></>} */}
                       </>
                     ) : isAuthenticated && props.enrolledstt.data.message === "Registered" ? (
                       <button id="buttonResume" className="btn btn-info" onClick={handleClickResumeCourse}>

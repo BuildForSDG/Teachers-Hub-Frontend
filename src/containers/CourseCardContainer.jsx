@@ -2,9 +2,9 @@
 import React from "react";
 import { CourseCard } from "../components/CourseCard";
 
-const CourseCardContainer = (props) => (
+const CourseCardContainer = ({ courseData }) => (
   <div>
-    <CourseCard data={props.courseData} />
+    <CourseCard courseData={[courseData].flat()} />
   </div>
 );
 export default CourseCardContainer;
